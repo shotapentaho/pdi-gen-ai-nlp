@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
->>>>>>> 0c81a1049011f0a55b81ce0a0e9ab33c29e2705b
 <transformation>
   <info>
     <name>consine_similarity</name>
@@ -463,13 +459,13 @@ Higher score means similar. Ranging 0-1</note>
   </notepads>
   <connection>
     <name>local_pg</name>
-    <server>localhost</server>
+    <server>${GENAI_DB_HOST}</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>pentaho_dev</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
+    <database>${GENAI_DB}</database>
+    <port>${GENAI_DB_PORT}</port>
+    <username>${GENAI_DB_USER}</username>
+    <password>${GENAI_DB_PASSWORD}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -492,7 +488,7 @@ Higher score means similar. Ranging 0-1</note>
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>5432</attribute>
+        <attribute>${GENAI_DB_PORT}</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -533,21 +529,6 @@ Higher score means similar. Ranging 0-1</note>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>sv: rename cols</from>
-      <to>fr: same sentence</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>fr: same sentence</from>
-      <to>Dummy (do nothing)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>fr: same sentence</from>
-      <to>Process</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Process</from>
       <to>pe: cosine_similarity</to>
       <enabled>Y</enabled>
@@ -572,32 +553,12 @@ Higher score means similar. Ranging 0-1</note>
       <to>to: similarity_measure</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>sv: rename cols</from>
+      <to>Process</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
-  <step>
-    <name>Dummy (do nothing)</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>240</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Join rows (cartesian product)</name>
     <type>JoinRows</type>
@@ -617,8 +578,8 @@ Higher score means similar. Ranging 0-1</note>
       <condition>
         <negated>N</negated>
         <leftvalue>chat_output</leftvalue>
-        <function>=</function>
-        <rightvalue>chat_output</rightvalue>
+        <function>&lt;></function>
+        <rightvalue>chat_output_1</rightvalue>
       </condition>
     </compare>
     <attributes/>
@@ -655,78 +616,7 @@ Higher score means similar. Ranging 0-1</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>sv: rename cols</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>chat_output</name>
-        <rename>Sent_1</rename>
-      </field>
-      <field>
-        <name>chat_output_1</name>
-        <rename>Sent_2</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>fr: same sentence</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Dummy (do nothing)</send_true_to>
-    <send_false_to>Process</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>Sent_1</leftvalue>
-        <function>=</function>
-        <rightvalue>Sent_2</rightvalue>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
+      <xloc>432</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
@@ -979,6 +869,42 @@ similartity_score = cosine_similarity(sentence1, sentence2)</value>
     </GUI>
   </step>
   <step>
+    <name>sv: rename cols</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>chat_output</name>
+        <rename>Sent_1</rename>
+      </field>
+      <field>
+        <name>chat_output_1</name>
+        <rename>Sent_2</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>ti: open_ai_chat</name>
     <type>TableInput</type>
     <description/>
@@ -1051,7 +977,7 @@ limit 5</sql>
       <schema_name/>
     </partitioning>
     <connection>local_pg</connection>
-    <sql>SELECT chat_output
+    <sql>SELECT chat_output as chat_output_1
 FROM "public".open_ai_chat_store
 order by chat_id desc
 limit 5</sql>
@@ -1065,11 +991,11 @@ limit 5</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>chat_output</name>
+        <name>chat_output_1</name>
         <length>2147483647</length>
         <precision>-1</precision>
         <origin>ti: open_ai_chat_</origin>
-        <comments>chat_output</comments>
+        <comments>chat_output_1</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
