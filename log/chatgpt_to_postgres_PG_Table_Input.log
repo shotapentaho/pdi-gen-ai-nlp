@@ -1,0 +1,1728 @@
+2025-02-24 14:09:45.738 - OpenAI - chat store in DB - Using run configuration [Pentaho local]
+2025-02-24 14:09:45.778 - ai_chat_plugin - License validated.
+2025-02-24 14:09:45.778 - ai_chat_plugin - Dispatching started for transformation [ai_chat_plugin]
+2025-02-24 14:09:45.778 - ai_chat_plugin - Nr of arguments detected:0 
+2025-02-24 14:09:45.778 - ai_chat_plugin - This is not a replay transformation
+2025-02-24 14:09:45.778 - ai_chat_plugin - I found 6 different steps to launch.
+2025-02-24 14:09:45.778 - ai_chat_plugin - Allocating rowsets...
+2025-02-24 14:09:45.778 - ai_chat_plugin -  Allocating rowsets for step 0 --> Data grid
+2025-02-24 14:09:45.778 - ai_chat_plugin -   prevcopies = 1, nextcopies=1
+2025-02-24 14:09:45.778 - ai_chat_plugin - Transformation allocated new rowset [Data grid.0 - AI Chat.0]
+2025-02-24 14:09:45.778 - ai_chat_plugin -  Allocated 1 rowsets for step 0 --> Data grid  
+2025-02-24 14:09:45.778 - ai_chat_plugin -  Allocating rowsets for step 1 --> AI Chat
+2025-02-24 14:09:45.778 - ai_chat_plugin -   prevcopies = 1, nextcopies=1
+2025-02-24 14:09:45.778 - ai_chat_plugin - Transformation allocated new rowset [AI Chat.0 - sv: question_instruction_result.0]
+2025-02-24 14:09:45.778 - ai_chat_plugin -  Allocated 2 rowsets for step 1 --> AI Chat  
+2025-02-24 14:09:45.778 - ai_chat_plugin -  Allocating rowsets for step 2 --> gsi: insert_ts
+2025-02-24 14:09:45.778 - ai_chat_plugin -   prevcopies = 1, nextcopies=1
+2025-02-24 14:09:45.778 - ai_chat_plugin - Transformation allocated new rowset [gsi: insert_ts.0 - as: chat_id.0]
+2025-02-24 14:09:45.778 - ai_chat_plugin -  Allocated 3 rowsets for step 2 --> gsi: insert_ts  
+2025-02-24 14:09:45.778 - ai_chat_plugin -  Allocating rowsets for step 3 --> as: chat_id
+2025-02-24 14:09:45.778 - ai_chat_plugin -   prevcopies = 1, nextcopies=1
+2025-02-24 14:09:45.778 - ai_chat_plugin - Transformation allocated new rowset [as: chat_id.0 - to: open_ai_chat_store.0]
+2025-02-24 14:09:45.778 - ai_chat_plugin -  Allocated 4 rowsets for step 3 --> as: chat_id  
+2025-02-24 14:09:45.778 - ai_chat_plugin -  Allocating rowsets for step 4 --> to: open_ai_chat_store
+2025-02-24 14:09:45.778 - ai_chat_plugin -  Allocated 4 rowsets for step 4 --> to: open_ai_chat_store  
+2025-02-24 14:09:45.778 - ai_chat_plugin -  Allocating rowsets for step 5 --> sv: question_instruction_result
+2025-02-24 14:09:45.778 - ai_chat_plugin -   prevcopies = 1, nextcopies=1
+2025-02-24 14:09:45.778 - ai_chat_plugin - Transformation allocated new rowset [sv: question_instruction_result.0 - gsi: insert_ts.0]
+2025-02-24 14:09:45.778 - ai_chat_plugin -  Allocated 5 rowsets for step 5 --> sv: question_instruction_result  
+2025-02-24 14:09:45.778 - ai_chat_plugin - Allocating Steps & StepData...
+2025-02-24 14:09:45.778 - ai_chat_plugin -  Transformation is about to allocate step [Data grid] of type [DataGrid]
+2025-02-24 14:09:45.778 - Data grid.0 - distribution activated
+2025-02-24 14:09:45.778 - Data grid.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:09:45.778 - Data grid.0 - Step info: nrinput=0 nroutput=1
+2025-02-24 14:09:45.778 - Data grid.0 - output rel. is  1:1
+2025-02-24 14:09:45.778 - Data grid.0 - Found output rowset [Data grid.0 - AI Chat.0]
+2025-02-24 14:09:45.794 - Data grid.0 - Finished dispatching
+2025-02-24 14:09:45.794 - ai_chat_plugin -  Transformation has allocated a new step: [Data grid].0
+2025-02-24 14:09:45.794 - ai_chat_plugin -  Transformation is about to allocate step [AI Chat] of type [AiChat]
+2025-02-24 14:09:45.794 - AI Chat.0 - distribution activated
+2025-02-24 14:09:45.794 - AI Chat.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:09:45.794 - AI Chat.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:09:45.794 - AI Chat.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:09:45.794 - AI Chat.0 - input rel is 1:1
+2025-02-24 14:09:45.794 - AI Chat.0 - Found input rowset [Data grid.0 - AI Chat.0]
+2025-02-24 14:09:45.794 - AI Chat.0 - output rel. is  1:1
+2025-02-24 14:09:45.794 - AI Chat.0 - Found output rowset [AI Chat.0 - sv: question_instruction_result.0]
+2025-02-24 14:09:45.794 - AI Chat.0 - Finished dispatching
+2025-02-24 14:09:45.810 - ai_chat_plugin -  Transformation has allocated a new step: [AI Chat].0
+2025-02-24 14:09:45.810 - ai_chat_plugin -  Transformation is about to allocate step [gsi: insert_ts] of type [SystemInfo]
+2025-02-24 14:09:45.810 - gsi: insert_ts.0 - distribution activated
+2025-02-24 14:09:45.810 - gsi: insert_ts.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:09:45.810 - gsi: insert_ts.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:09:45.810 - gsi: insert_ts.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:09:45.810 - gsi: insert_ts.0 - input rel is 1:1
+2025-02-24 14:09:45.810 - gsi: insert_ts.0 - Found input rowset [sv: question_instruction_result.0 - gsi: insert_ts.0]
+2025-02-24 14:09:45.810 - gsi: insert_ts.0 - output rel. is  1:1
+2025-02-24 14:09:45.810 - gsi: insert_ts.0 - Found output rowset [gsi: insert_ts.0 - as: chat_id.0]
+2025-02-24 14:09:45.810 - gsi: insert_ts.0 - Finished dispatching
+2025-02-24 14:09:45.810 - ai_chat_plugin -  Transformation has allocated a new step: [gsi: insert_ts].0
+2025-02-24 14:09:45.810 - ai_chat_plugin -  Transformation is about to allocate step [as: chat_id] of type [Sequence]
+2025-02-24 14:09:45.810 - as: chat_id.0 - distribution activated
+2025-02-24 14:09:45.810 - as: chat_id.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:09:45.810 - as: chat_id.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:09:45.810 - as: chat_id.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:09:45.810 - as: chat_id.0 - input rel is 1:1
+2025-02-24 14:09:45.810 - as: chat_id.0 - Found input rowset [gsi: insert_ts.0 - as: chat_id.0]
+2025-02-24 14:09:45.810 - as: chat_id.0 - output rel. is  1:1
+2025-02-24 14:09:45.810 - as: chat_id.0 - Found output rowset [as: chat_id.0 - to: open_ai_chat_store.0]
+2025-02-24 14:09:45.810 - as: chat_id.0 - Finished dispatching
+2025-02-24 14:09:45.810 - ai_chat_plugin -  Transformation has allocated a new step: [as: chat_id].0
+2025-02-24 14:09:45.810 - ai_chat_plugin -  Transformation is about to allocate step [to: open_ai_chat_store] of type [TableOutput]
+2025-02-24 14:09:45.825 - to: open_ai_chat_store.0 - distribution activated
+2025-02-24 14:09:45.825 - to: open_ai_chat_store.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:09:45.825 - to: open_ai_chat_store.0 - Step info: nrinput=1 nroutput=0
+2025-02-24 14:09:45.825 - to: open_ai_chat_store.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:09:45.825 - to: open_ai_chat_store.0 - input rel is 1:1
+2025-02-24 14:09:45.825 - to: open_ai_chat_store.0 - Found input rowset [as: chat_id.0 - to: open_ai_chat_store.0]
+2025-02-24 14:09:45.825 - to: open_ai_chat_store.0 - Finished dispatching
+2025-02-24 14:09:45.825 - ai_chat_plugin -  Transformation has allocated a new step: [to: open_ai_chat_store].0
+2025-02-24 14:09:45.825 - ai_chat_plugin -  Transformation is about to allocate step [sv: question_instruction_result] of type [SelectValues]
+2025-02-24 14:09:45.825 - sv: question_instruction_result.0 - distribution activated
+2025-02-24 14:09:45.825 - sv: question_instruction_result.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:09:45.825 - sv: question_instruction_result.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:09:45.825 - sv: question_instruction_result.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:09:45.825 - sv: question_instruction_result.0 - input rel is 1:1
+2025-02-24 14:09:45.825 - sv: question_instruction_result.0 - Found input rowset [AI Chat.0 - sv: question_instruction_result.0]
+2025-02-24 14:09:45.825 - sv: question_instruction_result.0 - output rel. is  1:1
+2025-02-24 14:09:45.825 - sv: question_instruction_result.0 - Found output rowset [sv: question_instruction_result.0 - gsi: insert_ts.0]
+2025-02-24 14:09:45.825 - sv: question_instruction_result.0 - Finished dispatching
+2025-02-24 14:09:45.825 - ai_chat_plugin -  Transformation has allocated a new step: [sv: question_instruction_result].0
+2025-02-24 14:09:45.825 - ai_chat_plugin - This transformation can be replayed with replay date: 2025/02/24 14:09:45
+2025-02-24 14:09:45.825 - ai_chat_plugin - Initialising 6 steps...
+2025-02-24 14:09:45.841 - sv: question_instruction_result.0 - Released server socket on port 0
+2025-02-24 14:09:45.841 - AI Chat.0 - Released server socket on port 0
+2025-02-24 14:09:45.841 - to: open_ai_chat_store.0 - Released server socket on port 0
+2025-02-24 14:09:45.841 - gsi: insert_ts.0 - Released server socket on port 0
+2025-02-24 14:09:45.841 - as: chat_id.0 - Released server socket on port 0
+2025-02-24 14:09:45.841 - Data grid.0 - Released server socket on port 0
+2025-02-24 14:09:45.856 - local_pg - New database connection defined
+2025-02-24 14:09:45.856 - local_pg - New database connection defined
+2025-02-24 14:09:45.857 - to: open_ai_chat_store.0 - Connected to database [local_pg] (commit=1000)
+2025-02-24 14:09:45.998 - as: chat_id.0 - Connected to database...
+2025-02-24 14:09:45.998 - ai_chat_plugin - Step [Data grid.0] initialized flawlessly.
+2025-02-24 14:09:45.998 - ai_chat_plugin - Step [AI Chat.0] initialized flawlessly.
+2025-02-24 14:09:45.998 - ai_chat_plugin - Step [gsi: insert_ts.0] initialized flawlessly.
+2025-02-24 14:09:45.998 - ai_chat_plugin - Step [as: chat_id.0] initialized flawlessly.
+2025-02-24 14:09:45.998 - ai_chat_plugin - Step [to: open_ai_chat_store.0] initialized flawlessly.
+2025-02-24 14:09:45.998 - ai_chat_plugin - Step [sv: question_instruction_result.0] initialized flawlessly.
+2025-02-24 14:09:46.009 - Data grid.0 - Starting to run...
+2025-02-24 14:09:46.009 - sv: question_instruction_result.0 - Starting to run...
+2025-02-24 14:09:46.009 - AI Chat.0 - Starting to run...
+2025-02-24 14:09:46.009 - gsi: insert_ts.0 - Starting to run...
+2025-02-24 14:09:46.009 - as: chat_id.0 - Starting to run...
+2025-02-24 14:09:46.011 - ai_chat_plugin - Transformation has allocated 6 threads and 5 rowsets.
+2025-02-24 14:09:46.011 - Data grid.0 - Finished processing (I=0, O=0, R=0, W=5, U=0, E=0)
+2025-02-24 14:09:46.015 - AI Chat.0 - System Run Instruction: You are a helpful assistant
+2025-02-24 14:09:46.017 - AI Chat.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:09:46.162 - to: open_ai_chat_store.0 - !TableInput.Log.ConnectedToDatabase!
+2025-02-24 14:09:46.163 - local_pg - Auto commit off
+2025-02-24 14:09:46.163 - to: open_ai_chat_store.0 - Starting to run...
+2025-02-24 14:09:46.308 - AI Chat.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:09:46.312 - AI Chat.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:09:54.440 - AI Chat.0 - System Run Instruction: You are a helpful assistant
+2025-02-24 14:09:54.440 - AI Chat.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:09:54.468 - to: open_ai_chat_store.0 - Prepared statement : INSERT INTO open_ai_chat_store (chat_id, question, instruction, chat_output, insert_TS) VALUES ( ?,  ?,  ?,  ?,  ?)
+2025-02-24 14:09:54.520 - AI Chat.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:09:54.522 - AI Chat.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:09:55.507 - AI Chat.0 - System Run Instruction: You are a helpful assistant
+2025-02-24 14:09:55.507 - AI Chat.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:09:55.559 - AI Chat.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:09:55.560 - AI Chat.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:01.606 - AI Chat.0 - System Run Instruction: You are a helpful assistant
+2025-02-24 14:10:01.606 - AI Chat.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:01.670 - AI Chat.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:01.672 - AI Chat.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:07.048 - AI Chat.0 - System Run Instruction: You are a helpful assistant
+2025-02-24 14:10:07.050 - AI Chat.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:07.110 - AI Chat.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:07.112 - AI Chat.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:13.773 - AI Chat.0 - Finished processing (I=0, O=0, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:13.776 - sv: question_instruction_result.0 - Finished processing (I=0, O=0, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:13.779 - gsi: insert_ts.0 - Finished processing (I=0, O=0, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:13.782 - local_pg - Connection to database closed!
+2025-02-24 14:10:13.782 - as: chat_id.0 - Finished processing (I=0, O=0, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:13.790 - local_pg - Connection to database closed!
+2025-02-24 14:10:13.791 - to: open_ai_chat_store.0 - Finished processing (I=0, O=5, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:14.788 - get-SQL from ChatGPT - Using run configuration [Pentaho local]
+2025-02-24 14:10:14.798 - ai_chat_gpt_to_query_TableInput - License validated.
+2025-02-24 14:10:14.798 - ai_chat_gpt_to_query_TableInput - Dispatching started for transformation [ai_chat_gpt_to_query_TableInput]
+2025-02-24 14:10:14.799 - ai_chat_gpt_to_query_TableInput - Nr of arguments detected:0 
+2025-02-24 14:10:14.799 - ai_chat_gpt_to_query_TableInput - This is not a replay transformation
+2025-02-24 14:10:14.800 - ai_chat_gpt_to_query_TableInput - I found 8 different steps to launch.
+2025-02-24 14:10:14.800 - ai_chat_gpt_to_query_TableInput - Allocating rowsets...
+2025-02-24 14:10:14.800 - ai_chat_gpt_to_query_TableInput -  Allocating rowsets for step 0 --> Data grid
+2025-02-24 14:10:14.800 - ai_chat_gpt_to_query_TableInput -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:14.800 - ai_chat_gpt_to_query_TableInput - Transformation allocated new rowset [Data grid.0 - AI Chat.0]
+2025-02-24 14:10:14.800 - ai_chat_gpt_to_query_TableInput -  Allocated 1 rowsets for step 0 --> Data grid  
+2025-02-24 14:10:14.801 - ai_chat_gpt_to_query_TableInput -  Allocating rowsets for step 1 --> AI Chat
+2025-02-24 14:10:14.801 - ai_chat_gpt_to_query_TableInput -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:14.801 - ai_chat_gpt_to_query_TableInput - Transformation allocated new rowset [AI Chat.0 - Get system info.0]
+2025-02-24 14:10:14.801 - ai_chat_gpt_to_query_TableInput -  Allocated 2 rowsets for step 1 --> AI Chat  
+2025-02-24 14:10:14.801 - ai_chat_gpt_to_query_TableInput -  Allocating rowsets for step 2 --> Get system info
+2025-02-24 14:10:14.801 - ai_chat_gpt_to_query_TableInput -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:14.802 - ai_chat_gpt_to_query_TableInput - Transformation allocated new rowset [Get system info.0 - sv: query.0]
+2025-02-24 14:10:14.802 - ai_chat_gpt_to_query_TableInput -  Allocated 3 rowsets for step 2 --> Get system info  
+2025-02-24 14:10:14.802 - ai_chat_gpt_to_query_TableInput -  Allocating rowsets for step 3 --> sv: query
+2025-02-24 14:10:14.802 - ai_chat_gpt_to_query_TableInput -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:14.802 - ai_chat_gpt_to_query_TableInput - Transformation allocated new rowset [sv: query.0 - wtl - from OpenAI.0]
+2025-02-24 14:10:14.803 - ai_chat_gpt_to_query_TableInput -  Allocated 4 rowsets for step 3 --> sv: query  
+2025-02-24 14:10:14.803 - ai_chat_gpt_to_query_TableInput -  Allocating rowsets for step 4 --> wtl - from OpenAI
+2025-02-24 14:10:14.803 - ai_chat_gpt_to_query_TableInput -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:14.803 - ai_chat_gpt_to_query_TableInput - Transformation allocated new rowset [wtl - from OpenAI.0 - mjsv.0]
+2025-02-24 14:10:14.803 - ai_chat_gpt_to_query_TableInput -  Allocated 5 rowsets for step 4 --> wtl - from OpenAI  
+2025-02-24 14:10:14.803 - ai_chat_gpt_to_query_TableInput -  Allocating rowsets for step 5 --> mjsv
+2025-02-24 14:10:14.803 - ai_chat_gpt_to_query_TableInput -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:14.804 - ai_chat_gpt_to_query_TableInput - Transformation allocated new rowset [mjsv.0 - sv: refined_query.0]
+2025-02-24 14:10:14.804 - ai_chat_gpt_to_query_TableInput -  Allocated 6 rowsets for step 5 --> mjsv  
+2025-02-24 14:10:14.804 - ai_chat_gpt_to_query_TableInput -  Allocating rowsets for step 6 --> sv: refined_query
+2025-02-24 14:10:14.804 - ai_chat_gpt_to_query_TableInput -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:14.804 - ai_chat_gpt_to_query_TableInput - Transformation allocated new rowset [sv: refined_query.0 - Set variables.0]
+2025-02-24 14:10:14.804 - ai_chat_gpt_to_query_TableInput -  Allocated 7 rowsets for step 6 --> sv: refined_query  
+2025-02-24 14:10:14.805 - ai_chat_gpt_to_query_TableInput -  Allocating rowsets for step 7 --> Set variables
+2025-02-24 14:10:14.805 - ai_chat_gpt_to_query_TableInput -  Allocated 7 rowsets for step 7 --> Set variables  
+2025-02-24 14:10:14.805 - ai_chat_gpt_to_query_TableInput - Allocating Steps & StepData...
+2025-02-24 14:10:14.805 - ai_chat_gpt_to_query_TableInput -  Transformation is about to allocate step [Data grid] of type [DataGrid]
+2025-02-24 14:10:14.805 - Data grid.0 - distribution activated
+2025-02-24 14:10:14.805 - Data grid.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:14.806 - Data grid.0 - Step info: nrinput=0 nroutput=1
+2025-02-24 14:10:14.806 - Data grid.0 - output rel. is  1:1
+2025-02-24 14:10:14.806 - Data grid.0 - Found output rowset [Data grid.0 - AI Chat.0]
+2025-02-24 14:10:14.806 - Data grid.0 - Finished dispatching
+2025-02-24 14:10:14.806 - ai_chat_gpt_to_query_TableInput -  Transformation has allocated a new step: [Data grid].0
+2025-02-24 14:10:14.807 - ai_chat_gpt_to_query_TableInput -  Transformation is about to allocate step [AI Chat] of type [AiChat]
+2025-02-24 14:10:14.807 - AI Chat.0 - distribution activated
+2025-02-24 14:10:14.807 - AI Chat.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:14.807 - AI Chat.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:14.807 - AI Chat.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:14.807 - AI Chat.0 - input rel is 1:1
+2025-02-24 14:10:14.808 - AI Chat.0 - Found input rowset [Data grid.0 - AI Chat.0]
+2025-02-24 14:10:14.808 - AI Chat.0 - output rel. is  1:1
+2025-02-24 14:10:14.808 - AI Chat.0 - Found output rowset [AI Chat.0 - Get system info.0]
+2025-02-24 14:10:14.808 - AI Chat.0 - Finished dispatching
+2025-02-24 14:10:14.808 - ai_chat_gpt_to_query_TableInput -  Transformation has allocated a new step: [AI Chat].0
+2025-02-24 14:10:14.808 - ai_chat_gpt_to_query_TableInput -  Transformation is about to allocate step [Get system info] of type [SystemInfo]
+2025-02-24 14:10:14.809 - Get system info.0 - distribution activated
+2025-02-24 14:10:14.809 - Get system info.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:14.809 - Get system info.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:14.809 - Get system info.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:14.810 - Get system info.0 - input rel is 1:1
+2025-02-24 14:10:14.810 - Get system info.0 - Found input rowset [AI Chat.0 - Get system info.0]
+2025-02-24 14:10:14.810 - Get system info.0 - output rel. is  1:1
+2025-02-24 14:10:14.810 - Get system info.0 - Found output rowset [Get system info.0 - sv: query.0]
+2025-02-24 14:10:14.810 - Get system info.0 - Finished dispatching
+2025-02-24 14:10:14.810 - ai_chat_gpt_to_query_TableInput -  Transformation has allocated a new step: [Get system info].0
+2025-02-24 14:10:14.811 - ai_chat_gpt_to_query_TableInput -  Transformation is about to allocate step [sv: query] of type [SelectValues]
+2025-02-24 14:10:14.811 - sv: query.0 - distribution activated
+2025-02-24 14:10:14.811 - sv: query.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:14.811 - sv: query.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:14.811 - sv: query.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:14.811 - sv: query.0 - input rel is 1:1
+2025-02-24 14:10:14.812 - sv: query.0 - Found input rowset [Get system info.0 - sv: query.0]
+2025-02-24 14:10:14.812 - sv: query.0 - output rel. is  1:1
+2025-02-24 14:10:14.812 - sv: query.0 - Found output rowset [sv: query.0 - wtl - from OpenAI.0]
+2025-02-24 14:10:14.812 - sv: query.0 - Finished dispatching
+2025-02-24 14:10:14.812 - ai_chat_gpt_to_query_TableInput -  Transformation has allocated a new step: [sv: query].0
+2025-02-24 14:10:14.812 - ai_chat_gpt_to_query_TableInput -  Transformation is about to allocate step [wtl - from OpenAI] of type [WriteToLog]
+2025-02-24 14:10:14.814 - wtl - from OpenAI.0 - distribution activated
+2025-02-24 14:10:14.814 - wtl - from OpenAI.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:14.815 - wtl - from OpenAI.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:14.815 - wtl - from OpenAI.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:14.816 - wtl - from OpenAI.0 - input rel is 1:1
+2025-02-24 14:10:14.816 - wtl - from OpenAI.0 - Found input rowset [sv: query.0 - wtl - from OpenAI.0]
+2025-02-24 14:10:14.816 - wtl - from OpenAI.0 - output rel. is  1:1
+2025-02-24 14:10:14.816 - wtl - from OpenAI.0 - Found output rowset [wtl - from OpenAI.0 - mjsv.0]
+2025-02-24 14:10:14.816 - wtl - from OpenAI.0 - Finished dispatching
+2025-02-24 14:10:14.816 - ai_chat_gpt_to_query_TableInput -  Transformation has allocated a new step: [wtl - from OpenAI].0
+2025-02-24 14:10:14.816 - ai_chat_gpt_to_query_TableInput -  Transformation is about to allocate step [mjsv] of type [ScriptValueMod]
+2025-02-24 14:10:14.819 - mjsv.0 - distribution activated
+2025-02-24 14:10:14.820 - mjsv.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:14.820 - mjsv.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:14.820 - mjsv.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:14.821 - mjsv.0 - input rel is 1:1
+2025-02-24 14:10:14.821 - mjsv.0 - Found input rowset [wtl - from OpenAI.0 - mjsv.0]
+2025-02-24 14:10:14.821 - mjsv.0 - output rel. is  1:1
+2025-02-24 14:10:14.821 - mjsv.0 - Found output rowset [mjsv.0 - sv: refined_query.0]
+2025-02-24 14:10:14.821 - mjsv.0 - Finished dispatching
+2025-02-24 14:10:14.821 - ai_chat_gpt_to_query_TableInput -  Transformation has allocated a new step: [mjsv].0
+2025-02-24 14:10:14.821 - ai_chat_gpt_to_query_TableInput -  Transformation is about to allocate step [sv: refined_query] of type [SelectValues]
+2025-02-24 14:10:14.822 - sv: refined_query.0 - distribution de-activated
+2025-02-24 14:10:14.822 - sv: refined_query.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:14.822 - sv: refined_query.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:14.822 - sv: refined_query.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:14.822 - sv: refined_query.0 - input rel is 1:1
+2025-02-24 14:10:14.822 - sv: refined_query.0 - Found input rowset [mjsv.0 - sv: refined_query.0]
+2025-02-24 14:10:14.822 - sv: refined_query.0 - output rel. is  1:1
+2025-02-24 14:10:14.823 - sv: refined_query.0 - Found output rowset [sv: refined_query.0 - Set variables.0]
+2025-02-24 14:10:14.823 - sv: refined_query.0 - Finished dispatching
+2025-02-24 14:10:14.823 - ai_chat_gpt_to_query_TableInput -  Transformation has allocated a new step: [sv: refined_query].0
+2025-02-24 14:10:14.823 - ai_chat_gpt_to_query_TableInput -  Transformation is about to allocate step [Set variables] of type [SetVariable]
+2025-02-24 14:10:14.825 - Set variables.0 - distribution activated
+2025-02-24 14:10:14.825 - Set variables.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:14.826 - Set variables.0 - Step info: nrinput=1 nroutput=0
+2025-02-24 14:10:14.826 - Set variables.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:14.826 - Set variables.0 - input rel is 1:1
+2025-02-24 14:10:14.826 - Set variables.0 - Found input rowset [sv: refined_query.0 - Set variables.0]
+2025-02-24 14:10:14.826 - Set variables.0 - Finished dispatching
+2025-02-24 14:10:14.827 - ai_chat_gpt_to_query_TableInput -  Transformation has allocated a new step: [Set variables].0
+2025-02-24 14:10:14.827 - ai_chat_gpt_to_query_TableInput - This transformation can be replayed with replay date: 2025/02/24 14:10:14
+2025-02-24 14:10:14.827 - ai_chat_gpt_to_query_TableInput - Initialising 8 steps...
+2025-02-24 14:10:14.828 - Data grid.0 - Released server socket on port 0
+2025-02-24 14:10:14.828 - AI Chat.0 - Released server socket on port 0
+2025-02-24 14:10:14.828 - sv: query.0 - Released server socket on port 0
+2025-02-24 14:10:14.828 - Get system info.0 - Released server socket on port 0
+2025-02-24 14:10:14.828 - mjsv.0 - Released server socket on port 0
+2025-02-24 14:10:14.828 - wtl - from OpenAI.0 - Released server socket on port 0
+2025-02-24 14:10:14.829 - Set variables.0 - Released server socket on port 0
+2025-02-24 14:10:14.829 - sv: refined_query.0 - Released server socket on port 0
+2025-02-24 14:10:14.829 - ai_chat_gpt_to_query_TableInput - Step [Data grid.0] initialized flawlessly.
+2025-02-24 14:10:14.829 - ai_chat_gpt_to_query_TableInput - Step [AI Chat.0] initialized flawlessly.
+2025-02-24 14:10:14.830 - ai_chat_gpt_to_query_TableInput - Step [Get system info.0] initialized flawlessly.
+2025-02-24 14:10:14.830 - ai_chat_gpt_to_query_TableInput - Step [sv: query.0] initialized flawlessly.
+2025-02-24 14:10:14.830 - ai_chat_gpt_to_query_TableInput - Step [wtl - from OpenAI.0] initialized flawlessly.
+2025-02-24 14:10:14.830 - ai_chat_gpt_to_query_TableInput - Step [mjsv.0] initialized flawlessly.
+2025-02-24 14:10:14.830 - ai_chat_gpt_to_query_TableInput - Step [sv: refined_query.0] initialized flawlessly.
+2025-02-24 14:10:14.830 - ai_chat_gpt_to_query_TableInput - Step [Set variables.0] initialized flawlessly.
+2025-02-24 14:10:14.831 - Data grid.0 - Starting to run...
+2025-02-24 14:10:14.831 - AI Chat.0 - Starting to run...
+2025-02-24 14:10:14.831 - Get system info.0 - Starting to run...
+2025-02-24 14:10:14.831 - sv: query.0 - Starting to run...
+2025-02-24 14:10:14.831 - wtl - from OpenAI.0 - Starting to run...
+2025-02-24 14:10:14.831 - sv: refined_query.0 - Starting to run...
+2025-02-24 14:10:14.831 - mjsv.0 - Starting to run...
+2025-02-24 14:10:14.832 - Set variables.0 - Starting to run...
+2025-02-24 14:10:14.832 - Data grid.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2025-02-24 14:10:14.832 - ai_chat_gpt_to_query_TableInput - Transformation has allocated 8 threads and 7 rowsets.
+2025-02-24 14:10:14.835 - AI Chat.0 - System Run Instruction: Just return SQL in Postgres DB, without any extra characters in output, please.
+2025-02-24 14:10:14.835 - AI Chat.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:14.928 - AI Chat.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:14.930 - AI Chat.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:15.648 - AI Chat.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2025-02-24 14:10:15.650 - Get system info.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2025-02-24 14:10:15.653 - sv: query.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2025-02-24 14:10:15.656 - wtl - from OpenAI.0 - 
+2025-02-24 14:10:15.656 - wtl - from OpenAI.0 - ------------> Linenr 1------------------------------
+2025-02-24 14:10:15.656 - wtl - from OpenAI.0 - #############Query from AI-Chat#########
+2025-02-24 14:10:15.656 - wtl - from OpenAI.0 - 
+2025-02-24 14:10:15.656 - wtl - from OpenAI.0 - query = ```sql
+SELECT * FROM open_ai_chat_store
+ORDER BY insert_ts DESC
+LIMIT 2;
+```
+2025-02-24 14:10:15.656 - wtl - from OpenAI.0 - 
+2025-02-24 14:10:15.656 - wtl - from OpenAI.0 - ====================
+2025-02-24 14:10:15.660 - mjsv.0 - Value #0 -  [query] is used in the script.
+2025-02-24 14:10:15.660 - mjsv.0 - This script is using 1 values from the input stream(s)
+2025-02-24 14:10:15.661 - wtl - from OpenAI.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2025-02-24 14:10:15.706 - mjsv.0 - Optimization level set to 9.
+2025-02-24 14:10:15.773 - mjsv.0 - No starting Script found!
+2025-02-24 14:10:15.844 - mjsv.0 - No tran_Status found. Transformation status checking not available.
+2025-02-24 14:10:15.847 - Set variables.0 - Setting environment variables...
+2025-02-24 14:10:15.847 - Set variables.0 - Set variable REFINED_QUERY to value [
+SELECT * FROM open_ai_chat_store
+ORDER BY insert_ts DESC
+LIMIT 2]
+2025-02-24 14:10:15.851 - mjsv.0 - No end Script found!
+2025-02-24 14:10:15.851 - mjsv.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2025-02-24 14:10:15.856 - sv: refined_query.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2025-02-24 14:10:15.860 - Set variables.0 - Finished after 1 rows.
+2025-02-24 14:10:15.860 - Set variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2025-02-24 14:10:16.789 - capture SQL and process PDI - Using run configuration [Pentaho local]
+2025-02-24 14:10:16.800 - connect_PG - License validated.
+2025-02-24 14:10:16.800 - connect_PG - Dispatching started for transformation [connect_PG]
+2025-02-24 14:10:16.800 - connect_PG - Nr of arguments detected:0 
+2025-02-24 14:10:16.800 - connect_PG - This is not a replay transformation
+2025-02-24 14:10:16.800 - connect_PG - I found 4 different steps to launch.
+2025-02-24 14:10:16.800 - connect_PG - Allocating rowsets...
+2025-02-24 14:10:16.800 - connect_PG -  Allocating rowsets for step 0 --> ti: chat_gpt
+2025-02-24 14:10:16.801 - connect_PG -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:16.801 - connect_PG - Transformation allocated new rowset [ti: chat_gpt.0 - tfo: tmp_openai_querying_DB.0]
+2025-02-24 14:10:16.801 - connect_PG -  Allocated 1 rowsets for step 0 --> ti: chat_gpt  
+2025-02-24 14:10:16.801 - connect_PG -  Allocating rowsets for step 1 --> tfo: tmp_openai_querying_DB
+2025-02-24 14:10:16.801 - connect_PG -  Allocated 1 rowsets for step 1 --> tfo: tmp_openai_querying_DB  
+2025-02-24 14:10:16.801 - connect_PG -  Allocating rowsets for step 2 --> gv: REFINED_QUERY
+2025-02-24 14:10:16.801 - connect_PG -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:16.801 - connect_PG - Transformation allocated new rowset [gv: REFINED_QUERY.0 - wtl - refined_query read.0]
+2025-02-24 14:10:16.801 - connect_PG -  Allocated 2 rowsets for step 2 --> gv: REFINED_QUERY  
+2025-02-24 14:10:16.801 - connect_PG -  Allocating rowsets for step 3 --> wtl - refined_query read
+2025-02-24 14:10:16.802 - connect_PG -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:16.802 - connect_PG - Transformation allocated new rowset [wtl - refined_query read.0 - ti: chat_gpt.0]
+2025-02-24 14:10:16.802 - connect_PG -  Allocated 3 rowsets for step 3 --> wtl - refined_query read  
+2025-02-24 14:10:16.802 - connect_PG - Allocating Steps & StepData...
+2025-02-24 14:10:16.802 - connect_PG -  Transformation is about to allocate step [ti: chat_gpt] of type [TableInput]
+2025-02-24 14:10:16.804 - ti: chat_gpt.0 - distribution activated
+2025-02-24 14:10:16.804 - ti: chat_gpt.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:16.804 - ti: chat_gpt.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:16.805 - ti: chat_gpt.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:16.805 - ti: chat_gpt.0 - input rel is 1:1
+2025-02-24 14:10:16.805 - ti: chat_gpt.0 - Found input rowset [wtl - refined_query read.0 - ti: chat_gpt.0]
+2025-02-24 14:10:16.805 - ti: chat_gpt.0 - output rel. is  1:1
+2025-02-24 14:10:16.805 - ti: chat_gpt.0 - Found output rowset [ti: chat_gpt.0 - tfo: tmp_openai_querying_DB.0]
+2025-02-24 14:10:16.805 - ti: chat_gpt.0 - Finished dispatching
+2025-02-24 14:10:16.805 - connect_PG -  Transformation has allocated a new step: [ti: chat_gpt].0
+2025-02-24 14:10:16.805 - connect_PG -  Transformation is about to allocate step [tfo: tmp_openai_querying_DB] of type [TextFileOutput]
+2025-02-24 14:10:16.811 - tfo: tmp_openai_querying_DB.0 - distribution activated
+2025-02-24 14:10:16.812 - tfo: tmp_openai_querying_DB.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:16.812 - tfo: tmp_openai_querying_DB.0 - Step info: nrinput=1 nroutput=0
+2025-02-24 14:10:16.812 - tfo: tmp_openai_querying_DB.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:16.812 - tfo: tmp_openai_querying_DB.0 - input rel is 1:1
+2025-02-24 14:10:16.812 - tfo: tmp_openai_querying_DB.0 - Found input rowset [ti: chat_gpt.0 - tfo: tmp_openai_querying_DB.0]
+2025-02-24 14:10:16.812 - tfo: tmp_openai_querying_DB.0 - Finished dispatching
+2025-02-24 14:10:16.812 - connect_PG -  Transformation has allocated a new step: [tfo: tmp_openai_querying_DB].0
+2025-02-24 14:10:16.813 - connect_PG -  Transformation is about to allocate step [gv: REFINED_QUERY] of type [GetVariable]
+2025-02-24 14:10:16.815 - gv: REFINED_QUERY.0 - distribution activated
+2025-02-24 14:10:16.816 - gv: REFINED_QUERY.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:16.816 - gv: REFINED_QUERY.0 - Step info: nrinput=0 nroutput=1
+2025-02-24 14:10:16.816 - gv: REFINED_QUERY.0 - output rel. is  1:1
+2025-02-24 14:10:16.816 - gv: REFINED_QUERY.0 - Found output rowset [gv: REFINED_QUERY.0 - wtl - refined_query read.0]
+2025-02-24 14:10:16.816 - gv: REFINED_QUERY.0 - Finished dispatching
+2025-02-24 14:10:16.816 - connect_PG -  Transformation has allocated a new step: [gv: REFINED_QUERY].0
+2025-02-24 14:10:16.816 - connect_PG -  Transformation is about to allocate step [wtl - refined_query read] of type [WriteToLog]
+2025-02-24 14:10:16.816 - wtl - refined_query read.0 - distribution activated
+2025-02-24 14:10:16.817 - wtl - refined_query read.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:16.817 - wtl - refined_query read.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:16.817 - wtl - refined_query read.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:16.817 - wtl - refined_query read.0 - input rel is 1:1
+2025-02-24 14:10:16.817 - wtl - refined_query read.0 - Found input rowset [gv: REFINED_QUERY.0 - wtl - refined_query read.0]
+2025-02-24 14:10:16.817 - wtl - refined_query read.0 - output rel. is  1:1
+2025-02-24 14:10:16.817 - wtl - refined_query read.0 - Found output rowset [wtl - refined_query read.0 - ti: chat_gpt.0]
+2025-02-24 14:10:16.817 - wtl - refined_query read.0 - Finished dispatching
+2025-02-24 14:10:16.818 - connect_PG -  Transformation has allocated a new step: [wtl - refined_query read].0
+2025-02-24 14:10:16.818 - connect_PG - This transformation can be replayed with replay date: 2025/02/24 14:10:16
+2025-02-24 14:10:16.818 - connect_PG - Initialising 4 steps...
+2025-02-24 14:10:16.818 - ti: chat_gpt.0 - Released server socket on port 0
+2025-02-24 14:10:16.819 - wtl - refined_query read.0 - Released server socket on port 0
+2025-02-24 14:10:16.819 - gv: REFINED_QUERY.0 - Released server socket on port 0
+2025-02-24 14:10:16.819 - local_pg - New database connection defined
+2025-02-24 14:10:16.819 - tfo: tmp_openai_querying_DB.0 - Released server socket on port 0
+2025-02-24 14:10:16.819 - connect_PG - Step [ti: chat_gpt.0] initialized flawlessly.
+2025-02-24 14:10:16.819 - connect_PG - Step [tfo: tmp_openai_querying_DB.0] initialized flawlessly.
+2025-02-24 14:10:16.820 - connect_PG - Step [gv: REFINED_QUERY.0] initialized flawlessly.
+2025-02-24 14:10:16.820 - connect_PG - Step [wtl - refined_query read.0] initialized flawlessly.
+2025-02-24 14:10:16.820 - tfo: tmp_openai_querying_DB.0 - Starting to run...
+2025-02-24 14:10:16.821 - connect_PG - Transformation has allocated 4 threads and 3 rowsets.
+2025-02-24 14:10:16.821 - gv: REFINED_QUERY.0 - Starting to run...
+2025-02-24 14:10:16.821 - wtl - refined_query read.0 - Starting to run...
+2025-02-24 14:10:16.821 - gv: REFINED_QUERY.0 - field [refined_query] has value [
+SELECT * FROM open_ai_chat_store
+ORDER BY insert_ts DESC
+LIMIT 2]
+2025-02-24 14:10:16.821 - gv: REFINED_QUERY.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2025-02-24 14:10:16.823 - wtl - refined_query read.0 - 
+2025-02-24 14:10:16.823 - wtl - refined_query read.0 - ------------> Linenr 1------------------------------
+2025-02-24 14:10:16.823 - wtl - refined_query read.0 - ########### Process QUER for PG ###########
+2025-02-24 14:10:16.823 - wtl - refined_query read.0 - 
+2025-02-24 14:10:16.823 - wtl - refined_query read.0 - refined_query = 
+SELECT * FROM open_ai_chat_store
+ORDER BY insert_ts DESC
+LIMIT 2
+2025-02-24 14:10:16.823 - wtl - refined_query read.0 - 
+2025-02-24 14:10:16.823 - wtl - refined_query read.0 - ====================
+2025-02-24 14:10:16.828 - wtl - refined_query read.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2025-02-24 14:10:16.851 - ti: chat_gpt.0 - Connected to database...
+2025-02-24 14:10:16.852 - local_pg - Auto commit off
+2025-02-24 14:10:16.852 - ti: chat_gpt.0 - Starting to run...
+2025-02-24 14:10:16.852 - ti: chat_gpt.0 - SQL query : 
+SELECT * FROM open_ai_chat_store
+ORDER BY insert_ts DESC
+LIMIT 2
+2025-02-24 14:10:16.865 - ti: chat_gpt.0 - Finished reading query, closing connection
+2025-02-24 14:10:16.866 - local_pg - Connection to database closed!
+2025-02-24 14:10:16.866 - ti: chat_gpt.0 - Finished processing (I=2, O=0, R=0, W=2, U=0, E=0)
+2025-02-24 14:10:16.875 - tfo: tmp_openai_querying_DB.0 - Parent folder exists [file:///C:/pentaho_projects/pdi-gen-ai-plugins/output]!
+2025-02-24 14:10:16.876 - tfo: tmp_openai_querying_DB.0 - Opening output stream using provider: None
+2025-02-24 14:10:16.877 - tfo: tmp_openai_querying_DB.0 - Opening output stream in encoding: UTF-8
+2025-02-24 14:10:16.878 - tfo: tmp_openai_querying_DB.0 - Opened new file with name [file:///C:/pentaho_projects/pdi-gen-ai-plugins/output/tmp_openai_querying_DB.csv]
+2025-02-24 14:10:16.884 - tfo: tmp_openai_querying_DB.0 - Finished processing (I=0, O=3, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:17.814 - detect languages, translate then tagging - Using run configuration [Pentaho local]
+2025-02-24 14:10:17.824 - ai_nlp_translation_tagging - License validated.
+2025-02-24 14:10:17.825 - ai_nlp_translation_tagging - Dispatching started for transformation [ai_nlp_translation_tagging]
+2025-02-24 14:10:17.825 - ai_nlp_translation_tagging - Nr of arguments detected:0 
+2025-02-24 14:10:17.825 - ai_nlp_translation_tagging - This is not a replay transformation
+2025-02-24 14:10:17.826 - ai_nlp_translation_tagging - I found 48 different steps to launch.
+2025-02-24 14:10:17.826 - ai_nlp_translation_tagging - Allocating rowsets...
+2025-02-24 14:10:17.826 - ai_nlp_translation_tagging -  Allocating rowsets for step 0 --> aic: Detect Natural Language
+2025-02-24 14:10:17.826 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.826 - ai_nlp_translation_tagging - Transformation allocated new rowset [aic: Detect Natural Language.0 - sv: natural language.0]
+2025-02-24 14:10:17.826 - ai_nlp_translation_tagging -  Allocated 1 rowsets for step 0 --> aic: Detect Natural Language  
+2025-02-24 14:10:17.826 - ai_nlp_translation_tagging -  Allocating rowsets for step 1 --> sv: natural language
+2025-02-24 14:10:17.827 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.827 - ai_nlp_translation_tagging - Transformation allocated new rowset [sv: natural language.0 - Filter rows.0]
+2025-02-24 14:10:17.827 - ai_nlp_translation_tagging -  Allocated 2 rowsets for step 1 --> sv: natural language  
+2025-02-24 14:10:17.827 - ai_nlp_translation_tagging -  Allocating rowsets for step 2 --> AI Chat: Translate
+2025-02-24 14:10:17.827 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.827 - ai_nlp_translation_tagging - Transformation allocated new rowset [AI Chat: Translate.0 - sv: translated info.0]
+2025-02-24 14:10:17.827 - ai_nlp_translation_tagging -  Allocated 3 rowsets for step 2 --> AI Chat: Translate  
+2025-02-24 14:10:17.828 - ai_nlp_translation_tagging -  Allocating rowsets for step 3 --> sv: translated info
+2025-02-24 14:10:17.828 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.828 - ai_nlp_translation_tagging - Transformation allocated new rowset [sv: translated info.0 - to: open_ai_chat_translated.0]
+2025-02-24 14:10:17.828 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.828 - ai_nlp_translation_tagging - Transformation allocated new rowset [sv: translated info.0 - sv: English.0]
+2025-02-24 14:10:17.828 - ai_nlp_translation_tagging -  Allocated 5 rowsets for step 3 --> sv: translated info  
+2025-02-24 14:10:17.828 - ai_nlp_translation_tagging -  Allocating rowsets for step 4 --> ac: message - Detect Language 
+2025-02-24 14:10:17.828 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.828 - ai_nlp_translation_tagging - Transformation allocated new rowset [ac: message - Detect Language .0 - aic: Detect Natural Language.0]
+2025-02-24 14:10:17.829 - ai_nlp_translation_tagging -  Allocated 6 rowsets for step 4 --> ac: message - Detect Language   
+2025-02-24 14:10:17.829 - ai_nlp_translation_tagging -  Allocating rowsets for step 5 --> Filter rows
+2025-02-24 14:10:17.829 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.829 - ai_nlp_translation_tagging - Transformation allocated new rowset [Filter rows.0 - English.0]
+2025-02-24 14:10:17.829 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.829 - ai_nlp_translation_tagging - Transformation allocated new rowset [Filter rows.0 - NOT English.0]
+2025-02-24 14:10:17.829 - ai_nlp_translation_tagging -  Allocated 8 rowsets for step 5 --> Filter rows  
+2025-02-24 14:10:17.830 - ai_nlp_translation_tagging -  Allocating rowsets for step 6 --> English
+2025-02-24 14:10:17.830 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.830 - ai_nlp_translation_tagging - Transformation allocated new rowset [English.0 - ac: message - Detect Language confirm?.0]
+2025-02-24 14:10:17.830 - ai_nlp_translation_tagging -  Allocated 9 rowsets for step 6 --> English  
+2025-02-24 14:10:17.830 - ai_nlp_translation_tagging -  Allocating rowsets for step 7 --> NOT English
+2025-02-24 14:10:17.830 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.830 - ai_nlp_translation_tagging - Transformation allocated new rowset [NOT English.0 - fr: confirm English string.0]
+2025-02-24 14:10:17.830 - ai_nlp_translation_tagging -  Allocated 10 rowsets for step 7 --> NOT English  
+2025-02-24 14:10:17.830 - ai_nlp_translation_tagging -  Allocating rowsets for step 8 --> Select values
+2025-02-24 14:10:17.830 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.831 - ai_nlp_translation_tagging - Transformation allocated new rowset [Select values.0 - ac: message - Detect Language .0]
+2025-02-24 14:10:17.831 - ai_nlp_translation_tagging -  Allocated 11 rowsets for step 8 --> Select values  
+2025-02-24 14:10:17.831 - ai_nlp_translation_tagging -  Allocating rowsets for step 9 --> ac: message_to_translate
+2025-02-24 14:10:17.831 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.831 - ai_nlp_translation_tagging - Transformation allocated new rowset [ac: message_to_translate.0 - AI Chat: Translate.0]
+2025-02-24 14:10:17.831 - ai_nlp_translation_tagging -  Allocated 12 rowsets for step 9 --> ac: message_to_translate  
+2025-02-24 14:10:17.831 - ai_nlp_translation_tagging -  Allocating rowsets for step 10 --> to: open_ai_chat_translated
+2025-02-24 14:10:17.831 - ai_nlp_translation_tagging -  Allocated 12 rowsets for step 10 --> to: open_ai_chat_translated  
+2025-02-24 14:10:17.831 - ai_nlp_translation_tagging -  Allocating rowsets for step 11 --> ti: open_ai_chat_store
+2025-02-24 14:10:17.832 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.832 - ai_nlp_translation_tagging - Transformation allocated new rowset [ti: open_ai_chat_store.0 - Select values.0]
+2025-02-24 14:10:17.832 - ai_nlp_translation_tagging -  Allocated 13 rowsets for step 11 --> ti: open_ai_chat_store  
+2025-02-24 14:10:17.832 - ai_nlp_translation_tagging -  Allocating rowsets for step 12 --> ac: message - Detect Language confirm?
+2025-02-24 14:10:17.832 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.832 - ai_nlp_translation_tagging - Transformation allocated new rowset [ac: message - Detect Language confirm?.0 - aic: English Yes or No.0]
+2025-02-24 14:10:17.832 - ai_nlp_translation_tagging -  Allocated 14 rowsets for step 12 --> ac: message - Detect Language confirm?  
+2025-02-24 14:10:17.832 - ai_nlp_translation_tagging -  Allocating rowsets for step 13 --> aic: English Yes or No
+2025-02-24 14:10:17.832 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.832 - ai_nlp_translation_tagging - Transformation allocated new rowset [aic: English Yes or No.0 - fr: Yes.0]
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging -  Allocated 15 rowsets for step 13 --> aic: English Yes or No  
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging -  Allocating rowsets for step 14 --> fr: Yes
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging - Transformation allocated new rowset [fr: Yes.0 - ac: messages.0]
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging - Transformation allocated new rowset [fr: Yes.0 - NO.0]
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging -  Allocated 17 rowsets for step 14 --> fr: Yes  
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging -  Allocating rowsets for step 15 --> ac: messages
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging - Transformation allocated new rowset [ac: messages.0 - aic: PoS.0]
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging - Transformation allocated new rowset [ac: messages.0 - aic:sentiment.0]
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging - Transformation allocated new rowset [ac: messages.0 - aic: NER.0]
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.833 - ai_nlp_translation_tagging - Transformation allocated new rowset [ac: messages.0 - aic: bi-grams.0]
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -  Allocated 21 rowsets for step 15 --> ac: messages  
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -  Allocating rowsets for step 16 --> aic: PoS
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging - Transformation allocated new rowset [aic: PoS.0 - sv: pos.0]
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -  Allocated 22 rowsets for step 16 --> aic: PoS  
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -  Allocating rowsets for step 17 --> fr: confirm English string
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging - Transformation allocated new rowset [fr: confirm English string.0 - ac: message_to_translate.0]
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging - Transformation allocated new rowset [fr: confirm English string.0 - English.0]
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -  Allocated 24 rowsets for step 17 --> fr: confirm English string  
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -  Allocating rowsets for step 18 --> sv: pos
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging - Transformation allocated new rowset [sv: pos.0 - PoS.0]
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -  Allocated 25 rowsets for step 18 --> sv: pos  
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -  Allocating rowsets for step 19 --> sv: English
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging - Transformation allocated new rowset [sv: English.0 - ac: message.0]
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -  Allocated 26 rowsets for step 19 --> sv: English  
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -  Allocating rowsets for step 20 --> aic: English PoS Tag
+2025-02-24 14:10:17.834 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.835 - ai_nlp_translation_tagging - Transformation allocated new rowset [aic: English PoS Tag.0 - sv: pos-tagged 1.0]
+2025-02-24 14:10:17.835 - ai_nlp_translation_tagging -  Allocated 27 rowsets for step 20 --> aic: English PoS Tag  
+2025-02-24 14:10:17.835 - ai_nlp_translation_tagging -  Allocating rowsets for step 21 --> sv: pos-tagged 1
+2025-02-24 14:10:17.835 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.835 - ai_nlp_translation_tagging - Transformation allocated new rowset [sv: pos-tagged 1.0 - PoS.0]
+2025-02-24 14:10:17.835 - ai_nlp_translation_tagging -  Allocated 28 rowsets for step 21 --> sv: pos-tagged 1  
+2025-02-24 14:10:17.835 - ai_nlp_translation_tagging -  Allocating rowsets for step 22 --> PoS
+2025-02-24 14:10:17.835 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.835 - ai_nlp_translation_tagging - Transformation allocated new rowset [PoS.0 - slu: pos.0]
+2025-02-24 14:10:17.835 - ai_nlp_translation_tagging -  Allocated 29 rowsets for step 22 --> PoS  
+2025-02-24 14:10:17.835 - ai_nlp_translation_tagging -  Allocating rowsets for step 23 --> aic:sentiment
+2025-02-24 14:10:17.836 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.836 - ai_nlp_translation_tagging - Transformation allocated new rowset [aic:sentiment.0 - sv: sentiment.0]
+2025-02-24 14:10:17.836 - ai_nlp_translation_tagging -  Allocated 30 rowsets for step 23 --> aic:sentiment  
+2025-02-24 14:10:17.836 - ai_nlp_translation_tagging -  Allocating rowsets for step 24 --> sv: sentiment
+2025-02-24 14:10:17.836 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.836 - ai_nlp_translation_tagging - Transformation allocated new rowset [sv: sentiment.0 - Sentiment.0]
+2025-02-24 14:10:17.836 - ai_nlp_translation_tagging -  Allocated 31 rowsets for step 24 --> sv: sentiment  
+2025-02-24 14:10:17.836 - ai_nlp_translation_tagging -  Allocating rowsets for step 25 --> aic: Sentiment
+2025-02-24 14:10:17.837 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.837 - ai_nlp_translation_tagging - Transformation allocated new rowset [aic: Sentiment.0 - sv:sentiment.0]
+2025-02-24 14:10:17.837 - ai_nlp_translation_tagging -  Allocated 32 rowsets for step 25 --> aic: Sentiment  
+2025-02-24 14:10:17.837 - ai_nlp_translation_tagging -  Allocating rowsets for step 26 --> sv:sentiment
+2025-02-24 14:10:17.837 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.837 - ai_nlp_translation_tagging - Transformation allocated new rowset [sv:sentiment.0 - Sentiment.0]
+2025-02-24 14:10:17.837 - ai_nlp_translation_tagging -  Allocated 33 rowsets for step 26 --> sv:sentiment  
+2025-02-24 14:10:17.837 - ai_nlp_translation_tagging -  Allocating rowsets for step 27 --> Sentiment
+2025-02-24 14:10:17.838 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.838 - ai_nlp_translation_tagging - Transformation allocated new rowset [Sentiment.0 - slu:ner.0]
+2025-02-24 14:10:17.838 - ai_nlp_translation_tagging -  Allocated 34 rowsets for step 27 --> Sentiment  
+2025-02-24 14:10:17.838 - ai_nlp_translation_tagging -  Allocating rowsets for step 28 --> NO
+2025-02-24 14:10:17.838 - ai_nlp_translation_tagging -  Allocated 34 rowsets for step 28 --> NO  
+2025-02-24 14:10:17.838 - ai_nlp_translation_tagging -  Allocating rowsets for step 29 --> aic: NER
+2025-02-24 14:10:17.838 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.838 - ai_nlp_translation_tagging - Transformation allocated new rowset [aic: NER.0 - sv: NER.0]
+2025-02-24 14:10:17.838 - ai_nlp_translation_tagging -  Allocated 35 rowsets for step 29 --> aic: NER  
+2025-02-24 14:10:17.839 - ai_nlp_translation_tagging -  Allocating rowsets for step 30 --> sv: NER
+2025-02-24 14:10:17.839 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.839 - ai_nlp_translation_tagging - Transformation allocated new rowset [sv: NER.0 - mjsv: ner.0]
+2025-02-24 14:10:17.839 - ai_nlp_translation_tagging -  Allocated 36 rowsets for step 30 --> sv: NER  
+2025-02-24 14:10:17.839 - ai_nlp_translation_tagging -  Allocating rowsets for step 31 --> mjsv: ner
+2025-02-24 14:10:17.839 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.839 - ai_nlp_translation_tagging - Transformation allocated new rowset [mjsv: ner.0 - NER.0]
+2025-02-24 14:10:17.839 - ai_nlp_translation_tagging -  Allocated 37 rowsets for step 31 --> mjsv: ner  
+2025-02-24 14:10:17.839 - ai_nlp_translation_tagging -  Allocating rowsets for step 32 --> NER
+2025-02-24 14:10:17.839 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.839 - ai_nlp_translation_tagging - Transformation allocated new rowset [NER.0 - slu:ner.0]
+2025-02-24 14:10:17.839 - ai_nlp_translation_tagging -  Allocated 38 rowsets for step 32 --> NER  
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging -  Allocating rowsets for step 33 --> slu:ner
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging - Transformation allocated new rowset [slu:ner.0 - slu: pos.0]
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging -  Allocated 39 rowsets for step 33 --> slu:ner  
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging -  Allocating rowsets for step 34 --> slu: pos
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging - Transformation allocated new rowset [slu: pos.0 - All Tagged.0]
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging -  Allocated 40 rowsets for step 34 --> slu: pos  
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging -  Allocating rowsets for step 35 --> All Tagged
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging - Transformation allocated new rowset [All Tagged.0 - to: tagged_data.0]
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging -  Allocated 41 rowsets for step 35 --> All Tagged  
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging -  Allocating rowsets for step 36 --> to: tagged_data
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging -  Allocated 41 rowsets for step 36 --> to: tagged_data  
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging -  Allocating rowsets for step 37 --> aic: N ER
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.840 - ai_nlp_translation_tagging - Transformation allocated new rowset [aic: N ER.0 - sv: N ER.0]
+2025-02-24 14:10:17.842 - ai_nlp_translation_tagging -  Allocated 42 rowsets for step 37 --> aic: N ER  
+2025-02-24 14:10:17.842 - ai_nlp_translation_tagging -  Allocating rowsets for step 38 --> sv: N ER
+2025-02-24 14:10:17.842 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.842 - ai_nlp_translation_tagging - Transformation allocated new rowset [sv: N ER.0 - mjsv: N ER.0]
+2025-02-24 14:10:17.842 - ai_nlp_translation_tagging -  Allocated 43 rowsets for step 38 --> sv: N ER  
+2025-02-24 14:10:17.842 - ai_nlp_translation_tagging -  Allocating rowsets for step 39 --> mjsv: N ER
+2025-02-24 14:10:17.842 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.842 - ai_nlp_translation_tagging - Transformation allocated new rowset [mjsv: N ER.0 - NER.0]
+2025-02-24 14:10:17.842 - ai_nlp_translation_tagging -  Allocated 44 rowsets for step 39 --> mjsv: N ER  
+2025-02-24 14:10:17.843 - ai_nlp_translation_tagging -  Allocating rowsets for step 40 --> aic: bi-grams
+2025-02-24 14:10:17.843 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.843 - ai_nlp_translation_tagging - Transformation allocated new rowset [aic: bi-grams.0 - sv: bi-grams.0]
+2025-02-24 14:10:17.843 - ai_nlp_translation_tagging -  Allocated 45 rowsets for step 40 --> aic: bi-grams  
+2025-02-24 14:10:17.843 - ai_nlp_translation_tagging -  Allocating rowsets for step 41 --> sv: bi-grams
+2025-02-24 14:10:17.843 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.843 - ai_nlp_translation_tagging - Transformation allocated new rowset [sv: bi-grams.0 - mjsv: bigram.0]
+2025-02-24 14:10:17.843 - ai_nlp_translation_tagging -  Allocated 46 rowsets for step 41 --> sv: bi-grams  
+2025-02-24 14:10:17.843 - ai_nlp_translation_tagging -  Allocating rowsets for step 42 --> mjsv: bigram
+2025-02-24 14:10:17.843 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.844 - ai_nlp_translation_tagging - Transformation allocated new rowset [mjsv: bigram.0 - to: bigrams.0]
+2025-02-24 14:10:17.844 - ai_nlp_translation_tagging -  Allocated 47 rowsets for step 42 --> mjsv: bigram  
+2025-02-24 14:10:17.844 - ai_nlp_translation_tagging -  Allocating rowsets for step 43 --> to: bigrams
+2025-02-24 14:10:17.844 - ai_nlp_translation_tagging -  Allocated 47 rowsets for step 43 --> to: bigrams  
+2025-02-24 14:10:17.844 - ai_nlp_translation_tagging -  Allocating rowsets for step 44 --> aic: bi-gram
+2025-02-24 14:10:17.844 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.844 - ai_nlp_translation_tagging - Transformation allocated new rowset [aic: bi-gram.0 - sv: bi-gram.0]
+2025-02-24 14:10:17.844 - ai_nlp_translation_tagging -  Allocated 48 rowsets for step 44 --> aic: bi-gram  
+2025-02-24 14:10:17.844 - ai_nlp_translation_tagging -  Allocating rowsets for step 45 --> sv: bi-gram
+2025-02-24 14:10:17.845 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.845 - ai_nlp_translation_tagging - Transformation allocated new rowset [sv: bi-gram.0 - mjsv:  bigram_.0]
+2025-02-24 14:10:17.845 - ai_nlp_translation_tagging -  Allocated 49 rowsets for step 45 --> sv: bi-gram  
+2025-02-24 14:10:17.845 - ai_nlp_translation_tagging -  Allocating rowsets for step 46 --> mjsv:  bigram_
+2025-02-24 14:10:17.845 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.845 - ai_nlp_translation_tagging - Transformation allocated new rowset [mjsv:  bigram_.0 - to: bigrams.0]
+2025-02-24 14:10:17.845 - ai_nlp_translation_tagging -  Allocated 50 rowsets for step 46 --> mjsv:  bigram_  
+2025-02-24 14:10:17.845 - ai_nlp_translation_tagging -  Allocating rowsets for step 47 --> ac: message
+2025-02-24 14:10:17.845 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.845 - ai_nlp_translation_tagging - Transformation allocated new rowset [ac: message.0 - aic: English PoS Tag.0]
+2025-02-24 14:10:17.845 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.846 - ai_nlp_translation_tagging - Transformation allocated new rowset [ac: message.0 - aic: Sentiment.0]
+2025-02-24 14:10:17.846 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.846 - ai_nlp_translation_tagging - Transformation allocated new rowset [ac: message.0 - aic: N ER.0]
+2025-02-24 14:10:17.846 - ai_nlp_translation_tagging -   prevcopies = 1, nextcopies=1
+2025-02-24 14:10:17.846 - ai_nlp_translation_tagging - Transformation allocated new rowset [ac: message.0 - aic: bi-gram.0]
+2025-02-24 14:10:17.846 - ai_nlp_translation_tagging -  Allocated 54 rowsets for step 47 --> ac: message  
+2025-02-24 14:10:17.846 - ai_nlp_translation_tagging - Allocating Steps & StepData...
+2025-02-24 14:10:17.846 - ai_nlp_translation_tagging -  Transformation is about to allocate step [aic: Detect Natural Language] of type [AiChat]
+2025-02-24 14:10:17.847 - aic: Detect Natural Language.0 - distribution activated
+2025-02-24 14:10:17.847 - aic: Detect Natural Language.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.847 - aic: Detect Natural Language.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.847 - aic: Detect Natural Language.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.847 - aic: Detect Natural Language.0 - input rel is 1:1
+2025-02-24 14:10:17.847 - aic: Detect Natural Language.0 - Found input rowset [ac: message - Detect Language .0 - aic: Detect Natural Language.0]
+2025-02-24 14:10:17.847 - aic: Detect Natural Language.0 - output rel. is  1:1
+2025-02-24 14:10:17.847 - aic: Detect Natural Language.0 - Found output rowset [aic: Detect Natural Language.0 - sv: natural language.0]
+2025-02-24 14:10:17.848 - aic: Detect Natural Language.0 - Finished dispatching
+2025-02-24 14:10:17.848 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [aic: Detect Natural Language].0
+2025-02-24 14:10:17.848 - ai_nlp_translation_tagging -  Transformation is about to allocate step [sv: natural language] of type [SelectValues]
+2025-02-24 14:10:17.848 - sv: natural language.0 - distribution activated
+2025-02-24 14:10:17.848 - sv: natural language.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.849 - sv: natural language.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.849 - sv: natural language.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.849 - sv: natural language.0 - input rel is 1:1
+2025-02-24 14:10:17.849 - sv: natural language.0 - Found input rowset [aic: Detect Natural Language.0 - sv: natural language.0]
+2025-02-24 14:10:17.849 - sv: natural language.0 - output rel. is  1:1
+2025-02-24 14:10:17.849 - sv: natural language.0 - Found output rowset [sv: natural language.0 - Filter rows.0]
+2025-02-24 14:10:17.849 - sv: natural language.0 - Finished dispatching
+2025-02-24 14:10:17.849 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [sv: natural language].0
+2025-02-24 14:10:17.849 - ai_nlp_translation_tagging -  Transformation is about to allocate step [AI Chat: Translate] of type [AiChat]
+2025-02-24 14:10:17.849 - AI Chat: Translate.0 - distribution de-activated
+2025-02-24 14:10:17.849 - AI Chat: Translate.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.850 - AI Chat: Translate.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.850 - AI Chat: Translate.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.850 - AI Chat: Translate.0 - input rel is 1:1
+2025-02-24 14:10:17.850 - AI Chat: Translate.0 - Found input rowset [ac: message_to_translate.0 - AI Chat: Translate.0]
+2025-02-24 14:10:17.850 - AI Chat: Translate.0 - output rel. is  1:1
+2025-02-24 14:10:17.850 - AI Chat: Translate.0 - Found output rowset [AI Chat: Translate.0 - sv: translated info.0]
+2025-02-24 14:10:17.850 - AI Chat: Translate.0 - Finished dispatching
+2025-02-24 14:10:17.850 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [AI Chat: Translate].0
+2025-02-24 14:10:17.850 - ai_nlp_translation_tagging -  Transformation is about to allocate step [sv: translated info] of type [SelectValues]
+2025-02-24 14:10:17.850 - sv: translated info.0 - distribution de-activated
+2025-02-24 14:10:17.850 - sv: translated info.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.850 - sv: translated info.0 - Step info: nrinput=1 nroutput=2
+2025-02-24 14:10:17.850 - sv: translated info.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.850 - sv: translated info.0 - input rel is 1:1
+2025-02-24 14:10:17.850 - sv: translated info.0 - Found input rowset [AI Chat: Translate.0 - sv: translated info.0]
+2025-02-24 14:10:17.850 - sv: translated info.0 - output rel. is  1:1
+2025-02-24 14:10:17.850 - sv: translated info.0 - Found output rowset [sv: translated info.0 - to: open_ai_chat_translated.0]
+2025-02-24 14:10:17.851 - sv: translated info.0 - output rel. is  1:1
+2025-02-24 14:10:17.851 - sv: translated info.0 - Found output rowset [sv: translated info.0 - sv: English.0]
+2025-02-24 14:10:17.851 - sv: translated info.0 - Finished dispatching
+2025-02-24 14:10:17.851 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [sv: translated info].0
+2025-02-24 14:10:17.851 - ai_nlp_translation_tagging -  Transformation is about to allocate step [ac: message - Detect Language ] of type [Constant]
+2025-02-24 14:10:17.853 - ac: message - Detect Language .0 - distribution activated
+2025-02-24 14:10:17.853 - ac: message - Detect Language .0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.853 - ac: message - Detect Language .0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.853 - ac: message - Detect Language .0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.854 - ac: message - Detect Language .0 - input rel is 1:1
+2025-02-24 14:10:17.854 - ac: message - Detect Language .0 - Found input rowset [Select values.0 - ac: message - Detect Language .0]
+2025-02-24 14:10:17.854 - ac: message - Detect Language .0 - output rel. is  1:1
+2025-02-24 14:10:17.854 - ac: message - Detect Language .0 - Found output rowset [ac: message - Detect Language .0 - aic: Detect Natural Language.0]
+2025-02-24 14:10:17.854 - ac: message - Detect Language .0 - Finished dispatching
+2025-02-24 14:10:17.854 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [ac: message - Detect Language ].0
+2025-02-24 14:10:17.854 - ai_nlp_translation_tagging -  Transformation is about to allocate step [Filter rows] of type [FilterRows]
+2025-02-24 14:10:17.860 - Filter rows.0 - distribution activated
+2025-02-24 14:10:17.860 - Filter rows.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.860 - Filter rows.0 - Step info: nrinput=1 nroutput=2
+2025-02-24 14:10:17.860 - Filter rows.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.860 - Filter rows.0 - input rel is 1:1
+2025-02-24 14:10:17.860 - Filter rows.0 - Found input rowset [sv: natural language.0 - Filter rows.0]
+2025-02-24 14:10:17.860 - Filter rows.0 - output rel. is  1:1
+2025-02-24 14:10:17.860 - Filter rows.0 - Found output rowset [Filter rows.0 - English.0]
+2025-02-24 14:10:17.861 - Filter rows.0 - output rel. is  1:1
+2025-02-24 14:10:17.861 - Filter rows.0 - Found output rowset [Filter rows.0 - NOT English.0]
+2025-02-24 14:10:17.861 - Filter rows.0 - Finished dispatching
+2025-02-24 14:10:17.861 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [Filter rows].0
+2025-02-24 14:10:17.861 - ai_nlp_translation_tagging -  Transformation is about to allocate step [English] of type [Dummy]
+2025-02-24 14:10:17.862 - English.0 - distribution activated
+2025-02-24 14:10:17.862 - English.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.862 - English.0 - Step info: nrinput=2 nroutput=1
+2025-02-24 14:10:17.863 - English.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.863 - English.0 - input rel is 1:1
+2025-02-24 14:10:17.863 - English.0 - Found input rowset [Filter rows.0 - English.0]
+2025-02-24 14:10:17.863 - English.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.863 - English.0 - input rel is 1:1
+2025-02-24 14:10:17.863 - English.0 - Found input rowset [fr: confirm English string.0 - English.0]
+2025-02-24 14:10:17.863 - English.0 - output rel. is  1:1
+2025-02-24 14:10:17.863 - English.0 - Found output rowset [English.0 - ac: message - Detect Language confirm?.0]
+2025-02-24 14:10:17.863 - English.0 - Finished dispatching
+2025-02-24 14:10:17.863 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [English].0
+2025-02-24 14:10:17.863 - ai_nlp_translation_tagging -  Transformation is about to allocate step [NOT English] of type [Dummy]
+2025-02-24 14:10:17.864 - NOT English.0 - distribution activated
+2025-02-24 14:10:17.864 - NOT English.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.864 - NOT English.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.864 - NOT English.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.864 - NOT English.0 - input rel is 1:1
+2025-02-24 14:10:17.864 - NOT English.0 - Found input rowset [Filter rows.0 - NOT English.0]
+2025-02-24 14:10:17.864 - NOT English.0 - output rel. is  1:1
+2025-02-24 14:10:17.864 - NOT English.0 - Found output rowset [NOT English.0 - fr: confirm English string.0]
+2025-02-24 14:10:17.864 - NOT English.0 - Finished dispatching
+2025-02-24 14:10:17.864 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [NOT English].0
+2025-02-24 14:10:17.864 - ai_nlp_translation_tagging -  Transformation is about to allocate step [Select values] of type [SelectValues]
+2025-02-24 14:10:17.865 - Select values.0 - distribution activated
+2025-02-24 14:10:17.865 - Select values.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.865 - Select values.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.865 - Select values.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.865 - Select values.0 - input rel is 1:1
+2025-02-24 14:10:17.865 - Select values.0 - Found input rowset [ti: open_ai_chat_store.0 - Select values.0]
+2025-02-24 14:10:17.865 - Select values.0 - output rel. is  1:1
+2025-02-24 14:10:17.865 - Select values.0 - Found output rowset [Select values.0 - ac: message - Detect Language .0]
+2025-02-24 14:10:17.865 - Select values.0 - Finished dispatching
+2025-02-24 14:10:17.866 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [Select values].0
+2025-02-24 14:10:17.866 - ai_nlp_translation_tagging -  Transformation is about to allocate step [ac: message_to_translate] of type [Constant]
+2025-02-24 14:10:17.866 - ac: message_to_translate.0 - distribution activated
+2025-02-24 14:10:17.866 - ac: message_to_translate.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.866 - ac: message_to_translate.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.867 - ac: message_to_translate.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.867 - ac: message_to_translate.0 - input rel is 1:1
+2025-02-24 14:10:17.867 - ac: message_to_translate.0 - Found input rowset [fr: confirm English string.0 - ac: message_to_translate.0]
+2025-02-24 14:10:17.867 - ac: message_to_translate.0 - output rel. is  1:1
+2025-02-24 14:10:17.867 - ac: message_to_translate.0 - Found output rowset [ac: message_to_translate.0 - AI Chat: Translate.0]
+2025-02-24 14:10:17.867 - ac: message_to_translate.0 - Finished dispatching
+2025-02-24 14:10:17.867 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [ac: message_to_translate].0
+2025-02-24 14:10:17.867 - ai_nlp_translation_tagging -  Transformation is about to allocate step [to: open_ai_chat_translated] of type [TableOutput]
+2025-02-24 14:10:17.867 - to: open_ai_chat_translated.0 - distribution activated
+2025-02-24 14:10:17.868 - to: open_ai_chat_translated.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.868 - to: open_ai_chat_translated.0 - Step info: nrinput=1 nroutput=0
+2025-02-24 14:10:17.868 - to: open_ai_chat_translated.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.868 - to: open_ai_chat_translated.0 - input rel is 1:1
+2025-02-24 14:10:17.868 - to: open_ai_chat_translated.0 - Found input rowset [sv: translated info.0 - to: open_ai_chat_translated.0]
+2025-02-24 14:10:17.868 - to: open_ai_chat_translated.0 - Finished dispatching
+2025-02-24 14:10:17.868 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [to: open_ai_chat_translated].0
+2025-02-24 14:10:17.868 - ai_nlp_translation_tagging -  Transformation is about to allocate step [ti: open_ai_chat_store] of type [TableInput]
+2025-02-24 14:10:17.869 - ti: open_ai_chat_store.0 - distribution activated
+2025-02-24 14:10:17.869 - ti: open_ai_chat_store.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.869 - ti: open_ai_chat_store.0 - Step info: nrinput=0 nroutput=1
+2025-02-24 14:10:17.869 - ti: open_ai_chat_store.0 - output rel. is  1:1
+2025-02-24 14:10:17.869 - ti: open_ai_chat_store.0 - Found output rowset [ti: open_ai_chat_store.0 - Select values.0]
+2025-02-24 14:10:17.869 - ti: open_ai_chat_store.0 - Finished dispatching
+2025-02-24 14:10:17.869 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [ti: open_ai_chat_store].0
+2025-02-24 14:10:17.869 - ai_nlp_translation_tagging -  Transformation is about to allocate step [ac: message - Detect Language confirm?] of type [Constant]
+2025-02-24 14:10:17.870 - ac: message - Detect Language confirm?.0 - distribution activated
+2025-02-24 14:10:17.870 - ac: message - Detect Language confirm?.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.870 - ac: message - Detect Language confirm?.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.870 - ac: message - Detect Language confirm?.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.871 - ac: message - Detect Language confirm?.0 - input rel is 1:1
+2025-02-24 14:10:17.871 - ac: message - Detect Language confirm?.0 - Found input rowset [English.0 - ac: message - Detect Language confirm?.0]
+2025-02-24 14:10:17.871 - ac: message - Detect Language confirm?.0 - output rel. is  1:1
+2025-02-24 14:10:17.871 - ac: message - Detect Language confirm?.0 - Found output rowset [ac: message - Detect Language confirm?.0 - aic: English Yes or No.0]
+2025-02-24 14:10:17.871 - ac: message - Detect Language confirm?.0 - Finished dispatching
+2025-02-24 14:10:17.871 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [ac: message - Detect Language confirm?].0
+2025-02-24 14:10:17.871 - ai_nlp_translation_tagging -  Transformation is about to allocate step [aic: English Yes or No] of type [AiChat]
+2025-02-24 14:10:17.871 - aic: English Yes or No.0 - distribution activated
+2025-02-24 14:10:17.871 - aic: English Yes or No.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.872 - aic: English Yes or No.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.872 - aic: English Yes or No.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.872 - aic: English Yes or No.0 - input rel is 1:1
+2025-02-24 14:10:17.872 - aic: English Yes or No.0 - Found input rowset [ac: message - Detect Language confirm?.0 - aic: English Yes or No.0]
+2025-02-24 14:10:17.872 - aic: English Yes or No.0 - output rel. is  1:1
+2025-02-24 14:10:17.872 - aic: English Yes or No.0 - Found output rowset [aic: English Yes or No.0 - fr: Yes.0]
+2025-02-24 14:10:17.872 - aic: English Yes or No.0 - Finished dispatching
+2025-02-24 14:10:17.872 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [aic: English Yes or No].0
+2025-02-24 14:10:17.872 - ai_nlp_translation_tagging -  Transformation is about to allocate step [fr: Yes] of type [FilterRows]
+2025-02-24 14:10:17.872 - fr: Yes.0 - distribution activated
+2025-02-24 14:10:17.873 - fr: Yes.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.873 - fr: Yes.0 - Step info: nrinput=1 nroutput=2
+2025-02-24 14:10:17.873 - fr: Yes.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.873 - fr: Yes.0 - input rel is 1:1
+2025-02-24 14:10:17.873 - fr: Yes.0 - Found input rowset [aic: English Yes or No.0 - fr: Yes.0]
+2025-02-24 14:10:17.873 - fr: Yes.0 - output rel. is  1:1
+2025-02-24 14:10:17.873 - fr: Yes.0 - Found output rowset [fr: Yes.0 - ac: messages.0]
+2025-02-24 14:10:17.873 - fr: Yes.0 - output rel. is  1:1
+2025-02-24 14:10:17.873 - fr: Yes.0 - Found output rowset [fr: Yes.0 - NO.0]
+2025-02-24 14:10:17.873 - fr: Yes.0 - Finished dispatching
+2025-02-24 14:10:17.873 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [fr: Yes].0
+2025-02-24 14:10:17.874 - ai_nlp_translation_tagging -  Transformation is about to allocate step [ac: messages] of type [Constant]
+2025-02-24 14:10:17.874 - ac: messages.0 - distribution de-activated
+2025-02-24 14:10:17.874 - ac: messages.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.874 - ac: messages.0 - Step info: nrinput=1 nroutput=4
+2025-02-24 14:10:17.874 - ac: messages.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.874 - ac: messages.0 - input rel is 1:1
+2025-02-24 14:10:17.874 - ac: messages.0 - Found input rowset [fr: Yes.0 - ac: messages.0]
+2025-02-24 14:10:17.874 - ac: messages.0 - output rel. is  1:1
+2025-02-24 14:10:17.874 - ac: messages.0 - Found output rowset [ac: messages.0 - aic: PoS.0]
+2025-02-24 14:10:17.874 - ac: messages.0 - output rel. is  1:1
+2025-02-24 14:10:17.875 - ac: messages.0 - Found output rowset [ac: messages.0 - aic:sentiment.0]
+2025-02-24 14:10:17.875 - ac: messages.0 - output rel. is  1:1
+2025-02-24 14:10:17.875 - ac: messages.0 - Found output rowset [ac: messages.0 - aic: NER.0]
+2025-02-24 14:10:17.875 - ac: messages.0 - output rel. is  1:1
+2025-02-24 14:10:17.875 - ac: messages.0 - Found output rowset [ac: messages.0 - aic: bi-grams.0]
+2025-02-24 14:10:17.875 - ac: messages.0 - Finished dispatching
+2025-02-24 14:10:17.875 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [ac: messages].0
+2025-02-24 14:10:17.875 - ai_nlp_translation_tagging -  Transformation is about to allocate step [aic: PoS] of type [AiChat]
+2025-02-24 14:10:17.875 - aic: PoS.0 - distribution activated
+2025-02-24 14:10:17.875 - aic: PoS.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.875 - aic: PoS.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.876 - aic: PoS.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.876 - aic: PoS.0 - input rel is 1:1
+2025-02-24 14:10:17.876 - aic: PoS.0 - Found input rowset [ac: messages.0 - aic: PoS.0]
+2025-02-24 14:10:17.876 - aic: PoS.0 - output rel. is  1:1
+2025-02-24 14:10:17.876 - aic: PoS.0 - Found output rowset [aic: PoS.0 - sv: pos.0]
+2025-02-24 14:10:17.876 - aic: PoS.0 - Finished dispatching
+2025-02-24 14:10:17.876 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [aic: PoS].0
+2025-02-24 14:10:17.876 - ai_nlp_translation_tagging -  Transformation is about to allocate step [fr: confirm English string] of type [FilterRows]
+2025-02-24 14:10:17.876 - fr: confirm English string.0 - distribution activated
+2025-02-24 14:10:17.876 - fr: confirm English string.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.876 - fr: confirm English string.0 - Step info: nrinput=1 nroutput=2
+2025-02-24 14:10:17.877 - fr: confirm English string.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.877 - fr: confirm English string.0 - input rel is 1:1
+2025-02-24 14:10:17.877 - fr: confirm English string.0 - Found input rowset [NOT English.0 - fr: confirm English string.0]
+2025-02-24 14:10:17.877 - fr: confirm English string.0 - output rel. is  1:1
+2025-02-24 14:10:17.877 - fr: confirm English string.0 - Found output rowset [fr: confirm English string.0 - ac: message_to_translate.0]
+2025-02-24 14:10:17.877 - fr: confirm English string.0 - output rel. is  1:1
+2025-02-24 14:10:17.877 - fr: confirm English string.0 - Found output rowset [fr: confirm English string.0 - English.0]
+2025-02-24 14:10:17.877 - fr: confirm English string.0 - Finished dispatching
+2025-02-24 14:10:17.877 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [fr: confirm English string].0
+2025-02-24 14:10:17.877 - ai_nlp_translation_tagging -  Transformation is about to allocate step [sv: pos] of type [SelectValues]
+2025-02-24 14:10:17.877 - sv: pos.0 - distribution activated
+2025-02-24 14:10:17.877 - sv: pos.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.878 - sv: pos.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.878 - sv: pos.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.878 - sv: pos.0 - input rel is 1:1
+2025-02-24 14:10:17.878 - sv: pos.0 - Found input rowset [aic: PoS.0 - sv: pos.0]
+2025-02-24 14:10:17.878 - sv: pos.0 - output rel. is  1:1
+2025-02-24 14:10:17.878 - sv: pos.0 - Found output rowset [sv: pos.0 - PoS.0]
+2025-02-24 14:10:17.878 - sv: pos.0 - Finished dispatching
+2025-02-24 14:10:17.878 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [sv: pos].0
+2025-02-24 14:10:17.878 - ai_nlp_translation_tagging -  Transformation is about to allocate step [sv: English] of type [SelectValues]
+2025-02-24 14:10:17.878 - sv: English.0 - distribution activated
+2025-02-24 14:10:17.878 - sv: English.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.878 - sv: English.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.879 - sv: English.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.879 - sv: English.0 - input rel is 1:1
+2025-02-24 14:10:17.879 - sv: English.0 - Found input rowset [sv: translated info.0 - sv: English.0]
+2025-02-24 14:10:17.879 - sv: English.0 - output rel. is  1:1
+2025-02-24 14:10:17.879 - sv: English.0 - Found output rowset [sv: English.0 - ac: message.0]
+2025-02-24 14:10:17.879 - sv: English.0 - Finished dispatching
+2025-02-24 14:10:17.879 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [sv: English].0
+2025-02-24 14:10:17.879 - ai_nlp_translation_tagging -  Transformation is about to allocate step [aic: English PoS Tag] of type [AiChat]
+2025-02-24 14:10:17.879 - aic: English PoS Tag.0 - distribution activated
+2025-02-24 14:10:17.879 - aic: English PoS Tag.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.879 - aic: English PoS Tag.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.879 - aic: English PoS Tag.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.880 - aic: English PoS Tag.0 - input rel is 1:1
+2025-02-24 14:10:17.880 - aic: English PoS Tag.0 - Found input rowset [ac: message.0 - aic: English PoS Tag.0]
+2025-02-24 14:10:17.880 - aic: English PoS Tag.0 - output rel. is  1:1
+2025-02-24 14:10:17.880 - aic: English PoS Tag.0 - Found output rowset [aic: English PoS Tag.0 - sv: pos-tagged 1.0]
+2025-02-24 14:10:17.880 - aic: English PoS Tag.0 - Finished dispatching
+2025-02-24 14:10:17.880 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [aic: English PoS Tag].0
+2025-02-24 14:10:17.880 - ai_nlp_translation_tagging -  Transformation is about to allocate step [sv: pos-tagged 1] of type [SelectValues]
+2025-02-24 14:10:17.880 - sv: pos-tagged 1.0 - distribution activated
+2025-02-24 14:10:17.880 - sv: pos-tagged 1.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.880 - sv: pos-tagged 1.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.880 - sv: pos-tagged 1.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.880 - sv: pos-tagged 1.0 - input rel is 1:1
+2025-02-24 14:10:17.880 - sv: pos-tagged 1.0 - Found input rowset [aic: English PoS Tag.0 - sv: pos-tagged 1.0]
+2025-02-24 14:10:17.881 - sv: pos-tagged 1.0 - output rel. is  1:1
+2025-02-24 14:10:17.881 - sv: pos-tagged 1.0 - Found output rowset [sv: pos-tagged 1.0 - PoS.0]
+2025-02-24 14:10:17.881 - sv: pos-tagged 1.0 - Finished dispatching
+2025-02-24 14:10:17.881 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [sv: pos-tagged 1].0
+2025-02-24 14:10:17.882 - ai_nlp_translation_tagging -  Transformation is about to allocate step [PoS] of type [Dummy]
+2025-02-24 14:10:17.882 - PoS.0 - distribution activated
+2025-02-24 14:10:17.882 - PoS.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.882 - PoS.0 - Step info: nrinput=2 nroutput=1
+2025-02-24 14:10:17.882 - PoS.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.882 - PoS.0 - input rel is 1:1
+2025-02-24 14:10:17.882 - PoS.0 - Found input rowset [sv: pos.0 - PoS.0]
+2025-02-24 14:10:17.883 - PoS.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.883 - PoS.0 - input rel is 1:1
+2025-02-24 14:10:17.883 - PoS.0 - Found input rowset [sv: pos-tagged 1.0 - PoS.0]
+2025-02-24 14:10:17.883 - PoS.0 - output rel. is  1:1
+2025-02-24 14:10:17.883 - PoS.0 - Found output rowset [PoS.0 - slu: pos.0]
+2025-02-24 14:10:17.883 - PoS.0 - Finished dispatching
+2025-02-24 14:10:17.883 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [PoS].0
+2025-02-24 14:10:17.883 - ai_nlp_translation_tagging -  Transformation is about to allocate step [aic:sentiment] of type [AiChat]
+2025-02-24 14:10:17.884 - aic:sentiment.0 - distribution activated
+2025-02-24 14:10:17.884 - aic:sentiment.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.884 - aic:sentiment.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.884 - aic:sentiment.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.884 - aic:sentiment.0 - input rel is 1:1
+2025-02-24 14:10:17.884 - aic:sentiment.0 - Found input rowset [ac: messages.0 - aic:sentiment.0]
+2025-02-24 14:10:17.884 - aic:sentiment.0 - output rel. is  1:1
+2025-02-24 14:10:17.884 - aic:sentiment.0 - Found output rowset [aic:sentiment.0 - sv: sentiment.0]
+2025-02-24 14:10:17.884 - aic:sentiment.0 - Finished dispatching
+2025-02-24 14:10:17.885 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [aic:sentiment].0
+2025-02-24 14:10:17.885 - ai_nlp_translation_tagging -  Transformation is about to allocate step [sv: sentiment] of type [SelectValues]
+2025-02-24 14:10:17.885 - sv: sentiment.0 - distribution de-activated
+2025-02-24 14:10:17.885 - sv: sentiment.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.885 - sv: sentiment.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.885 - sv: sentiment.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.885 - sv: sentiment.0 - input rel is 1:1
+2025-02-24 14:10:17.885 - sv: sentiment.0 - Found input rowset [aic:sentiment.0 - sv: sentiment.0]
+2025-02-24 14:10:17.886 - sv: sentiment.0 - output rel. is  1:1
+2025-02-24 14:10:17.886 - sv: sentiment.0 - Found output rowset [sv: sentiment.0 - Sentiment.0]
+2025-02-24 14:10:17.886 - sv: sentiment.0 - Finished dispatching
+2025-02-24 14:10:17.886 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [sv: sentiment].0
+2025-02-24 14:10:17.886 - ai_nlp_translation_tagging -  Transformation is about to allocate step [aic: Sentiment] of type [AiChat]
+2025-02-24 14:10:17.886 - aic: Sentiment.0 - distribution activated
+2025-02-24 14:10:17.886 - aic: Sentiment.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.886 - aic: Sentiment.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.886 - aic: Sentiment.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.887 - aic: Sentiment.0 - input rel is 1:1
+2025-02-24 14:10:17.887 - aic: Sentiment.0 - Found input rowset [ac: message.0 - aic: Sentiment.0]
+2025-02-24 14:10:17.887 - aic: Sentiment.0 - output rel. is  1:1
+2025-02-24 14:10:17.887 - aic: Sentiment.0 - Found output rowset [aic: Sentiment.0 - sv:sentiment.0]
+2025-02-24 14:10:17.887 - aic: Sentiment.0 - Finished dispatching
+2025-02-24 14:10:17.887 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [aic: Sentiment].0
+2025-02-24 14:10:17.887 - ai_nlp_translation_tagging -  Transformation is about to allocate step [sv:sentiment] of type [SelectValues]
+2025-02-24 14:10:17.887 - sv:sentiment.0 - distribution activated
+2025-02-24 14:10:17.887 - sv:sentiment.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.888 - sv:sentiment.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.888 - sv:sentiment.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.888 - sv:sentiment.0 - input rel is 1:1
+2025-02-24 14:10:17.888 - sv:sentiment.0 - Found input rowset [aic: Sentiment.0 - sv:sentiment.0]
+2025-02-24 14:10:17.888 - sv:sentiment.0 - output rel. is  1:1
+2025-02-24 14:10:17.888 - sv:sentiment.0 - Found output rowset [sv:sentiment.0 - Sentiment.0]
+2025-02-24 14:10:17.888 - sv:sentiment.0 - Finished dispatching
+2025-02-24 14:10:17.888 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [sv:sentiment].0
+2025-02-24 14:10:17.888 - ai_nlp_translation_tagging -  Transformation is about to allocate step [Sentiment] of type [Dummy]
+2025-02-24 14:10:17.889 - Sentiment.0 - distribution activated
+2025-02-24 14:10:17.889 - Sentiment.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.889 - Sentiment.0 - Step info: nrinput=2 nroutput=1
+2025-02-24 14:10:17.889 - Sentiment.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.889 - Sentiment.0 - input rel is 1:1
+2025-02-24 14:10:17.889 - Sentiment.0 - Found input rowset [sv: sentiment.0 - Sentiment.0]
+2025-02-24 14:10:17.889 - Sentiment.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.889 - Sentiment.0 - input rel is 1:1
+2025-02-24 14:10:17.889 - Sentiment.0 - Found input rowset [sv:sentiment.0 - Sentiment.0]
+2025-02-24 14:10:17.889 - Sentiment.0 - output rel. is  1:1
+2025-02-24 14:10:17.890 - Sentiment.0 - Found output rowset [Sentiment.0 - slu:ner.0]
+2025-02-24 14:10:17.890 - Sentiment.0 - Finished dispatching
+2025-02-24 14:10:17.890 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [Sentiment].0
+2025-02-24 14:10:17.890 - ai_nlp_translation_tagging -  Transformation is about to allocate step [NO] of type [Dummy]
+2025-02-24 14:10:17.890 - NO.0 - distribution activated
+2025-02-24 14:10:17.890 - NO.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.890 - NO.0 - Step info: nrinput=1 nroutput=0
+2025-02-24 14:10:17.890 - NO.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.890 - NO.0 - input rel is 1:1
+2025-02-24 14:10:17.891 - NO.0 - Found input rowset [fr: Yes.0 - NO.0]
+2025-02-24 14:10:17.891 - NO.0 - Finished dispatching
+2025-02-24 14:10:17.891 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [NO].0
+2025-02-24 14:10:17.891 - ai_nlp_translation_tagging -  Transformation is about to allocate step [aic: NER] of type [AiChat]
+2025-02-24 14:10:17.891 - aic: NER.0 - distribution activated
+2025-02-24 14:10:17.891 - aic: NER.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.891 - aic: NER.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.891 - aic: NER.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.891 - aic: NER.0 - input rel is 1:1
+2025-02-24 14:10:17.891 - aic: NER.0 - Found input rowset [ac: messages.0 - aic: NER.0]
+2025-02-24 14:10:17.892 - aic: NER.0 - output rel. is  1:1
+2025-02-24 14:10:17.892 - aic: NER.0 - Found output rowset [aic: NER.0 - sv: NER.0]
+2025-02-24 14:10:17.892 - aic: NER.0 - Finished dispatching
+2025-02-24 14:10:17.892 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [aic: NER].0
+2025-02-24 14:10:17.892 - ai_nlp_translation_tagging -  Transformation is about to allocate step [sv: NER] of type [SelectValues]
+2025-02-24 14:10:17.892 - sv: NER.0 - distribution de-activated
+2025-02-24 14:10:17.892 - sv: NER.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.892 - sv: NER.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.892 - sv: NER.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.892 - sv: NER.0 - input rel is 1:1
+2025-02-24 14:10:17.892 - sv: NER.0 - Found input rowset [aic: NER.0 - sv: NER.0]
+2025-02-24 14:10:17.893 - sv: NER.0 - output rel. is  1:1
+2025-02-24 14:10:17.893 - sv: NER.0 - Found output rowset [sv: NER.0 - mjsv: ner.0]
+2025-02-24 14:10:17.893 - sv: NER.0 - Finished dispatching
+2025-02-24 14:10:17.893 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [sv: NER].0
+2025-02-24 14:10:17.893 - ai_nlp_translation_tagging -  Transformation is about to allocate step [mjsv: ner] of type [ScriptValueMod]
+2025-02-24 14:10:17.893 - mjsv: ner.0 - distribution activated
+2025-02-24 14:10:17.893 - mjsv: ner.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.893 - mjsv: ner.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.893 - mjsv: ner.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.893 - mjsv: ner.0 - input rel is 1:1
+2025-02-24 14:10:17.893 - mjsv: ner.0 - Found input rowset [sv: NER.0 - mjsv: ner.0]
+2025-02-24 14:10:17.894 - mjsv: ner.0 - output rel. is  1:1
+2025-02-24 14:10:17.894 - mjsv: ner.0 - Found output rowset [mjsv: ner.0 - NER.0]
+2025-02-24 14:10:17.894 - mjsv: ner.0 - Finished dispatching
+2025-02-24 14:10:17.894 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [mjsv: ner].0
+2025-02-24 14:10:17.894 - ai_nlp_translation_tagging -  Transformation is about to allocate step [NER] of type [Dummy]
+2025-02-24 14:10:17.894 - NER.0 - distribution activated
+2025-02-24 14:10:17.894 - NER.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.894 - NER.0 - Step info: nrinput=2 nroutput=1
+2025-02-24 14:10:17.894 - NER.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.894 - NER.0 - input rel is 1:1
+2025-02-24 14:10:17.895 - NER.0 - Found input rowset [mjsv: ner.0 - NER.0]
+2025-02-24 14:10:17.895 - NER.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.895 - NER.0 - input rel is 1:1
+2025-02-24 14:10:17.895 - NER.0 - Found input rowset [mjsv: N ER.0 - NER.0]
+2025-02-24 14:10:17.895 - NER.0 - output rel. is  1:1
+2025-02-24 14:10:17.895 - NER.0 - Found output rowset [NER.0 - slu:ner.0]
+2025-02-24 14:10:17.895 - NER.0 - Finished dispatching
+2025-02-24 14:10:17.895 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [NER].0
+2025-02-24 14:10:17.895 - ai_nlp_translation_tagging -  Transformation is about to allocate step [slu:ner] of type [StreamLookup]
+2025-02-24 14:10:17.899 - slu:ner.0 - distribution activated
+2025-02-24 14:10:17.899 - slu:ner.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.900 - slu:ner.0 - Step info: nrinput=2 nroutput=1
+2025-02-24 14:10:17.900 - slu:ner.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.900 - slu:ner.0 - input rel is 1:1
+2025-02-24 14:10:17.900 - slu:ner.0 - Found input rowset [NER.0 - slu:ner.0]
+2025-02-24 14:10:17.900 - slu:ner.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.900 - slu:ner.0 - input rel is 1:1
+2025-02-24 14:10:17.900 - slu:ner.0 - Found input rowset [Sentiment.0 - slu:ner.0]
+2025-02-24 14:10:17.900 - slu:ner.0 - output rel. is  1:1
+2025-02-24 14:10:17.901 - slu:ner.0 - Found output rowset [slu:ner.0 - slu: pos.0]
+2025-02-24 14:10:17.901 - slu:ner.0 - Finished dispatching
+2025-02-24 14:10:17.901 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [slu:ner].0
+2025-02-24 14:10:17.901 - ai_nlp_translation_tagging -  Transformation is about to allocate step [slu: pos] of type [StreamLookup]
+2025-02-24 14:10:17.901 - slu: pos.0 - distribution activated
+2025-02-24 14:10:17.901 - slu: pos.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.901 - slu: pos.0 - Step info: nrinput=2 nroutput=1
+2025-02-24 14:10:17.902 - slu: pos.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.902 - slu: pos.0 - input rel is 1:1
+2025-02-24 14:10:17.902 - slu: pos.0 - Found input rowset [slu:ner.0 - slu: pos.0]
+2025-02-24 14:10:17.902 - slu: pos.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.902 - slu: pos.0 - input rel is 1:1
+2025-02-24 14:10:17.902 - slu: pos.0 - Found input rowset [PoS.0 - slu: pos.0]
+2025-02-24 14:10:17.902 - slu: pos.0 - output rel. is  1:1
+2025-02-24 14:10:17.902 - slu: pos.0 - Found output rowset [slu: pos.0 - All Tagged.0]
+2025-02-24 14:10:17.902 - slu: pos.0 - Finished dispatching
+2025-02-24 14:10:17.903 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [slu: pos].0
+2025-02-24 14:10:17.903 - ai_nlp_translation_tagging -  Transformation is about to allocate step [All Tagged] of type [Dummy]
+2025-02-24 14:10:17.903 - All Tagged.0 - distribution activated
+2025-02-24 14:10:17.903 - All Tagged.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.903 - All Tagged.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.903 - All Tagged.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.903 - All Tagged.0 - input rel is 1:1
+2025-02-24 14:10:17.903 - All Tagged.0 - Found input rowset [slu: pos.0 - All Tagged.0]
+2025-02-24 14:10:17.903 - All Tagged.0 - output rel. is  1:1
+2025-02-24 14:10:17.904 - All Tagged.0 - Found output rowset [All Tagged.0 - to: tagged_data.0]
+2025-02-24 14:10:17.904 - All Tagged.0 - Finished dispatching
+2025-02-24 14:10:17.904 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [All Tagged].0
+2025-02-24 14:10:17.904 - ai_nlp_translation_tagging -  Transformation is about to allocate step [to: tagged_data] of type [TableOutput]
+2025-02-24 14:10:17.904 - to: tagged_data.0 - distribution activated
+2025-02-24 14:10:17.904 - to: tagged_data.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.904 - to: tagged_data.0 - Step info: nrinput=1 nroutput=0
+2025-02-24 14:10:17.905 - to: tagged_data.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.905 - to: tagged_data.0 - input rel is 1:1
+2025-02-24 14:10:17.905 - to: tagged_data.0 - Found input rowset [All Tagged.0 - to: tagged_data.0]
+2025-02-24 14:10:17.905 - to: tagged_data.0 - Finished dispatching
+2025-02-24 14:10:17.905 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [to: tagged_data].0
+2025-02-24 14:10:17.905 - ai_nlp_translation_tagging -  Transformation is about to allocate step [aic: N ER] of type [AiChat]
+2025-02-24 14:10:17.905 - aic: N ER.0 - distribution activated
+2025-02-24 14:10:17.905 - aic: N ER.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.906 - aic: N ER.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.906 - aic: N ER.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.906 - aic: N ER.0 - input rel is 1:1
+2025-02-24 14:10:17.906 - aic: N ER.0 - Found input rowset [ac: message.0 - aic: N ER.0]
+2025-02-24 14:10:17.906 - aic: N ER.0 - output rel. is  1:1
+2025-02-24 14:10:17.906 - aic: N ER.0 - Found output rowset [aic: N ER.0 - sv: N ER.0]
+2025-02-24 14:10:17.906 - aic: N ER.0 - Finished dispatching
+2025-02-24 14:10:17.906 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [aic: N ER].0
+2025-02-24 14:10:17.906 - ai_nlp_translation_tagging -  Transformation is about to allocate step [sv: N ER] of type [SelectValues]
+2025-02-24 14:10:17.907 - sv: N ER.0 - distribution de-activated
+2025-02-24 14:10:17.907 - sv: N ER.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.907 - sv: N ER.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.907 - sv: N ER.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.907 - sv: N ER.0 - input rel is 1:1
+2025-02-24 14:10:17.907 - sv: N ER.0 - Found input rowset [aic: N ER.0 - sv: N ER.0]
+2025-02-24 14:10:17.907 - sv: N ER.0 - output rel. is  1:1
+2025-02-24 14:10:17.907 - sv: N ER.0 - Found output rowset [sv: N ER.0 - mjsv: N ER.0]
+2025-02-24 14:10:17.907 - sv: N ER.0 - Finished dispatching
+2025-02-24 14:10:17.907 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [sv: N ER].0
+2025-02-24 14:10:17.907 - ai_nlp_translation_tagging -  Transformation is about to allocate step [mjsv: N ER] of type [ScriptValueMod]
+2025-02-24 14:10:17.908 - mjsv: N ER.0 - distribution activated
+2025-02-24 14:10:17.908 - mjsv: N ER.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.908 - mjsv: N ER.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.908 - mjsv: N ER.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.908 - mjsv: N ER.0 - input rel is 1:1
+2025-02-24 14:10:17.908 - mjsv: N ER.0 - Found input rowset [sv: N ER.0 - mjsv: N ER.0]
+2025-02-24 14:10:17.908 - mjsv: N ER.0 - output rel. is  1:1
+2025-02-24 14:10:17.908 - mjsv: N ER.0 - Found output rowset [mjsv: N ER.0 - NER.0]
+2025-02-24 14:10:17.908 - mjsv: N ER.0 - Finished dispatching
+2025-02-24 14:10:17.909 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [mjsv: N ER].0
+2025-02-24 14:10:17.909 - ai_nlp_translation_tagging -  Transformation is about to allocate step [aic: bi-grams] of type [AiChat]
+2025-02-24 14:10:17.909 - aic: bi-grams.0 - distribution activated
+2025-02-24 14:10:17.909 - aic: bi-grams.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.909 - aic: bi-grams.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.909 - aic: bi-grams.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.909 - aic: bi-grams.0 - input rel is 1:1
+2025-02-24 14:10:17.909 - aic: bi-grams.0 - Found input rowset [ac: messages.0 - aic: bi-grams.0]
+2025-02-24 14:10:17.909 - aic: bi-grams.0 - output rel. is  1:1
+2025-02-24 14:10:17.909 - aic: bi-grams.0 - Found output rowset [aic: bi-grams.0 - sv: bi-grams.0]
+2025-02-24 14:10:17.909 - aic: bi-grams.0 - Finished dispatching
+2025-02-24 14:10:17.910 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [aic: bi-grams].0
+2025-02-24 14:10:17.910 - ai_nlp_translation_tagging -  Transformation is about to allocate step [sv: bi-grams] of type [SelectValues]
+2025-02-24 14:10:17.910 - sv: bi-grams.0 - distribution de-activated
+2025-02-24 14:10:17.910 - sv: bi-grams.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.910 - sv: bi-grams.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.910 - sv: bi-grams.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.910 - sv: bi-grams.0 - input rel is 1:1
+2025-02-24 14:10:17.910 - sv: bi-grams.0 - Found input rowset [aic: bi-grams.0 - sv: bi-grams.0]
+2025-02-24 14:10:17.910 - sv: bi-grams.0 - output rel. is  1:1
+2025-02-24 14:10:17.910 - sv: bi-grams.0 - Found output rowset [sv: bi-grams.0 - mjsv: bigram.0]
+2025-02-24 14:10:17.910 - sv: bi-grams.0 - Finished dispatching
+2025-02-24 14:10:17.910 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [sv: bi-grams].0
+2025-02-24 14:10:17.911 - ai_nlp_translation_tagging -  Transformation is about to allocate step [mjsv: bigram] of type [ScriptValueMod]
+2025-02-24 14:10:17.911 - mjsv: bigram.0 - distribution activated
+2025-02-24 14:10:17.911 - mjsv: bigram.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.911 - mjsv: bigram.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.911 - mjsv: bigram.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.911 - mjsv: bigram.0 - input rel is 1:1
+2025-02-24 14:10:17.911 - mjsv: bigram.0 - Found input rowset [sv: bi-grams.0 - mjsv: bigram.0]
+2025-02-24 14:10:17.911 - mjsv: bigram.0 - output rel. is  1:1
+2025-02-24 14:10:17.911 - mjsv: bigram.0 - Found output rowset [mjsv: bigram.0 - to: bigrams.0]
+2025-02-24 14:10:17.912 - mjsv: bigram.0 - Finished dispatching
+2025-02-24 14:10:17.912 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [mjsv: bigram].0
+2025-02-24 14:10:17.912 - ai_nlp_translation_tagging -  Transformation is about to allocate step [to: bigrams] of type [TableOutput]
+2025-02-24 14:10:17.912 - to: bigrams.0 - distribution activated
+2025-02-24 14:10:17.912 - to: bigrams.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.912 - to: bigrams.0 - Step info: nrinput=2 nroutput=0
+2025-02-24 14:10:17.913 - to: bigrams.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.913 - to: bigrams.0 - input rel is 1:1
+2025-02-24 14:10:17.913 - to: bigrams.0 - Found input rowset [mjsv: bigram.0 - to: bigrams.0]
+2025-02-24 14:10:17.913 - to: bigrams.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.913 - to: bigrams.0 - input rel is 1:1
+2025-02-24 14:10:17.913 - to: bigrams.0 - Found input rowset [mjsv:  bigram_.0 - to: bigrams.0]
+2025-02-24 14:10:17.913 - to: bigrams.0 - Finished dispatching
+2025-02-24 14:10:17.913 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [to: bigrams].0
+2025-02-24 14:10:17.913 - ai_nlp_translation_tagging -  Transformation is about to allocate step [aic: bi-gram] of type [AiChat]
+2025-02-24 14:10:17.913 - aic: bi-gram.0 - distribution activated
+2025-02-24 14:10:17.913 - aic: bi-gram.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.913 - aic: bi-gram.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.913 - aic: bi-gram.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.913 - aic: bi-gram.0 - input rel is 1:1
+2025-02-24 14:10:17.913 - aic: bi-gram.0 - Found input rowset [ac: message.0 - aic: bi-gram.0]
+2025-02-24 14:10:17.913 - aic: bi-gram.0 - output rel. is  1:1
+2025-02-24 14:10:17.913 - aic: bi-gram.0 - Found output rowset [aic: bi-gram.0 - sv: bi-gram.0]
+2025-02-24 14:10:17.913 - aic: bi-gram.0 - Finished dispatching
+2025-02-24 14:10:17.913 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [aic: bi-gram].0
+2025-02-24 14:10:17.913 - ai_nlp_translation_tagging -  Transformation is about to allocate step [sv: bi-gram] of type [SelectValues]
+2025-02-24 14:10:17.914 - sv: bi-gram.0 - distribution de-activated
+2025-02-24 14:10:17.914 - sv: bi-gram.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.914 - sv: bi-gram.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.914 - sv: bi-gram.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.914 - sv: bi-gram.0 - input rel is 1:1
+2025-02-24 14:10:17.914 - sv: bi-gram.0 - Found input rowset [aic: bi-gram.0 - sv: bi-gram.0]
+2025-02-24 14:10:17.914 - sv: bi-gram.0 - output rel. is  1:1
+2025-02-24 14:10:17.914 - sv: bi-gram.0 - Found output rowset [sv: bi-gram.0 - mjsv:  bigram_.0]
+2025-02-24 14:10:17.914 - sv: bi-gram.0 - Finished dispatching
+2025-02-24 14:10:17.915 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [sv: bi-gram].0
+2025-02-24 14:10:17.915 - ai_nlp_translation_tagging -  Transformation is about to allocate step [mjsv:  bigram_] of type [ScriptValueMod]
+2025-02-24 14:10:17.915 - mjsv:  bigram_.0 - distribution activated
+2025-02-24 14:10:17.915 - mjsv:  bigram_.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.915 - mjsv:  bigram_.0 - Step info: nrinput=1 nroutput=1
+2025-02-24 14:10:17.915 - mjsv:  bigram_.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.915 - mjsv:  bigram_.0 - input rel is 1:1
+2025-02-24 14:10:17.915 - mjsv:  bigram_.0 - Found input rowset [sv: bi-gram.0 - mjsv:  bigram_.0]
+2025-02-24 14:10:17.915 - mjsv:  bigram_.0 - output rel. is  1:1
+2025-02-24 14:10:17.915 - mjsv:  bigram_.0 - Found output rowset [mjsv:  bigram_.0 - to: bigrams.0]
+2025-02-24 14:10:17.916 - mjsv:  bigram_.0 - Finished dispatching
+2025-02-24 14:10:17.916 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [mjsv:  bigram_].0
+2025-02-24 14:10:17.916 - ai_nlp_translation_tagging -  Transformation is about to allocate step [ac: message] of type [Constant]
+2025-02-24 14:10:17.916 - ac: message.0 - distribution de-activated
+2025-02-24 14:10:17.916 - ac: message.0 - Starting allocation of buffers & new threads...
+2025-02-24 14:10:17.916 - ac: message.0 - Step info: nrinput=1 nroutput=4
+2025-02-24 14:10:17.916 - ac: message.0 - !BaseStep.Log.GotPreviousStep!
+2025-02-24 14:10:17.916 - ac: message.0 - input rel is 1:1
+2025-02-24 14:10:17.917 - ac: message.0 - Found input rowset [sv: English.0 - ac: message.0]
+2025-02-24 14:10:17.917 - ac: message.0 - output rel. is  1:1
+2025-02-24 14:10:17.917 - ac: message.0 - Found output rowset [ac: message.0 - aic: English PoS Tag.0]
+2025-02-24 14:10:17.917 - ac: message.0 - output rel. is  1:1
+2025-02-24 14:10:17.917 - ac: message.0 - Found output rowset [ac: message.0 - aic: Sentiment.0]
+2025-02-24 14:10:17.917 - ac: message.0 - output rel. is  1:1
+2025-02-24 14:10:17.917 - ac: message.0 - Found output rowset [ac: message.0 - aic: N ER.0]
+2025-02-24 14:10:17.917 - ac: message.0 - output rel. is  1:1
+2025-02-24 14:10:17.917 - ac: message.0 - Found output rowset [ac: message.0 - aic: bi-gram.0]
+2025-02-24 14:10:17.917 - ac: message.0 - Finished dispatching
+2025-02-24 14:10:17.917 - ai_nlp_translation_tagging -  Transformation has allocated a new step: [ac: message].0
+2025-02-24 14:10:17.917 - ai_nlp_translation_tagging - This transformation can be replayed with replay date: 2025/02/24 14:10:17
+2025-02-24 14:10:17.918 - ai_nlp_translation_tagging - Initialising 48 steps...
+2025-02-24 14:10:17.918 - aic: Detect Natural Language.0 - Released server socket on port 0
+2025-02-24 14:10:17.918 - sv: natural language.0 - Released server socket on port 0
+2025-02-24 14:10:17.918 - AI Chat: Translate.0 - Released server socket on port 0
+2025-02-24 14:10:17.918 - sv: translated info.0 - Released server socket on port 0
+2025-02-24 14:10:17.918 - ac: message - Detect Language .0 - Released server socket on port 0
+2025-02-24 14:10:17.919 - Filter rows.0 - Released server socket on port 0
+2025-02-24 14:10:17.919 - English.0 - Released server socket on port 0
+2025-02-24 14:10:17.919 - NOT English.0 - Released server socket on port 0
+2025-02-24 14:10:17.919 - Select values.0 - Released server socket on port 0
+2025-02-24 14:10:17.920 - ac: message_to_translate.0 - Released server socket on port 0
+2025-02-24 14:10:17.920 - to: open_ai_chat_translated.0 - Released server socket on port 0
+2025-02-24 14:10:17.920 - ti: open_ai_chat_store.0 - Released server socket on port 0
+2025-02-24 14:10:17.920 - local_pg - New database connection defined
+2025-02-24 14:10:17.920 - ac: message - Detect Language confirm?.0 - Released server socket on port 0
+2025-02-24 14:10:17.921 - local_pg - New database connection defined
+2025-02-24 14:10:17.921 - fr: Yes.0 - Released server socket on port 0
+2025-02-24 14:10:17.921 - to: open_ai_chat_translated.0 - Connected to database [local_pg] (commit=1000)
+2025-02-24 14:10:17.921 - aic: English Yes or No.0 - Released server socket on port 0
+2025-02-24 14:10:17.921 - aic: PoS.0 - Released server socket on port 0
+2025-02-24 14:10:17.921 - ac: messages.0 - Released server socket on port 0
+2025-02-24 14:10:17.921 - fr: confirm English string.0 - Released server socket on port 0
+2025-02-24 14:10:17.921 - sv: pos.0 - Released server socket on port 0
+2025-02-24 14:10:17.921 - sv: English.0 - Released server socket on port 0
+2025-02-24 14:10:17.921 - aic: English PoS Tag.0 - Released server socket on port 0
+2025-02-24 14:10:17.922 - PoS.0 - Released server socket on port 0
+2025-02-24 14:10:17.922 - sv: pos-tagged 1.0 - Released server socket on port 0
+2025-02-24 14:10:17.922 - sv: sentiment.0 - Released server socket on port 0
+2025-02-24 14:10:17.922 - aic: Sentiment.0 - Released server socket on port 0
+2025-02-24 14:10:17.922 - aic:sentiment.0 - Released server socket on port 0
+2025-02-24 14:10:17.922 - NO.0 - Released server socket on port 0
+2025-02-24 14:10:17.922 - sv:sentiment.0 - Released server socket on port 0
+2025-02-24 14:10:17.922 - Sentiment.0 - Released server socket on port 0
+2025-02-24 14:10:17.922 - aic: NER.0 - Released server socket on port 0
+2025-02-24 14:10:17.922 - NER.0 - Released server socket on port 0
+2025-02-24 14:10:17.922 - mjsv: ner.0 - Released server socket on port 0
+2025-02-24 14:10:17.922 - sv: NER.0 - Released server socket on port 0
+2025-02-24 14:10:17.923 - slu:ner.0 - Released server socket on port 0
+2025-02-24 14:10:17.923 - slu: pos.0 - Released server socket on port 0
+2025-02-24 14:10:17.923 - All Tagged.0 - Released server socket on port 0
+2025-02-24 14:10:17.923 - to: tagged_data.0 - Released server socket on port 0
+2025-02-24 14:10:17.923 - aic: N ER.0 - Released server socket on port 0
+2025-02-24 14:10:17.923 - local_pg - New database connection defined
+2025-02-24 14:10:17.923 - mjsv: N ER.0 - Released server socket on port 0
+2025-02-24 14:10:17.923 - sv: N ER.0 - Released server socket on port 0
+2025-02-24 14:10:17.923 - to: tagged_data.0 - Connected to database [local_pg] (commit=1000)
+2025-02-24 14:10:17.923 - aic: bi-grams.0 - Released server socket on port 0
+2025-02-24 14:10:17.923 - sv: bi-grams.0 - Released server socket on port 0
+2025-02-24 14:10:17.924 - mjsv: bigram.0 - Released server socket on port 0
+2025-02-24 14:10:17.924 - aic: bi-gram.0 - Released server socket on port 0
+2025-02-24 14:10:17.924 - to: bigrams.0 - Released server socket on port 0
+2025-02-24 14:10:17.924 - sv: bi-gram.0 - Released server socket on port 0
+2025-02-24 14:10:17.924 - mjsv:  bigram_.0 - Released server socket on port 0
+2025-02-24 14:10:17.924 - local_pg - New database connection defined
+2025-02-24 14:10:17.924 - to: bigrams.0 - Connected to database [local_pg] (commit=1000)
+2025-02-24 14:10:17.924 - ac: message.0 - Released server socket on port 0
+2025-02-24 14:10:17.925 - ai_nlp_translation_tagging - Step [aic: Detect Natural Language.0] initialized flawlessly.
+2025-02-24 14:10:17.925 - ai_nlp_translation_tagging - Step [sv: natural language.0] initialized flawlessly.
+2025-02-24 14:10:17.925 - ai_nlp_translation_tagging - Step [AI Chat: Translate.0] initialized flawlessly.
+2025-02-24 14:10:17.925 - ai_nlp_translation_tagging - Step [sv: translated info.0] initialized flawlessly.
+2025-02-24 14:10:17.925 - ai_nlp_translation_tagging - Step [ac: message - Detect Language .0] initialized flawlessly.
+2025-02-24 14:10:17.925 - ai_nlp_translation_tagging - Step [Filter rows.0] initialized flawlessly.
+2025-02-24 14:10:17.925 - ai_nlp_translation_tagging - Step [English.0] initialized flawlessly.
+2025-02-24 14:10:17.925 - ai_nlp_translation_tagging - Step [NOT English.0] initialized flawlessly.
+2025-02-24 14:10:17.925 - ai_nlp_translation_tagging - Step [Select values.0] initialized flawlessly.
+2025-02-24 14:10:17.925 - ai_nlp_translation_tagging - Step [ac: message_to_translate.0] initialized flawlessly.
+2025-02-24 14:10:17.925 - ai_nlp_translation_tagging - Step [to: open_ai_chat_translated.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [ti: open_ai_chat_store.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [ac: message - Detect Language confirm?.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [aic: English Yes or No.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [fr: Yes.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [ac: messages.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [aic: PoS.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [fr: confirm English string.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [sv: pos.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [sv: English.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [aic: English PoS Tag.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [sv: pos-tagged 1.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [PoS.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [aic:sentiment.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [sv: sentiment.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [aic: Sentiment.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [sv:sentiment.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [Sentiment.0] initialized flawlessly.
+2025-02-24 14:10:17.926 - ai_nlp_translation_tagging - Step [NO.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [aic: NER.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [sv: NER.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [mjsv: ner.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [NER.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [slu:ner.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [slu: pos.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [All Tagged.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [to: tagged_data.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [aic: N ER.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [sv: N ER.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [mjsv: N ER.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [aic: bi-grams.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [sv: bi-grams.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [mjsv: bigram.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [to: bigrams.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [aic: bi-gram.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [sv: bi-gram.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [mjsv:  bigram_.0] initialized flawlessly.
+2025-02-24 14:10:17.927 - ai_nlp_translation_tagging - Step [ac: message.0] initialized flawlessly.
+2025-02-24 14:10:17.929 - aic: Detect Natural Language.0 - Starting to run...
+2025-02-24 14:10:17.929 - sv: natural language.0 - Starting to run...
+2025-02-24 14:10:17.929 - AI Chat: Translate.0 - Starting to run...
+2025-02-24 14:10:17.929 - sv: translated info.0 - Starting to run...
+2025-02-24 14:10:17.929 - ac: message - Detect Language .0 - Starting to run...
+2025-02-24 14:10:17.929 - Filter rows.0 - Starting to run...
+2025-02-24 14:10:17.930 - English.0 - Starting to run...
+2025-02-24 14:10:17.930 - NOT English.0 - Starting to run...
+2025-02-24 14:10:17.930 - Select values.0 - Starting to run...
+2025-02-24 14:10:17.930 - ac: message_to_translate.0 - Starting to run...
+2025-02-24 14:10:17.931 - ac: message - Detect Language confirm?.0 - Starting to run...
+2025-02-24 14:10:17.931 - aic: English Yes or No.0 - Starting to run...
+2025-02-24 14:10:17.931 - fr: Yes.0 - Starting to run...
+2025-02-24 14:10:17.932 - ac: messages.0 - Starting to run...
+2025-02-24 14:10:17.932 - aic: PoS.0 - Starting to run...
+2025-02-24 14:10:17.932 - fr: confirm English string.0 - Starting to run...
+2025-02-24 14:10:17.932 - sv: pos.0 - Starting to run...
+2025-02-24 14:10:17.932 - sv: English.0 - Starting to run...
+2025-02-24 14:10:17.933 - aic: English PoS Tag.0 - Starting to run...
+2025-02-24 14:10:17.933 - sv: pos-tagged 1.0 - Starting to run...
+2025-02-24 14:10:17.933 - PoS.0 - Starting to run...
+2025-02-24 14:10:17.933 - aic:sentiment.0 - Starting to run...
+2025-02-24 14:10:17.933 - sv: sentiment.0 - Starting to run...
+2025-02-24 14:10:17.934 - aic: Sentiment.0 - Starting to run...
+2025-02-24 14:10:17.934 - sv:sentiment.0 - Starting to run...
+2025-02-24 14:10:17.934 - Sentiment.0 - Starting to run...
+2025-02-24 14:10:17.934 - NO.0 - Starting to run...
+2025-02-24 14:10:17.934 - aic: NER.0 - Starting to run...
+2025-02-24 14:10:17.935 - sv: NER.0 - Starting to run...
+2025-02-24 14:10:17.935 - mjsv: ner.0 - Starting to run...
+2025-02-24 14:10:17.935 - NER.0 - Starting to run...
+2025-02-24 14:10:17.935 - slu:ner.0 - Starting to run...
+2025-02-24 14:10:17.935 - slu: pos.0 - Starting to run...
+2025-02-24 14:10:17.936 - All Tagged.0 - Starting to run...
+2025-02-24 14:10:17.936 - slu: pos.0 - Reading from stream [PoS]
+2025-02-24 14:10:17.937 - aic: N ER.0 - Starting to run...
+2025-02-24 14:10:17.937 - slu:ner.0 - Reading from stream [NER]
+2025-02-24 14:10:17.937 - sv: N ER.0 - Starting to run...
+2025-02-24 14:10:17.937 - mjsv: N ER.0 - Starting to run...
+2025-02-24 14:10:17.937 - sv: bi-grams.0 - Starting to run...
+2025-02-24 14:10:17.937 - mjsv: bigram.0 - Starting to run...
+2025-02-24 14:10:17.937 - aic: bi-grams.0 - Starting to run...
+2025-02-24 14:10:17.938 - ai_nlp_translation_tagging - Transformation has allocated 48 threads and 54 rowsets.
+2025-02-24 14:10:17.938 - sv: bi-gram.0 - Starting to run...
+2025-02-24 14:10:17.938 - mjsv:  bigram_.0 - Starting to run...
+2025-02-24 14:10:17.938 - aic: bi-gram.0 - Starting to run...
+2025-02-24 14:10:17.938 - ac: message.0 - Starting to run...
+2025-02-24 14:10:17.972 - to: open_ai_chat_translated.0 - !TableInput.Log.ConnectedToDatabase!
+2025-02-24 14:10:17.972 - local_pg - Auto commit off
+2025-02-24 14:10:17.973 - to: open_ai_chat_translated.0 - Starting to run...
+2025-02-24 14:10:17.975 - ti: open_ai_chat_store.0 - Connected to database...
+2025-02-24 14:10:17.975 - local_pg - Auto commit off
+2025-02-24 14:10:17.975 - ti: open_ai_chat_store.0 - Starting to run...
+2025-02-24 14:10:17.975 - ti: open_ai_chat_store.0 - SQL query : SELECT
+  chat_id
+, question
+, instruction
+, chat_output
+, insert_ts
+FROM "public".open_ai_chat_store
+ORDER BY insert_ts DESC
+LIMIT 5
+2025-02-24 14:10:17.980 - to: tagged_data.0 - !TableInput.Log.ConnectedToDatabase!
+2025-02-24 14:10:17.980 - to: bigrams.0 - !TableInput.Log.ConnectedToDatabase!
+2025-02-24 14:10:17.981 - local_pg - Auto commit off
+2025-02-24 14:10:17.981 - local_pg - Auto commit off
+2025-02-24 14:10:17.981 - to: tagged_data.0 - Starting to run...
+2025-02-24 14:10:17.981 - to: bigrams.0 - Starting to run...
+2025-02-24 14:10:17.985 - ti: open_ai_chat_store.0 - Finished reading query, closing connection
+2025-02-24 14:10:17.985 - aic: Detect Natural Language.0 - System Run Instruction: Im letzten Super Bowl, der am 12. Februar 2023 stattfand, trafen die Kansas City Chiefs auf die Philadelphia Eagles. Ein interessantes Faktum ist, dass Patrick Mahomes der erste Quarterback in der Geschichte der NFL wurde, der in den ersten fünf Jahren seiner Karriere zwei Super Bowls gewonnen hat.
+2025-02-24 14:10:17.985 - aic: Detect Natural Language.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:17.985 - local_pg - Connection to database closed!
+2025-02-24 14:10:17.985 - ti: open_ai_chat_store.0 - Finished processing (I=5, O=0, R=0, W=5, U=0, E=0)
+2025-02-24 14:10:17.990 - Select values.0 - Finished processing (I=0, O=0, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:17.994 - ac: message - Detect Language .0 - Finished processing (I=0, O=0, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:18.046 - aic: Detect Natural Language.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:18.047 - aic: Detect Natural Language.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:18.831 - aic: Detect Natural Language.0 - System Run Instruction: Polar bears (Ursus maritimus) are not found in the Southern Hemisphere primarily due to their evolutionary history and habitat requirements. Here are some key reasons:
+
+1. **Geographic Distribution**: Polar bears are adapted to life in the Arctic region, which is located in the Northern Hemisphere. Their range primarily includes areas of the Arctic Ocean and its surrounding seas and coastlines, including parts of Alaska, Canada, Russia, Greenland, and Norway.
+
+2. **Habitat Requirements**: Polar bears rely heavily on sea ice for hunting seals, their primary prey. The Arctic region has the right conditions for the formation of sea ice, which is crucial for their survival. In contrast, the Southern Hemisphere, particularly Antarctica, does not have the same type of sea ice ecosystem that polar bears are adapted to.
+
+3. **Evolutionary History**: Polar bears evolved from brown bears (Ursus arctos) around 400,000 years ago. Their adaptation to the cold Arctic environment and reliance on sea ice for hunting developed in the Northern Hemisphere. There was no corresponding evolutionary pressure in the Southern Hemisphere that would lead to the emergence of a similar species.
+
+4. **Lack of Suitable Habitat**: The Southern Hemisphere is dominated by the Antarctic continent, which is surrounded by ocean and lacks the large expanses of sea ice that polar bears need for hunting and breeding. While there are other bear species in the Southern Hemisphere (like the spectacled bear in South America), they do not inhabit polar regions.
+
+In summary, the combination of geographic distribution, habitat requirements, evolutionary history, and the lack of suitable environments in the Southern Hemisphere explains why polar bears are not found there.
+2025-02-24 14:10:18.831 - aic: Detect Natural Language.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:18.832 - AI Chat: Translate.0 - System Run Instruction: Im letzten Super Bowl, der am 12. Februar 2023 stattfand, trafen die Kansas City Chiefs auf die Philadelphia Eagles. Ein interessantes Faktum ist, dass Patrick Mahomes der erste Quarterback in der Geschichte der NFL wurde, der in den ersten fünf Jahren seiner Karriere zwei Super Bowls gewonnen hat.
+2025-02-24 14:10:18.832 - AI Chat: Translate.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:18.929 - AI Chat: Translate.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:18.930 - aic: Detect Natural Language.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:18.932 - AI Chat: Translate.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:18.932 - aic: Detect Natural Language.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:19.332 - aic: Detect Natural Language.0 - System Run Instruction: One interesting fact about Norway is that it has a phenomenon known as the Midnight Sun, where the sun remains visible at midnight during the summer months. This occurs in areas above the Arctic Circle, such as Svalbard, and means that residents and visitors can experience continuous daylight for several weeks.
+
+As for polar bears, they are not typically found on the mainland of Norway, but they do inhabit the Arctic archipelago of Svalbard, which is part of Norway. Svalbard is one of the northernmost inhabited places in the world and is known for its polar bear population.
+2025-02-24 14:10:19.332 - aic: Detect Natural Language.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:19.332 - aic: English Yes or No.0 - System Run Instruction: Polar bears (Ursus maritimus) are not found in the Southern Hemisphere primarily due to their evolutionary history and habitat requirements. Here are some key reasons:
+
+1. **Geographic Distribution**: Polar bears are adapted to life in the Arctic region, which is located in the Northern Hemisphere. Their range primarily includes areas of the Arctic Ocean and its surrounding seas and coastlines, including parts of Alaska, Canada, Russia, Greenland, and Norway.
+
+2. **Habitat Requirements**: Polar bears rely heavily on sea ice for hunting seals, their primary prey. The Arctic region has the right conditions for the formation of sea ice, which is crucial for their survival. In contrast, the Southern Hemisphere, particularly Antarctica, does not have the same type of sea ice ecosystem that polar bears are adapted to.
+
+3. **Evolutionary History**: Polar bears evolved from brown bears (Ursus arctos) around 400,000 years ago. Their adaptation to the cold Arctic environment and reliance on sea ice for hunting developed in the Northern Hemisphere. There was no corresponding evolutionary pressure in the Southern Hemisphere that would lead to the emergence of a similar species.
+
+4. **Lack of Suitable Habitat**: The Southern Hemisphere is dominated by the Antarctic continent, which is surrounded by ocean and lacks the large expanses of sea ice that polar bears need for hunting and breeding. While there are other bear species in the Southern Hemisphere (like the spectacled bear in South America), they do not inhabit polar regions.
+
+In summary, the combination of geographic distribution, habitat requirements, evolutionary history, and the lack of suitable environments in the Southern Hemisphere explains why polar bears are not found there.
+2025-02-24 14:10:19.333 - aic: English Yes or No.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:19.420 - aic: Detect Natural Language.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:19.421 - aic: English Yes or No.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:19.423 - aic: Detect Natural Language.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:19.423 - aic: English Yes or No.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:19.811 - aic: Detect Natural Language.0 - System Run Instruction: ??????????? ??? ??????? ???????? ?????????????, ?? 1636 ??? founded ???? ??? ??, ??????? ?? ???? ?????? ????????????? ???
+2025-02-24 14:10:19.811 - aic: Detect Natural Language.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:19.851 - aic: Detect Natural Language.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:19.853 - aic: Detect Natural Language.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:19.940 - aic: PoS.0 - System Run Instruction: Polar bears (Ursus maritimus) are not found in the Southern Hemisphere primarily due to their evolutionary history and habitat requirements. Here are some key reasons:
+
+1. **Geographic Distribution**: Polar bears are adapted to life in the Arctic region, which is located in the Northern Hemisphere. Their range primarily includes areas of the Arctic Ocean and its surrounding seas and coastlines, including parts of Alaska, Canada, Russia, Greenland, and Norway.
+
+2. **Habitat Requirements**: Polar bears rely heavily on sea ice for hunting seals, their primary prey. The Arctic region has the right conditions for the formation of sea ice, which is crucial for their survival. In contrast, the Southern Hemisphere, particularly Antarctica, does not have the same type of sea ice ecosystem that polar bears are adapted to.
+
+3. **Evolutionary History**: Polar bears evolved from brown bears (Ursus arctos) around 400,000 years ago. Their adaptation to the cold Arctic environment and reliance on sea ice for hunting developed in the Northern Hemisphere. There was no corresponding evolutionary pressure in the Southern Hemisphere that would lead to the emergence of a similar species.
+
+4. **Lack of Suitable Habitat**: The Southern Hemisphere is dominated by the Antarctic continent, which is surrounded by ocean and lacks the large expanses of sea ice that polar bears need for hunting and breeding. While there are other bear species in the Southern Hemisphere (like the spectacled bear in South America), they do not inhabit polar regions.
+
+In summary, the combination of geographic distribution, habitat requirements, evolutionary history, and the lack of suitable environments in the Southern Hemisphere explains why polar bears are not found there.
+2025-02-24 14:10:19.940 - aic: NER.0 - System Run Instruction: Polar bears (Ursus maritimus) are not found in the Southern Hemisphere primarily due to their evolutionary history and habitat requirements. Here are some key reasons:
+
+1. **Geographic Distribution**: Polar bears are adapted to life in the Arctic region, which is located in the Northern Hemisphere. Their range primarily includes areas of the Arctic Ocean and its surrounding seas and coastlines, including parts of Alaska, Canada, Russia, Greenland, and Norway.
+
+2. **Habitat Requirements**: Polar bears rely heavily on sea ice for hunting seals, their primary prey. The Arctic region has the right conditions for the formation of sea ice, which is crucial for their survival. In contrast, the Southern Hemisphere, particularly Antarctica, does not have the same type of sea ice ecosystem that polar bears are adapted to.
+
+3. **Evolutionary History**: Polar bears evolved from brown bears (Ursus arctos) around 400,000 years ago. Their adaptation to the cold Arctic environment and reliance on sea ice for hunting developed in the Northern Hemisphere. There was no corresponding evolutionary pressure in the Southern Hemisphere that would lead to the emergence of a similar species.
+
+4. **Lack of Suitable Habitat**: The Southern Hemisphere is dominated by the Antarctic continent, which is surrounded by ocean and lacks the large expanses of sea ice that polar bears need for hunting and breeding. While there are other bear species in the Southern Hemisphere (like the spectacled bear in South America), they do not inhabit polar regions.
+
+In summary, the combination of geographic distribution, habitat requirements, evolutionary history, and the lack of suitable environments in the Southern Hemisphere explains why polar bears are not found there.
+2025-02-24 14:10:19.940 - aic: PoS.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:19.940 - aic: bi-grams.0 - System Run Instruction: Polar bears (Ursus maritimus) are not found in the Southern Hemisphere primarily due to their evolutionary history and habitat requirements. Here are some key reasons:
+
+1. **Geographic Distribution**: Polar bears are adapted to life in the Arctic region, which is located in the Northern Hemisphere. Their range primarily includes areas of the Arctic Ocean and its surrounding seas and coastlines, including parts of Alaska, Canada, Russia, Greenland, and Norway.
+
+2. **Habitat Requirements**: Polar bears rely heavily on sea ice for hunting seals, their primary prey. The Arctic region has the right conditions for the formation of sea ice, which is crucial for their survival. In contrast, the Southern Hemisphere, particularly Antarctica, does not have the same type of sea ice ecosystem that polar bears are adapted to.
+
+3. **Evolutionary History**: Polar bears evolved from brown bears (Ursus arctos) around 400,000 years ago. Their adaptation to the cold Arctic environment and reliance on sea ice for hunting developed in the Northern Hemisphere. There was no corresponding evolutionary pressure in the Southern Hemisphere that would lead to the emergence of a similar species.
+
+4. **Lack of Suitable Habitat**: The Southern Hemisphere is dominated by the Antarctic continent, which is surrounded by ocean and lacks the large expanses of sea ice that polar bears need for hunting and breeding. While there are other bear species in the Southern Hemisphere (like the spectacled bear in South America), they do not inhabit polar regions.
+
+In summary, the combination of geographic distribution, habitat requirements, evolutionary history, and the lack of suitable environments in the Southern Hemisphere explains why polar bears are not found there.
+2025-02-24 14:10:19.940 - aic: NER.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:19.940 - aic: bi-grams.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:19.940 - aic:sentiment.0 - System Run Instruction: Polar bears (Ursus maritimus) are not found in the Southern Hemisphere primarily due to their evolutionary history and habitat requirements. Here are some key reasons:
+
+1. **Geographic Distribution**: Polar bears are adapted to life in the Arctic region, which is located in the Northern Hemisphere. Their range primarily includes areas of the Arctic Ocean and its surrounding seas and coastlines, including parts of Alaska, Canada, Russia, Greenland, and Norway.
+
+2. **Habitat Requirements**: Polar bears rely heavily on sea ice for hunting seals, their primary prey. The Arctic region has the right conditions for the formation of sea ice, which is crucial for their survival. In contrast, the Southern Hemisphere, particularly Antarctica, does not have the same type of sea ice ecosystem that polar bears are adapted to.
+
+3. **Evolutionary History**: Polar bears evolved from brown bears (Ursus arctos) around 400,000 years ago. Their adaptation to the cold Arctic environment and reliance on sea ice for hunting developed in the Northern Hemisphere. There was no corresponding evolutionary pressure in the Southern Hemisphere that would lead to the emergence of a similar species.
+
+4. **Lack of Suitable Habitat**: The Southern Hemisphere is dominated by the Antarctic continent, which is surrounded by ocean and lacks the large expanses of sea ice that polar bears need for hunting and breeding. While there are other bear species in the Southern Hemisphere (like the spectacled bear in South America), they do not inhabit polar regions.
+
+In summary, the combination of geographic distribution, habitat requirements, evolutionary history, and the lack of suitable environments in the Southern Hemisphere explains why polar bears are not found there.
+2025-02-24 14:10:19.940 - aic: English Yes or No.0 - System Run Instruction: One interesting fact about Norway is that it has a phenomenon known as the Midnight Sun, where the sun remains visible at midnight during the summer months. This occurs in areas above the Arctic Circle, such as Svalbard, and means that residents and visitors can experience continuous daylight for several weeks.
+
+As for polar bears, they are not typically found on the mainland of Norway, but they do inhabit the Arctic archipelago of Svalbard, which is part of Norway. Svalbard is one of the northernmost inhabited places in the world and is known for its polar bear population.
+2025-02-24 14:10:19.940 - aic:sentiment.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:19.940 - aic: English Yes or No.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:20.047 - aic: bi-grams.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:20.060 - aic: bi-grams.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:20.065 - aic: NER.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:20.067 - aic:sentiment.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:20.067 - aic: NER.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:20.068 - aic: English Yes or No.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:20.068 - aic: PoS.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:20.069 - aic:sentiment.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:20.069 - aic: English Yes or No.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:20.069 - aic: PoS.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:20.426 - aic: Detect Natural Language.0 - System Run Instruction: ??? ?? ????????? ????:
+
+?? ???????? ?? ?????????: "?????? ???? ??? ??????? ???????"
+
+???????: "?????, ???????"
+
+????????: "?????? ?? ??????????? ???? ?????????????!"
+
+???????: "???????"
+
+???????: "????????, ?????? ?? '?????' ??? ???? '????' ?????????!" ?
+
+(??? "??????????" ??? ??????? ????????? ????? ???????)
+2025-02-24 14:10:20.426 - aic: Detect Natural Language.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:20.513 - AI Chat: Translate.0 - System Run Instruction: ??????????? ??? ??????? ???????? ?????????????, ?? 1636 ??? founded ???? ??? ??, ??????? ?? ???? ?????? ????????????? ???
+2025-02-24 14:10:20.513 - AI Chat: Translate.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:20.514 - aic: bi-gram.0 - System Run Instruction: In the last Super Bowl, which took place on February 12, 2023, the Kansas City Chiefs faced the Philadelphia Eagles. An interesting fact is that Patrick Mahomes became the first quarterback in NFL history to win two Super Bowls in the first five years of his career.
+2025-02-24 14:10:20.514 - aic: Sentiment.0 - System Run Instruction: In the last Super Bowl, which took place on February 12, 2023, the Kansas City Chiefs faced the Philadelphia Eagles. An interesting fact is that Patrick Mahomes became the first quarterback in NFL history to win two Super Bowls in the first five years of his career.
+2025-02-24 14:10:20.514 - aic: bi-gram.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:20.514 - aic: English PoS Tag.0 - System Run Instruction: In the last Super Bowl, which took place on February 12, 2023, the Kansas City Chiefs faced the Philadelphia Eagles. An interesting fact is that Patrick Mahomes became the first quarterback in NFL history to win two Super Bowls in the first five years of his career.
+2025-02-24 14:10:20.514 - aic: Sentiment.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:20.514 - aic: N ER.0 - System Run Instruction: In the last Super Bowl, which took place on February 12, 2023, the Kansas City Chiefs faced the Philadelphia Eagles. An interesting fact is that Patrick Mahomes became the first quarterback in NFL history to win two Super Bowls in the first five years of his career.
+2025-02-24 14:10:20.515 - aic: English PoS Tag.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:20.515 - aic: N ER.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:20.516 - aic: Detect Natural Language.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:20.518 - aic: Detect Natural Language.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:20.531 - to: open_ai_chat_translated.0 - Prepared statement : INSERT INTO open_ai_chat_translated (natural_language, translated_to_english, org_chat_id) VALUES ( ?,  ?,  ?)
+2025-02-24 14:10:20.635 - AI Chat: Translate.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:20.665 - AI Chat: Translate.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:20.665 - aic: Sentiment.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:20.665 - aic: N ER.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:20.666 - aic: Sentiment.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:20.667 - aic: N ER.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:20.669 - aic: bi-gram.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:20.671 - aic: bi-gram.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:20.676 - aic: English PoS Tag.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:20.677 - aic: English PoS Tag.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:20.831 - aic:sentiment.0 - System Run Instruction: One interesting fact about Norway is that it has a phenomenon known as the Midnight Sun, where the sun remains visible at midnight during the summer months. This occurs in areas above the Arctic Circle, such as Svalbard, and means that residents and visitors can experience continuous daylight for several weeks.
+
+As for polar bears, they are not typically found on the mainland of Norway, but they do inhabit the Arctic archipelago of Svalbard, which is part of Norway. Svalbard is one of the northernmost inhabited places in the world and is known for its polar bear population.
+2025-02-24 14:10:20.831 - aic:sentiment.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:20.912 - aic:sentiment.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:20.914 - aic:sentiment.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:20.982 - aic: Detect Natural Language.0 - Finished processing (I=0, O=0, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:20.986 - sv: natural language.0 - Finished processing (I=0, O=0, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:20.990 - Filter rows.0 - Finished processing (I=0, O=0, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:20.994 - NOT English.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:20.998 - fr: confirm English string.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:21.003 - English.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:21.003 - ac: message_to_translate.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:21.005 - ac: message - Detect Language confirm?.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:21.008 - aic: English Yes or No.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:21.013 - fr: Yes.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:21.017 - ac: messages.0 - Finished processing (I=0, O=0, R=2, W=8, U=0, E=0)
+2025-02-24 14:10:21.017 - NO.0 - Finished processing (I=0, O=0, R=0, W=0, U=0, E=0)
+2025-02-24 14:10:21.422 - aic:sentiment.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:21.426 - sv: sentiment.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:21.516 - AI Chat: Translate.0 - System Run Instruction: ??? ?? ????????? ????:
+
+?? ???????? ?? ?????????: "?????? ???? ??? ??????? ???????"
+
+???????: "?????, ???????"
+
+????????: "?????? ?? ??????????? ???? ?????????????!"
+
+???????: "???????"
+
+???????: "????????, ?????? ?? '?????' ??? ???? '????' ?????????!" ?
+
+(??? "??????????" ??? ??????? ????????? ????? ???????)
+2025-02-24 14:10:21.516 - aic: Sentiment.0 - System Run Instruction: Harvard University, established in 1636 in Massachusetts, is the oldest university in America.
+2025-02-24 14:10:21.517 - AI Chat: Translate.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:21.517 - aic: Sentiment.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:21.577 - aic: Sentiment.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:21.578 - aic: Sentiment.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:21.580 - AI Chat: Translate.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:21.582 - AI Chat: Translate.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:21.590 - aic: NER.0 - System Run Instruction: One interesting fact about Norway is that it has a phenomenon known as the Midnight Sun, where the sun remains visible at midnight during the summer months. This occurs in areas above the Arctic Circle, such as Svalbard, and means that residents and visitors can experience continuous daylight for several weeks.
+
+As for polar bears, they are not typically found on the mainland of Norway, but they do inhabit the Arctic archipelago of Svalbard, which is part of Norway. Svalbard is one of the northernmost inhabited places in the world and is known for its polar bear population.
+2025-02-24 14:10:21.590 - aic: NER.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:21.591 - mjsv: ner.0 - Value #1 -  [ner_tagged] is used in the script.
+2025-02-24 14:10:21.591 - mjsv: ner.0 - This script is using 1 values from the input stream(s)
+2025-02-24 14:10:21.591 - mjsv: ner.0 - Optimization level set to 9.
+2025-02-24 14:10:21.604 - mjsv: ner.0 - No starting Script found!
+2025-02-24 14:10:21.611 - mjsv: ner.0 - No tran_Status found. Transformation status checking not available.
+2025-02-24 14:10:21.665 - aic: NER.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:21.666 - aic: NER.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:22.687 - mjsv: N ER.0 - Value #1 -  [ner_tagged] is used in the script.
+2025-02-24 14:10:22.687 - mjsv: N ER.0 - This script is using 1 values from the input stream(s)
+2025-02-24 14:10:22.688 - mjsv: N ER.0 - Optimization level set to 9.
+2025-02-24 14:10:22.689 - aic: N ER.0 - System Run Instruction: Harvard University, established in 1636 in Massachusetts, is the oldest university in America.
+2025-02-24 14:10:22.689 - aic: N ER.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:22.697 - mjsv: N ER.0 - No starting Script found!
+2025-02-24 14:10:22.705 - mjsv: N ER.0 - No tran_Status found. Transformation status checking not available.
+2025-02-24 14:10:22.837 - aic: N ER.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:22.838 - aic: N ER.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:22.956 - aic: NER.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:22.960 - sv: NER.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:22.964 - mjsv: ner.0 - No end Script found!
+2025-02-24 14:10:22.964 - mjsv: ner.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:23.341 - aic: Sentiment.0 - System Run Instruction: Here's a romantic joke:
+
+A guy asks his girlfriend: "Will you love me so much?"
+
+Girlfriend: "Yes, why?"
+
+Guy: "Because you look great in my outfit!"
+
+Girlfriend: "Why?"
+
+Guy: "Because you are my 'out' and I am 'fit'!" ?
+
+(This is a pun using the word "outfit.")
+2025-02-24 14:10:23.341 - aic: Sentiment.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:23.344 - AI Chat: Translate.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:23.346 - sv: translated info.0 - Finished processing (I=0, O=0, R=3, W=6, U=0, E=0)
+2025-02-24 14:10:23.347 - sv: English.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:23.350 - ac: message.0 - Finished processing (I=0, O=0, R=3, W=12, U=0, E=0)
+2025-02-24 14:10:23.356 - local_pg - Connection to database closed!
+2025-02-24 14:10:23.356 - to: open_ai_chat_translated.0 - Finished processing (I=0, O=3, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:23.396 - aic: Sentiment.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:23.397 - aic: Sentiment.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:23.629 - aic: English PoS Tag.0 - System Run Instruction: Harvard University, established in 1636 in Massachusetts, is the oldest university in America.
+2025-02-24 14:10:23.629 - aic: English PoS Tag.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:23.687 - aic: English PoS Tag.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:23.688 - aic: English PoS Tag.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:23.851 - aic: N ER.0 - System Run Instruction: Here's a romantic joke:
+
+A guy asks his girlfriend: "Will you love me so much?"
+
+Girlfriend: "Yes, why?"
+
+Guy: "Because you look great in my outfit!"
+
+Girlfriend: "Why?"
+
+Guy: "Because you are my 'out' and I am 'fit'!" ?
+
+(This is a pun using the word "outfit.")
+2025-02-24 14:10:23.851 - aic: N ER.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:23.893 - aic: N ER.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:23.895 - aic: N ER.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:24.051 - aic: Sentiment.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:24.053 - sv:sentiment.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:24.056 - Sentiment.0 - Finished processing (I=0, O=0, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:24.271 - aic: bi-gram.0 - System Run Instruction: Harvard University, established in 1636 in Massachusetts, is the oldest university in America.
+2025-02-24 14:10:24.271 - mjsv:  bigram_.0 - Value #1 -  [bigrams_tagged] is used in the script.
+2025-02-24 14:10:24.271 - aic: bi-gram.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:24.271 - mjsv:  bigram_.0 - This script is using 1 values from the input stream(s)
+2025-02-24 14:10:24.271 - mjsv:  bigram_.0 - Optimization level set to 9.
+2025-02-24 14:10:24.274 - mjsv:  bigram_.0 - No starting Script found!
+2025-02-24 14:10:24.287 - mjsv:  bigram_.0 - No tran_Status found. Transformation status checking not available.
+2025-02-24 14:10:24.302 - to: bigrams.0 - Prepared statement : INSERT INTO open_ai_bigrams (chat_id, bigrams_tagged) VALUES ( ?,  ?)
+2025-02-24 14:10:24.318 - aic: bi-gram.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:24.319 - aic: bi-gram.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:24.605 - aic: English PoS Tag.0 - System Run Instruction: Here's a romantic joke:
+
+A guy asks his girlfriend: "Will you love me so much?"
+
+Girlfriend: "Yes, why?"
+
+Guy: "Because you look great in my outfit!"
+
+Girlfriend: "Why?"
+
+Guy: "Because you are my 'out' and I am 'fit'!" ?
+
+(This is a pun using the word "outfit.")
+2025-02-24 14:10:24.606 - aic: English PoS Tag.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:24.675 - aic: English PoS Tag.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:24.677 - aic: English PoS Tag.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:24.998 - aic: bi-gram.0 - System Run Instruction: Here's a romantic joke:
+
+A guy asks his girlfriend: "Will you love me so much?"
+
+Girlfriend: "Yes, why?"
+
+Guy: "Because you look great in my outfit!"
+
+Girlfriend: "Why?"
+
+Guy: "Because you are my 'out' and I am 'fit'!" ?
+
+(This is a pun using the word "outfit.")
+2025-02-24 14:10:24.998 - aic: bi-gram.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:25.042 - aic: bi-gram.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:25.043 - aic: bi-gram.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:25.253 - aic: N ER.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:25.255 - sv: N ER.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:25.258 - mjsv: N ER.0 - No end Script found!
+2025-02-24 14:10:25.258 - mjsv: N ER.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:25.263 - NER.0 - Finished processing (I=0, O=0, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:25.403 - slu:ner.0 - Field [chat_id] has nr [0]
+2025-02-24 14:10:25.408 - slu:ner.0 - Stopped processing with empty row after 10 rows.
+2025-02-24 14:10:25.408 - slu:ner.0 - Finished processing (I=0, O=0, R=10, W=5, U=0, E=0)
+2025-02-24 14:10:27.331 - aic: bi-gram.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:27.348 - sv: bi-gram.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:27.363 - mjsv:  bigram_.0 - No end Script found!
+2025-02-24 14:10:27.364 - mjsv:  bigram_.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:27.441 - aic: English PoS Tag.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:27.444 - sv: pos-tagged 1.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2025-02-24 14:10:39.162 - mjsv: bigram.0 - Value #1 -  [bigrams_tagged] is used in the script.
+2025-02-24 14:10:39.162 - aic: bi-grams.0 - System Run Instruction: One interesting fact about Norway is that it has a phenomenon known as the Midnight Sun, where the sun remains visible at midnight during the summer months. This occurs in areas above the Arctic Circle, such as Svalbard, and means that residents and visitors can experience continuous daylight for several weeks.
+
+As for polar bears, they are not typically found on the mainland of Norway, but they do inhabit the Arctic archipelago of Svalbard, which is part of Norway. Svalbard is one of the northernmost inhabited places in the world and is known for its polar bear population.
+2025-02-24 14:10:39.163 - mjsv: bigram.0 - This script is using 1 values from the input stream(s)
+2025-02-24 14:10:39.163 - aic: bi-grams.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:39.163 - mjsv: bigram.0 - Optimization level set to 9.
+2025-02-24 14:10:39.167 - mjsv: bigram.0 - No starting Script found!
+2025-02-24 14:10:39.174 - mjsv: bigram.0 - No tran_Status found. Transformation status checking not available.
+2025-02-24 14:10:39.268 - aic: bi-grams.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:39.270 - aic: bi-grams.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:42.971 - aic: bi-grams.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:42.975 - sv: bi-grams.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:42.978 - mjsv: bigram.0 - No end Script found!
+2025-02-24 14:10:42.978 - mjsv: bigram.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:42.998 - local_pg - Connection to database closed!
+2025-02-24 14:10:42.999 - to: bigrams.0 - Finished processing (I=0, O=5, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:46.436 - aic: PoS.0 - System Run Instruction: One interesting fact about Norway is that it has a phenomenon known as the Midnight Sun, where the sun remains visible at midnight during the summer months. This occurs in areas above the Arctic Circle, such as Svalbard, and means that residents and visitors can experience continuous daylight for several weeks.
+
+As for polar bears, they are not typically found on the mainland of Norway, but they do inhabit the Arctic archipelago of Svalbard, which is part of Norway. Svalbard is one of the northernmost inhabited places in the world and is known for its polar bear population.
+2025-02-24 14:10:46.436 - aic: PoS.0 - LLM Provider Selected: OpenAI
+2025-02-24 14:10:46.480 - aic: PoS.0 - Moderation is enabled for OpenAI. Building chat moderation model
+2025-02-24 14:10:46.481 - aic: PoS.0 - Enabling Chat AI Service without Embedding.
+2025-02-24 14:10:54.349 - aic: PoS.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:54.351 - sv: pos.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2025-02-24 14:10:54.353 - PoS.0 - Finished processing (I=0, O=0, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:54.501 - slu: pos.0 - Field [chat_id] has nr [0]
+2025-02-24 14:10:54.507 - slu: pos.0 - Stopped processing with empty row after 10 rows.
+2025-02-24 14:10:54.507 - slu: pos.0 - Finished processing (I=0, O=0, R=10, W=5, U=0, E=0)
+2025-02-24 14:10:54.514 - All Tagged.0 - Finished processing (I=0, O=0, R=5, W=5, U=0, E=0)
+2025-02-24 14:10:54.523 - to: tagged_data.0 - Prepared statement : INSERT INTO open_ai_tagged_data (org_chat_id, sentiment_tagged, ner_tagged, pos_tagged) VALUES ( ?,  ?,  ?,  ?)
+2025-02-24 14:10:54.538 - local_pg - Connection to database closed!
+2025-02-24 14:10:54.538 - to: tagged_data.0 - Finished processing (I=0, O=5, R=5, W=5, U=0, E=0)
