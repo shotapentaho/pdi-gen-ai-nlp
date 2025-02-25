@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+>>>>>>> 0c81a1049011f0a55b81ce0a0e9ab33c29e2705b
 <transformation>
   <info>
     <name>consine_similarity</name>
