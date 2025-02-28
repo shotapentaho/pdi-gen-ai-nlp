@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
->>>>>>> 0c81a1049011f0a55b81ce0a0e9ab33c29e2705b
 <transformation>
   <info>
     <name>ai_chat_gpt_to_query_TableInput</name>
@@ -591,7 +587,7 @@
     </fields>
     <data>
       <line>
-        <item>select the most recent 2 records based on insert_ts column from open_ai_chat_store table</item>
+        <item>select the most recent 5 records based on insert_ts column from open_ai_chat_store table</item>
         <item>Just return SQL in Postgres DB, without any extra characters in output, please.</item>
       </line>
     </data>

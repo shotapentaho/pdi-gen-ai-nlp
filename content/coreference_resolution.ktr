@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>detect_natural_language_and_translate</name>
+    <name>coreference_resolution</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,18 +427,18 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2025/01/31 21:33:12.091</created_date>
+    <created_date>2025/02/27 11:08:15.426</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2025/01/31 21:33:12.091</modified_date>
+    <modified_date>2025/02/27 11:08:15.426</modified_date>
     <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Detect non-English launguage and then translates into English for any non-english text</note>
-      <xloc>0</xloc>
-      <yloc>0</yloc>
-      <width>744</width>
+      <note>Detect: Natural Language</note>
+      <xloc>400</xloc>
+      <yloc>16</yloc>
+      <width>224</width>
       <heigth>36</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>14</fontsize>
@@ -455,16 +455,58 @@
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
+    <notepad>
+      <note>Coreference Detection</note>
+      <xloc>816</xloc>
+      <yloc>320</yloc>
+      <width>165</width>
+      <heigth>32</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>12</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Translate: to English</note>
+      <xloc>1136</xloc>
+      <yloc>16</yloc>
+      <width>148</width>
+      <heigth>32</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>12</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>local_pg</name>
-    <server>localhost</server>
+    <server>${GENAI_DB_HOST}</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>pentaho_dev</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
+    <database>${GENAI_DB}</database>
+    <port>${GENAI_DB_PORT}</port>
+    <username>${GENAI_DB_USER}</username>
+    <password>${GENAI_DB_PASSWORD}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -487,7 +529,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>5432</attribute>
+        <attribute>${GENAI_DB_PORT}</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -513,28 +555,13 @@
   </connection>
   <order>
     <hop>
-      <from>Select values</from>
-      <to>Add constants</to>
+      <from>AI Chat: Translate</from>
+      <to>sv: translated info</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add constants</from>
-      <to>AI Chat: Detect Natural Language</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>AI Chat: Detect Natural Language</from>
-      <to>sv: natural language</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>sv: natural language</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>NOT English</to>
+      <from>English</from>
+      <to>ac: message - Detect Language confirm?</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -543,8 +570,28 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Filter rows</from>
+      <to>NOT English</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>NOT English</from>
-      <to>ac: message_to_translate</to>
+      <to>fr: confirm English string</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>ac: message - Detect Language </to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>ac: message - Detect Language </from>
+      <to>aic: Detect Natural Language</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>ac: message - Detect Language confirm?</from>
+      <to>aic: English Yes or No</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -553,13 +600,68 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ti: open_ai_chat_store</from>
-      <to>Select values</to>
+      <from>ac: messages</from>
+      <to>aic: coreference</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AI Chat: Translate</from>
-      <to>sv: translated info</to>
+      <from>aic: Detect Natural Language</from>
+      <to>sv: natural language</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>aic: Coreference detect</from>
+      <to>sv: coreference</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>aic: English Yes or No</from>
+      <to>fr: Yes</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>aic: coreference</from>
+      <to>sv:Coreference</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>fr: Yes</from>
+      <to>NO</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>fr: Yes</from>
+      <to>ac: messages</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>fr: confirm English string</from>
+      <to>English</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>fr: confirm English string</from>
+      <to>ac: message_to_translate</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>sv: natural language</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>sv:Coreference</from>
+      <to>Collect-Coreferences</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>sv: coreference</from>
+      <to>Collect-Coreferences</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>sv: translated info</from>
+      <to>sv: English</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -567,66 +669,32 @@
       <to>to: open_ai_chat_translated</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>ti: open_ai_chat_store</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>sv: English</from>
+      <to>ac: messages 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>ac: messages 2</from>
+      <to>aic: Coreference detect</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Collect-Coreferences</from>
+      <to>to: coreferences</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
-  <step>
-    <name>AI Chat: Detect Natural Language</name>
-    <type>AiChat</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <USER_MESSAGE_FROM_NATIVE>N</USER_MESSAGE_FROM_NATIVE>
-    <USER_MESSAGE>Detect language</USER_MESSAGE>
-    <USER_MESSAGE_FROM_STREAM>message</USER_MESSAGE_FROM_STREAM>
-    <SYSTEM_MESSAGE>You are a helpful assistant</SYSTEM_MESSAGE>
-    <SYSTEM_MESSAGE_FROM_STREAM>chat_message</SYSTEM_MESSAGE_FROM_STREAM>
-    <DOCUMENT_ATTACHMENT_NEEDED>N</DOCUMENT_ATTACHMENT_NEEDED>
-    <DOCUMENT_INPUT_FROM_FILE>Y</DOCUMENT_INPUT_FROM_FILE>
-    <DOCUMENT_INPUT_FILE/>
-    <DOCUMENT_INPUT_FILE_FROM_STREAM_FIELD_FORMAT>File</DOCUMENT_INPUT_FILE_FROM_STREAM_FIELD_FORMAT>
-    <DOCUMENT_INPUT_FILE_FROM_STREAM/>
-    <LLM_PROVIDER>OpenAI</LLM_PROVIDER>
-    <LLM_MODEL>${OPENAI_MODEL}</LLM_MODEL>
-    <MODEL_API_KEY>${API_KEY_OPENAI}</MODEL_API_KEY>
-    <MODEL_ORG_ID/>
-    <MODEL_ENDPOINT/>
-    <MODEL_TEMPERATURE>0.7</MODEL_TEMPERATURE>
-    <MODEL_USE_MODERATION>Y</MODEL_USE_MODERATION>
-    <MODEL_TOKEN_CRED_CLIENT_ID>Encrypted </MODEL_TOKEN_CRED_CLIENT_ID>
-    <EMBEDDING_MODELS>text-embedding-3-small</EMBEDDING_MODELS>
-    <EMBEDDING_STORE_FILE_STORE>NO Persistence</EMBEDDING_STORE_FILE_STORE>
-    <EMBEDDING_STORE_FILE_STORE_FILE_NAME/>
-    <PROXY_HOST/>
-    <PROXY_PORT>0</PROXY_PORT>
-    <PROXY_USERNAME/>
-    <PROXY_PASSWORD>Encrypted </PROXY_PASSWORD>
-    <RESPONSE_OUTPUT_TYPE>text</RESPONSE_OUTPUT_TYPE>
-    <GENERATED_OUTPUT_FIELD>result</GENERATED_OUTPUT_FIELD>
-    <DOCUMENT_CHARACTER_ENCODING>UTF-8</DOCUMENT_CHARACTER_ENCODING>
-    <DOCUMENT_CHARACTER_ENCODING_FROM_STREAM/>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>AI Chat: Translate</name>
     <type>AiChat</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -671,14 +739,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>912</xloc>
+      <xloc>1088</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Add constants</name>
-    <type>Constant</type>
+    <name>Collect-Coreferences</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -687,20 +755,6 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <name>message</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>Detect Language and just return the language only.</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -710,8 +764,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
-      <yloc>128</yloc>
+      <xloc>1088</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -736,7 +790,7 @@
     </remotesteps>
     <GUI>
       <xloc>672</xloc>
-      <yloc>224</yloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -780,7 +834,32 @@
     </remotesteps>
     <GUI>
       <xloc>672</xloc>
-      <yloc>128</yloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>NO</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -839,8 +918,86 @@
       </output>
     </remotesteps>
     <GUI>
+      <xloc>48</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>ac: message - Detect Language </name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>msg_detect_language</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Detect language of the text supplied. Just return the language only.</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>176</xloc>
-      <yloc>128</yloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>ac: message - Detect Language confirm?</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>m_confirm_laguage_english</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Confirm the natural language if English? Return Yes or No only.</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -863,7 +1020,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <nullif>Translate to English</nullif>
+        <nullif>Translate to English plesae. Do not add the confirmation message in reply.</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -878,8 +1035,460 @@
       </output>
     </remotesteps>
     <GUI>
+      <xloc>1088</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>ac: messages</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>m_english_coreference_detect</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Please find coreferences in this text. Just start listing.</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>ac: messages 2</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>m_english_coreference_detect</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Please find coreferences in this text. Just start listing.</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1488</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>aic: Coreference detect</name>
+    <type>AiChat</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <USER_MESSAGE_FROM_NATIVE>N</USER_MESSAGE_FROM_NATIVE>
+    <USER_MESSAGE>Detect language</USER_MESSAGE>
+    <USER_MESSAGE_FROM_STREAM>m_english_coreference_detect</USER_MESSAGE_FROM_STREAM>
+    <SYSTEM_MESSAGE>You are a helpful assistant</SYSTEM_MESSAGE>
+    <SYSTEM_MESSAGE_FROM_STREAM>chat_message</SYSTEM_MESSAGE_FROM_STREAM>
+    <DOCUMENT_ATTACHMENT_NEEDED>N</DOCUMENT_ATTACHMENT_NEEDED>
+    <DOCUMENT_INPUT_FROM_FILE>Y</DOCUMENT_INPUT_FROM_FILE>
+    <DOCUMENT_INPUT_FILE/>
+    <DOCUMENT_INPUT_FILE_FROM_STREAM_FIELD_FORMAT>File</DOCUMENT_INPUT_FILE_FROM_STREAM_FIELD_FORMAT>
+    <DOCUMENT_INPUT_FILE_FROM_STREAM/>
+    <LLM_PROVIDER>OpenAI</LLM_PROVIDER>
+    <LLM_MODEL>${OPENAI_MODEL}</LLM_MODEL>
+    <MODEL_API_KEY>${API_KEY_OPENAI}</MODEL_API_KEY>
+    <MODEL_ORG_ID/>
+    <MODEL_ENDPOINT/>
+    <MODEL_TEMPERATURE>0.7</MODEL_TEMPERATURE>
+    <MODEL_USE_MODERATION>Y</MODEL_USE_MODERATION>
+    <MODEL_TOKEN_CRED_CLIENT_ID>Encrypted </MODEL_TOKEN_CRED_CLIENT_ID>
+    <EMBEDDING_MODELS>text-embedding-3-small</EMBEDDING_MODELS>
+    <EMBEDDING_STORE_FILE_STORE>NO Persistence</EMBEDDING_STORE_FILE_STORE>
+    <EMBEDDING_STORE_FILE_STORE_FILE_NAME/>
+    <PROXY_HOST/>
+    <PROXY_PORT>0</PROXY_PORT>
+    <PROXY_USERNAME/>
+    <PROXY_PASSWORD>Encrypted </PROXY_PASSWORD>
+    <RESPONSE_OUTPUT_TYPE>text</RESPONSE_OUTPUT_TYPE>
+    <GENERATED_OUTPUT_FIELD>result</GENERATED_OUTPUT_FIELD>
+    <DOCUMENT_CHARACTER_ENCODING>UTF-8</DOCUMENT_CHARACTER_ENCODING>
+    <DOCUMENT_CHARACTER_ENCODING_FROM_STREAM/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1360</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>aic: Detect Natural Language</name>
+    <type>AiChat</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <USER_MESSAGE_FROM_NATIVE>N</USER_MESSAGE_FROM_NATIVE>
+    <USER_MESSAGE>Detect language</USER_MESSAGE>
+    <USER_MESSAGE_FROM_STREAM>msg_detect_language</USER_MESSAGE_FROM_STREAM>
+    <SYSTEM_MESSAGE>You are a helpful assistant</SYSTEM_MESSAGE>
+    <SYSTEM_MESSAGE_FROM_STREAM>chat_message</SYSTEM_MESSAGE_FROM_STREAM>
+    <DOCUMENT_ATTACHMENT_NEEDED>N</DOCUMENT_ATTACHMENT_NEEDED>
+    <DOCUMENT_INPUT_FROM_FILE>Y</DOCUMENT_INPUT_FROM_FILE>
+    <DOCUMENT_INPUT_FILE/>
+    <DOCUMENT_INPUT_FILE_FROM_STREAM_FIELD_FORMAT>File</DOCUMENT_INPUT_FILE_FROM_STREAM_FIELD_FORMAT>
+    <DOCUMENT_INPUT_FILE_FROM_STREAM/>
+    <LLM_PROVIDER>OpenAI</LLM_PROVIDER>
+    <LLM_MODEL>${OPENAI_MODEL}</LLM_MODEL>
+    <MODEL_API_KEY>${API_KEY_OPENAI}</MODEL_API_KEY>
+    <MODEL_ORG_ID/>
+    <MODEL_ENDPOINT/>
+    <MODEL_TEMPERATURE>0.7</MODEL_TEMPERATURE>
+    <MODEL_USE_MODERATION>Y</MODEL_USE_MODERATION>
+    <MODEL_TOKEN_CRED_CLIENT_ID>Encrypted </MODEL_TOKEN_CRED_CLIENT_ID>
+    <EMBEDDING_MODELS>text-embedding-3-small</EMBEDDING_MODELS>
+    <EMBEDDING_STORE_FILE_STORE>NO Persistence</EMBEDDING_STORE_FILE_STORE>
+    <EMBEDDING_STORE_FILE_STORE_FILE_NAME/>
+    <PROXY_HOST/>
+    <PROXY_PORT>0</PROXY_PORT>
+    <PROXY_USERNAME/>
+    <PROXY_PASSWORD>Encrypted </PROXY_PASSWORD>
+    <RESPONSE_OUTPUT_TYPE>text</RESPONSE_OUTPUT_TYPE>
+    <GENERATED_OUTPUT_FIELD>result</GENERATED_OUTPUT_FIELD>
+    <DOCUMENT_CHARACTER_ENCODING>UTF-8</DOCUMENT_CHARACTER_ENCODING>
+    <DOCUMENT_CHARACTER_ENCODING_FROM_STREAM/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>aic: English Yes or No</name>
+    <type>AiChat</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <USER_MESSAGE_FROM_NATIVE>N</USER_MESSAGE_FROM_NATIVE>
+    <USER_MESSAGE>Detect language</USER_MESSAGE>
+    <USER_MESSAGE_FROM_STREAM>m_confirm_laguage_english</USER_MESSAGE_FROM_STREAM>
+    <SYSTEM_MESSAGE>You are a helpful assistant</SYSTEM_MESSAGE>
+    <SYSTEM_MESSAGE_FROM_STREAM>chat_message</SYSTEM_MESSAGE_FROM_STREAM>
+    <DOCUMENT_ATTACHMENT_NEEDED>N</DOCUMENT_ATTACHMENT_NEEDED>
+    <DOCUMENT_INPUT_FROM_FILE>Y</DOCUMENT_INPUT_FROM_FILE>
+    <DOCUMENT_INPUT_FILE/>
+    <DOCUMENT_INPUT_FILE_FROM_STREAM_FIELD_FORMAT>File</DOCUMENT_INPUT_FILE_FROM_STREAM_FIELD_FORMAT>
+    <DOCUMENT_INPUT_FILE_FROM_STREAM/>
+    <LLM_PROVIDER>OpenAI</LLM_PROVIDER>
+    <LLM_MODEL>${OPENAI_MODEL}</LLM_MODEL>
+    <MODEL_API_KEY>${API_KEY_OPENAI}</MODEL_API_KEY>
+    <MODEL_ORG_ID/>
+    <MODEL_ENDPOINT/>
+    <MODEL_TEMPERATURE>0.7</MODEL_TEMPERATURE>
+    <MODEL_USE_MODERATION>Y</MODEL_USE_MODERATION>
+    <MODEL_TOKEN_CRED_CLIENT_ID>Encrypted </MODEL_TOKEN_CRED_CLIENT_ID>
+    <EMBEDDING_MODELS>text-embedding-3-small</EMBEDDING_MODELS>
+    <EMBEDDING_STORE_FILE_STORE>NO Persistence</EMBEDDING_STORE_FILE_STORE>
+    <EMBEDDING_STORE_FILE_STORE_FILE_NAME/>
+    <PROXY_HOST/>
+    <PROXY_PORT>0</PROXY_PORT>
+    <PROXY_USERNAME/>
+    <PROXY_PASSWORD>Encrypted </PROXY_PASSWORD>
+    <RESPONSE_OUTPUT_TYPE>text</RESPONSE_OUTPUT_TYPE>
+    <GENERATED_OUTPUT_FIELD>result</GENERATED_OUTPUT_FIELD>
+    <DOCUMENT_CHARACTER_ENCODING>UTF-8</DOCUMENT_CHARACTER_ENCODING>
+    <DOCUMENT_CHARACTER_ENCODING_FROM_STREAM/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>aic: coreference</name>
+    <type>AiChat</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <USER_MESSAGE_FROM_NATIVE>N</USER_MESSAGE_FROM_NATIVE>
+    <USER_MESSAGE>Detect language</USER_MESSAGE>
+    <USER_MESSAGE_FROM_STREAM>m_english_coreference_detect</USER_MESSAGE_FROM_STREAM>
+    <SYSTEM_MESSAGE>You are a helpful assistant</SYSTEM_MESSAGE>
+    <SYSTEM_MESSAGE_FROM_STREAM>chat_message</SYSTEM_MESSAGE_FROM_STREAM>
+    <DOCUMENT_ATTACHMENT_NEEDED>N</DOCUMENT_ATTACHMENT_NEEDED>
+    <DOCUMENT_INPUT_FROM_FILE>Y</DOCUMENT_INPUT_FROM_FILE>
+    <DOCUMENT_INPUT_FILE/>
+    <DOCUMENT_INPUT_FILE_FROM_STREAM_FIELD_FORMAT>File</DOCUMENT_INPUT_FILE_FROM_STREAM_FIELD_FORMAT>
+    <DOCUMENT_INPUT_FILE_FROM_STREAM/>
+    <LLM_PROVIDER>OpenAI</LLM_PROVIDER>
+    <LLM_MODEL>${OPENAI_MODEL}</LLM_MODEL>
+    <MODEL_API_KEY>${API_KEY_OPENAI}</MODEL_API_KEY>
+    <MODEL_ORG_ID/>
+    <MODEL_ENDPOINT/>
+    <MODEL_TEMPERATURE>0.7</MODEL_TEMPERATURE>
+    <MODEL_USE_MODERATION>Y</MODEL_USE_MODERATION>
+    <MODEL_TOKEN_CRED_CLIENT_ID>Encrypted </MODEL_TOKEN_CRED_CLIENT_ID>
+    <EMBEDDING_MODELS>text-embedding-3-small</EMBEDDING_MODELS>
+    <EMBEDDING_STORE_FILE_STORE>NO Persistence</EMBEDDING_STORE_FILE_STORE>
+    <EMBEDDING_STORE_FILE_STORE_FILE_NAME/>
+    <PROXY_HOST/>
+    <PROXY_PORT>0</PROXY_PORT>
+    <PROXY_USERNAME/>
+    <PROXY_PASSWORD>Encrypted </PROXY_PASSWORD>
+    <RESPONSE_OUTPUT_TYPE>text</RESPONSE_OUTPUT_TYPE>
+    <GENERATED_OUTPUT_FIELD>result</GENERATED_OUTPUT_FIELD>
+    <DOCUMENT_CHARACTER_ENCODING>UTF-8</DOCUMENT_CHARACTER_ENCODING>
+    <DOCUMENT_CHARACTER_ENCODING_FROM_STREAM/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>fr: Yes</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>ac: messages</send_true_to>
+    <send_false_to>NO</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>result</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>Yes</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>fr: confirm English string</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>English</send_true_to>
+    <send_false_to>ac: message_to_translate</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>natural_language</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>English</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>912</xloc>
       <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>sv: English</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>translated_to_english</name>
+        <rename>chat_message</rename>
+      </field>
+      <field>
+        <name>chat_id</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1488</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>sv: coreference</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>chat_id</name>
+      </field>
+      <field>
+        <name>result</name>
+        <rename>coreferences_tagged</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -916,8 +1525,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>128</yloc>
+      <xloc>496</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -925,7 +1534,7 @@
     <name>sv: translated info</name>
     <type>SelectValues</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -942,7 +1551,6 @@
       </field>
       <field>
         <name>chat_id</name>
-        <rename>origin_chat_id</rename>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -955,8 +1563,43 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
+      <xloc>1280</xloc>
       <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>sv:Coreference</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>chat_id</name>
+      </field>
+      <field>
+        <name>result</name>
+        <rename>coreferences_tagged</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>944</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -980,7 +1623,7 @@
 , insert_ts
 FROM "public".open_ai_chat_store
 ORDER BY insert_ts DESC
-LIMIT 2</sql>
+LIMIT 5</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1113,8 +1756,8 @@ LIMIT 2</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
-      <yloc>192</yloc>
+      <xloc>48</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1156,8 +1799,8 @@ LIMIT 2</sql>
         <stream_name>translated_to_english</stream_name>
       </field>
       <field>
-        <column_name>origin_chat_id</column_name>
-        <stream_name>origin_chat_id</stream_name>
+        <column_name>org_chat_id</column_name>
+        <stream_name>chat_id</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -1169,8 +1812,60 @@ LIMIT 2</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1152</xloc>
-      <yloc>160</yloc>
+      <xloc>1280</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>to: coreferences</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>local_pg</connection>
+    <schema/>
+    <table>open_ai_coreferences</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+      <field>
+        <column_name>chat_id</column_name>
+        <stream_name>chat_id</stream_name>
+      </field>
+      <field>
+        <column_name>coreferences_tagged</column_name>
+        <stream_name>coreferences_tagged</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
