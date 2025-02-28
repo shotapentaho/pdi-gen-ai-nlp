@@ -719,11 +719,12 @@
 - Detect Natural Language (if not English) and then translate (i.e translate into English) :
 - Tagging: NER, Sentiment, PartofSpeech, Bigrams (you can expand)
 - [Python-PDI] Cosine Similarity using Python to call and get cosine-similarity score range [0-1] 
- i.e 0 NO similarity, towards 1 similar sentences</note>
+ i.e 0 NO similarity, towards 1 similar sentences
+- Co-Reference Detection</note>
       <xloc>0</xloc>
       <yloc>0</yloc>
       <width>875</width>
-      <heigth>194</heigth>
+      <heigth>217</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>13</fontsize>
       <fontbold>Y</fontbold>
