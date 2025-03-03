@@ -437,14 +437,14 @@
   <notepads>
   </notepads>
   <connection>
-    <name>local_pg</name>
-    <server>localhost</server>
+    <name>openai_nlp</name>
+    <server>${GENAI_DB_HOST}</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>pentaho_dev</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
+    <database>${GENAI_DB}</database>
+    <port>${GENAI_DB_PORT}</port>
+    <username>${GENAI_DB_USER}</username>
+    <password>${GENAI_DB_PASSWORD}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -467,7 +467,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>5432</attribute>
+        <attribute>${GENAI_DB_PORT}</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -638,7 +638,7 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>insert_ts</name>
+        <name>created_at</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -675,7 +675,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>local_pg</connection>
+    <connection>openai_nlp</connection>
     <sql>${REFINED_QUERY}</sql>
     <limit>0</limit>
     <lookup/>
@@ -688,9 +688,9 @@
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>refined_query</name>
-        <length>25</length>
+        <length>66</length>
         <precision>-1</precision>
-        <origin>Get variables</origin>
+        <origin>gv: REFINED_QUERY</origin>
         <comments/>
         <conversion_Mask/>
         <decimal_symbol/>
@@ -713,7 +713,7 @@
         <name>chat_id</name>
         <length>-1</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>ti: chat_gpt</origin>
         <comments>chat_id</comments>
         <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
@@ -736,7 +736,7 @@
         <name>question</name>
         <length>2147483647</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>ti: chat_gpt</origin>
         <comments>question</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
@@ -759,7 +759,7 @@
         <name>instruction</name>
         <length>2147483647</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>ti: chat_gpt</origin>
         <comments>instruction</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
@@ -782,7 +782,7 @@
         <name>chat_output</name>
         <length>2147483647</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
+        <origin>ti: chat_gpt</origin>
         <comments>chat_output</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
@@ -802,11 +802,11 @@
       <value-meta>
         <type>Timestamp</type>
         <storagetype>normal</storagetype>
-        <name>insert_ts</name>
+        <name>created_at</name>
         <length>6</length>
         <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>insert_ts</comments>
+        <origin>ti: chat_gpt</origin>
+        <comments>created_at</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>

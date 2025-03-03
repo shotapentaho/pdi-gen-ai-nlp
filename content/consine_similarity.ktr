@@ -458,7 +458,7 @@ Higher score means similar. Ranging 0-1</note>
     </notepad>
   </notepads>
   <connection>
-    <name>local_pg</name>
+    <name>openai_nlp</name>
     <server>${GENAI_DB_HOST}</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
@@ -915,7 +915,7 @@ similartity_score = cosine_similarity(sentence1, sentence2)</value>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>local_pg</connection>
+    <connection>openai_nlp</connection>
     <sql>SELECT chat_output
 FROM "public".open_ai_chat_store
 order by chat_id desc
@@ -976,7 +976,7 @@ limit 5</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>local_pg</connection>
+    <connection>openai_nlp</connection>
     <sql>SELECT chat_output as chat_output_1
 FROM "public".open_ai_chat_store
 order by chat_id desc
@@ -1037,7 +1037,7 @@ limit 5</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>local_pg</connection>
+    <connection>openai_nlp</connection>
     <schema/>
     <table>python_similarity_measure</table>
     <commit>1000</commit>

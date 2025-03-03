@@ -457,7 +457,7 @@
     </notepad>
   </notepads>
   <connection>
-    <name>local_pg</name>
+    <name>openai_nlp</name>
     <server>${GENAI_DB_HOST}</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
@@ -514,23 +514,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>gsi: insert_ts</from>
-      <to>as: chat_id</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>as: chat_id</from>
       <to>to: open_ai_chat_store</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>sv: question_instruction_result</from>
-      <to>gsi: insert_ts</to>
+      <from>AI Chat</from>
+      <to>sv: question_instruction_result</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AI Chat</from>
-      <to>sv: question_instruction_result</to>
+      <from>sv: question_instruction_result</from>
+      <to>as: chat_id</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -674,7 +669,7 @@
     </partitioning>
     <valuename>chat_id</valuename>
     <use_database>Y</use_database>
-    <connection>local_pg</connection>
+    <connection>openai_nlp</connection>
     <schema>public</schema>
     <seqname>ai_chat_sequene</seqname>
     <use_counter>N</use_counter>
@@ -692,37 +687,6 @@
     </remotesteps>
     <GUI>
       <xloc>592</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>gsi: insert_ts</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>insert_TS</name>
-        <type>system date (fixed)</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>480</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -778,7 +742,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>local_pg</connection>
+    <connection>openai_nlp</connection>
     <schema/>
     <table>open_ai_chat_store</table>
     <commit>1000</commit>
@@ -811,10 +775,6 @@
       <field>
         <column_name>chat_output</column_name>
         <stream_name>chat_output</stream_name>
-      </field>
-      <field>
-        <column_name>insert_TS</column_name>
-        <stream_name>insert_TS</stream_name>
       </field>
     </fields>
     <attributes/>
