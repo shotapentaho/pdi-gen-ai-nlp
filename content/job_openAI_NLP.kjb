@@ -724,11 +724,11 @@ NLP tasks:
 - Co-Reference Detection in sentence</note>
       <xloc>0</xloc>
       <yloc>0</yloc>
-      <width>1245</width>
+      <width>1178</width>
       <heigth>240</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>13</fontsize>
-      <fontbold>Y</fontbold>
+      <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
