@@ -435,11 +435,11 @@
   </info>
   <notepads>
     <notepad>
-      <note>cosine similarity: testing for sentences whether they are similar or not?
+      <note>cosine similarity: testing for sentences whether they are similar or not? NOT by magnitude but by direction (angle if less then sentences are similar, as cosine value is higher)
 Higher score means similar. Ranging 0-1</note>
       <xloc>0</xloc>
       <yloc>0</yloc>
-      <width>545</width>
+      <width>1321</width>
       <heigth>56</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>13</fontsize>
@@ -600,7 +600,7 @@ Higher score means similar. Ranging 0-1</note>
     <name>Process</name>
     <type>Dummy</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -872,7 +872,7 @@ similartity_score = cosine_similarity(sentence1, sentence2)</value>
     <name>sv: rename cols</name>
     <type>SelectValues</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
