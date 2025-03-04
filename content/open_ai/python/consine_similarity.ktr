@@ -871,11 +871,9 @@ similartity_score = cosine_similarity(sentence1, sentence2)</value>
       </field>
       <field>
         <name>chat_id_sent_1</name>
-        <rename/>
       </field>
       <field>
         <name>chat_id_sent_2</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -950,7 +948,7 @@ similartity_score = cosine_similarity(sentence1, sentence2)</value>
     </partitioning>
     <connection>openai_nlp</connection>
     <sql>SELECT chat_id, chat_output
-FROM "public".open_ai_chat_store
+FROM "public".nlp_chat_store
 order by chat_id desc
 limit 5</sql>
     <limit>0</limit>
@@ -1034,7 +1032,7 @@ limit 5</sql>
     </partitioning>
     <connection>openai_nlp</connection>
     <sql>SELECT chat_id as chat_id_1, chat_output as chat_output_1
-FROM "public".open_ai_chat_store
+FROM "public".nlp_chat_store
 order by chat_id desc
 limit 5</sql>
     <limit>0</limit>
@@ -1118,7 +1116,7 @@ limit 5</sql>
     </partitioning>
     <connection>openai_nlp</connection>
     <schema/>
-    <table>cosine_similarity_measure</table>
+    <table>nlp_cosine_similarity</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>

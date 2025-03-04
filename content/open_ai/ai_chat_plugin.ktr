@@ -519,7 +519,7 @@
     </hop>
     <hop>
       <from>as: chat_id</from>
-      <to>to: open_ai_chat_store</to>
+      <to>to: chat_storage</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -701,6 +701,45 @@
     </GUI>
   </step>
   <step>
+    <name>gv: gen-ai model</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>genai_model</name>
+        <variable>${OPENAI_MODEL}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>sv: question_instruction_result</name>
     <type>SelectValues</type>
     <description/>
@@ -726,7 +765,6 @@
       </field>
       <field>
         <name>genai_model</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -745,7 +783,7 @@
     </GUI>
   </step>
   <step>
-    <name>to: open_ai_chat_store</name>
+    <name>to: chat_storage</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -757,7 +795,7 @@
     </partitioning>
     <connection>openai_nlp</connection>
     <schema/>
-    <table>open_ai_chat_store</table>
+    <table>nlp_chat_store</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
@@ -804,45 +842,6 @@
     </remotesteps>
     <GUI>
       <xloc>736</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>gv: gen-ai model</name>
-    <type>GetVariable</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>genai_model</name>
-        <variable>${OPENAI_MODEL}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

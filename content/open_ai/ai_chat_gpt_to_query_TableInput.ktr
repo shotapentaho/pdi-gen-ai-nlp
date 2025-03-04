@@ -582,7 +582,7 @@
     </fields>
     <data>
       <line>
-        <item>select the most recent 5 records based on created_at column from open_ai_chat_store table</item>
+        <item>select the most recent 5 records based on created_at column from nlp_chat_store table</item>
         <item>Just return SQL in Postgres DB, without any extra characters in output, please.</item>
       </line>
     </data>
