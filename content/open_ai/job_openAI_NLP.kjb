@@ -376,7 +376,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>get-SQL from ChatGPT</name>
+      <name>capture: SQL from ChatGPT</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -415,7 +415,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>capture SQL and process PDI</name>
+      <name>capture: SQL then process</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -454,7 +454,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Delete log file</name>
+      <name>delete: log (file)</name>
       <description/>
       <type>DELETE_FILE</type>
       <attributes/>
@@ -468,7 +468,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>OpenAI - chat store in DB</name>
+      <name>collect: OpenAI chat DB</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -597,7 +597,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>detect: Coreference </name>
+      <name>detect: co-reference </name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -638,8 +638,8 @@
   </entries>
   <hops>
     <hop>
-      <from>get-SQL from ChatGPT</from>
-      <to>capture SQL and process PDI</to>
+      <from>capture: SQL from ChatGPT</from>
+      <to>capture: SQL then process</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -648,7 +648,7 @@
     </hop>
     <hop>
       <from>Start</from>
-      <to>Delete log file</to>
+      <to>delete: log (file)</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -656,8 +656,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Delete log file</from>
-      <to>OpenAI - chat store in DB</to>
+      <from>delete: log (file)</from>
+      <to>collect: OpenAI chat DB</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -665,8 +665,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>OpenAI - chat store in DB</from>
-      <to>get-SQL from ChatGPT</to>
+      <from>collect: OpenAI chat DB</from>
+      <to>capture: SQL from ChatGPT</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -674,7 +674,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>capture SQL and process PDI</from>
+      <from>capture: SQL then process</from>
       <to>detect and process : language, then translate then tagging</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -693,7 +693,7 @@
     </hop>
     <hop>
       <from>score: sentence similarity</from>
-      <to>detect: Coreference </to>
+      <to>detect: co-reference </to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -701,7 +701,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>detect: Coreference </from>
+      <from>detect: co-reference </from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -720,7 +720,7 @@ NLP tasks:
 - Detect Natural Language (if not English) and then translate (i.e translate into English) 
 - Tagging: Sentiment, Named Entity Recognition [NER], PartofSpeech, Bigrams n=2 (you may expand to n=3)
 - [Python driven : using PDI's "Python Executor" step for row processing] Cosine Similarity using Python to call and get cosine-similarity score range [0-1] 
- i.e 0 NO similarity [Angle=90], towards 1 [Angle 0 merged for similar sentences]
+ i.e 0 NO similarity [Angle=90], towards 1 [angle=0 merged in same direction, for similar sentences]
 - Co-Reference Detection in sentence</note>
       <xloc>0</xloc>
       <yloc>0</yloc>

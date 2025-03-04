@@ -1,0 +1,45 @@
+# https://dbdiagram.io/d/ChatGpt_PDI-67c71518263d6cf9a030e12c
+
+Table open_ai_bigrams {
+    chat_id double [ref: > open_ai_chat_store.chat_id]
+    bigrams_tagged text
+    created_at timestamp
+}
+
+Table open_ai_chat_store {
+    chat_id double  [pk]
+    question text
+    instruction text
+    chat_output text
+    created_at timestamp
+}
+
+Table open_ai_chat_translated {
+    natural_language text
+    translated_to_english text
+    org_chat_id double  [ref: > open_ai_chat_store.chat_id]
+    created_at timestamp
+}
+
+Table open_ai_coreferences {
+    chat_id double  [ref: > open_ai_chat_store.chat_id]
+    coreferences_tagged text
+    created_at timestamp
+}
+
+Table open_ai_tagged_data {
+    org_chat_id double  [ref: > open_ai_chat_store.chat_id]
+    sentiment_tagged text
+    ner_tagged text
+    pos_tagged text
+    created_at timestamp
+}
+
+Table cosine_similarity_measure {
+    chat_op1 text
+    chat_op2 text
+    cosine_similartity_score double
+    chat_id_sent_1 double [ref: > open_ai_chat_store.chat_id]
+    chat_id_sent_2 double [ref: > open_ai_chat_store.chat_id]
+    created_at timestamp 
+}

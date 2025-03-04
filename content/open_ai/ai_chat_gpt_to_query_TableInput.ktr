@@ -464,11 +464,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Get system info</from>
-      <to>sv: query</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>sv: query</from>
       <to>wtl - from OpenAI</to>
       <enabled>Y</enabled>
@@ -484,13 +479,13 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AI Chat</from>
-      <to>Get system info</to>
+      <from>sv: refined_query</from>
+      <to>Set variables</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>sv: refined_query</from>
-      <to>Set variables</to>
+      <from>AI Chat</from>
+      <to>sv: query</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -601,37 +596,6 @@
     </remotesteps>
     <GUI>
       <xloc>32</xloc>
-      <yloc>80</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get system info</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>insert_TS</name>
-        <type>system date (fixed)</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>256</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
@@ -792,7 +756,7 @@ writeToLog("r", "Hello World!");</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>512</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
@@ -813,9 +777,6 @@ writeToLog("r", "Hello World!");</jsScript_script>
         <name>result</name>
         <rename>query</rename>
       </field>
-      <field>
-        <name>insert_TS</name>
-      </field>
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
@@ -827,7 +788,7 @@ writeToLog("r", "Hello World!");</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
+      <xloc>224</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
@@ -858,7 +819,7 @@ writeToLog("r", "Hello World!");</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
+      <xloc>624</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
@@ -893,7 +854,7 @@ writeToLog("r", "Hello World!");</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
+      <xloc>368</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>

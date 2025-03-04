@@ -5,9 +5,9 @@ CREATE TABLE IF NOT EXISTS public.open_ai_bigrams
     bigrams_tagged text COLLATE pg_catalog."default",
 	created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 ) TABLESPACE pg_default;
-
 ALTER TABLE IF EXISTS public.open_ai_bigrams OWNER to postgres;
-	
+ALTER TABLE IF EXISTS public.open_ai_bigrams OWNER to pdi_dev;
+
 DROP TABLE IF EXISTS public.open_ai_chat_store;
 CREATE TABLE IF NOT EXISTS public.open_ai_chat_store
 (
@@ -17,11 +17,9 @@ CREATE TABLE IF NOT EXISTS public.open_ai_chat_store
     chat_output text COLLATE pg_catalog."default",
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 )TABLESPACE pg_default;
+ALTER TABLE IF EXISTS public.open_ai_chat_store    OWNER to postgres;
+ALTER TABLE IF EXISTS public.open_ai_chat_store    OWNER to pdi_dev;
 
-ALTER TABLE IF EXISTS public.open_ai_chat_store
-    OWNER to postgres;
-	
-	
 DROP TABLE IF EXISTS public.open_ai_chat_translated;
 CREATE TABLE IF NOT EXISTS public.open_ai_chat_translated
 (
@@ -30,8 +28,8 @@ CREATE TABLE IF NOT EXISTS public.open_ai_chat_translated
     org_chat_id double precision,
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 )TABLESPACE pg_default;
-
 ALTER TABLE IF EXISTS public.open_ai_chat_translated    OWNER to postgres;
+ALTER TABLE IF EXISTS public.open_ai_chat_translated    OWNER to pdi_dev;
 	
 DROP TABLE IF EXISTS public.open_ai_coreferences;
 CREATE TABLE IF NOT EXISTS public.open_ai_coreferences
@@ -40,7 +38,7 @@ CREATE TABLE IF NOT EXISTS public.open_ai_coreferences
     coreferences_tagged text COLLATE pg_catalog."default",
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 ) TABLESPACE pg_default;
-
+ALTER TABLE IF EXISTS public.open_ai_coreferences OWNER to postgres;
 ALTER TABLE IF EXISTS public.open_ai_coreferences OWNER to pdi_dev;
 
 DROP TABLE IF EXISTS public.open_ai_tagged_data;
@@ -52,17 +50,19 @@ CREATE TABLE IF NOT EXISTS public.open_ai_tagged_data
     pos_tagged text COLLATE pg_catalog."default",
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 ) TABLESPACE pg_default;
-
 ALTER TABLE IF EXISTS public.open_ai_tagged_data OWNER to postgres;
+ALTER TABLE IF EXISTS public.open_ai_tagged_data OWNER to pdi_dev;
 
 
-DROP TABLE IF EXISTS public.python_similarity_measure;
-CREATE TABLE IF NOT EXISTS public.python_similarity_measure
+DROP TABLE IF EXISTS public.cosine_similarity_measure;
+CREATE TABLE IF NOT EXISTS public.cosine_similarity_measure
 (
     chat_op1 text COLLATE pg_catalog."default",
     chat_op2 text COLLATE pg_catalog."default",
-    similartity_score double precision,
+    cosine_similartity_score double precision,
+    chat_id_sent_1 double precision,
+    chat_id_sent_2 double precision,
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
-) TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.python_similarity_measure OWNER to postgres;
+)TABLESPACE pg_default;
+ALTER TABLE IF EXISTS public.cosine_similarity_measure    OWNER to postgres;
+ALTER TABLE IF EXISTS public.cosine_similarity_measure    OWNER to pdi_dev;

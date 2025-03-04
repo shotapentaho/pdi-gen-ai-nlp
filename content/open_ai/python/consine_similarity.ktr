@@ -741,37 +741,53 @@ similartity_score = cosine_similarity(sentence1, sentence2)</value>
           <value xsi:type="xs:string">sentence1</value>
           <value xsi:type="xs:string">sentence2</value>
           <value xsi:type="xs:string">similartity_score</value>
+          <value xsi:type="xs:string">v_chat_id_sent_1</value>
+          <value xsi:type="xs:string">v_chat_id_sent_2</value>
         </property>
         <property group="" name="OUTPUT_VARIABLE_MAPPING.FIELD_PYTHON_TYPES">
           <value xsi:type="xs:string">str</value>
           <value xsi:type="xs:string">str</value>
+          <value xsi:type="xs:string">float</value>
+          <value xsi:type="xs:string">float</value>
           <value xsi:type="xs:string">float</value>
         </property>
         <property group="" name="OUTPUT_VARIABLE_MAPPING.FIELD_PDI_NAMES">
           <value xsi:type="xs:string">sentence1</value>
           <value xsi:type="xs:string">sentence2</value>
           <value xsi:type="xs:string">similartity_score</value>
+          <value xsi:type="xs:string">chat_id_sent_1</value>
+          <value xsi:type="xs:string">chat_id_sent_2</value>
         </property>
         <property group="" name="OUTPUT_VARIABLE_MAPPING.FIELD_PDI_TYPES">
           <value xsi:type="xs:string">String</value>
           <value xsi:type="xs:string">String</value>
           <value xsi:type="xs:string">BigNumber</value>
+          <value xsi:type="xs:string">BigNumber</value>
+          <value xsi:type="xs:string">BigNumber</value>
         </property>
         <property group="" name="INPUT_ROWBYROW_MAPPING.FIELD_PYTHON_NAMES">
           <value xsi:type="xs:string">sentence1</value>
           <value xsi:type="xs:string">sentence2</value>
+          <value xsi:type="xs:string">v_chat_id_sent_1</value>
+          <value xsi:type="xs:string">v_chat_id_sent_2</value>
         </property>
         <property group="" name="INPUT_ROWBYROW_MAPPING.FIELD_PYTHON_TYPES">
           <value xsi:type="xs:string">str</value>
           <value xsi:type="xs:string">str</value>
+          <value xsi:type="xs:string">float</value>
+          <value xsi:type="xs:string">float</value>
         </property>
         <property group="" name="INPUT_ROWBYROW_MAPPING.FIELD_PDI_NAMES">
           <value xsi:type="xs:string">Sent_1</value>
           <value xsi:type="xs:string">Sent_2</value>
+          <value xsi:type="xs:string">chat_id_sent_1</value>
+          <value xsi:type="xs:string">chat_id_sent_2</value>
         </property>
         <property group="" name="INPUT_ROWBYROW_MAPPING.FIELD_PDI_TYPES">
           <value xsi:type="xs:string">String</value>
           <value xsi:type="xs:string">String</value>
+          <value xsi:type="xs:string">Number</value>
+          <value xsi:type="xs:string">Number</value>
         </property>
         <property group="" name="INPUT_ALLROWS_MAPPING.INPUT_STEP_NAMES">
           <value xsi:type="xs:string">Data grid</value>
@@ -851,6 +867,15 @@ similartity_score = cosine_similarity(sentence1, sentence2)</value>
       </field>
       <field>
         <name>similartity_score</name>
+        <rename>cosine_similartity_score</rename>
+      </field>
+      <field>
+        <name>chat_id_sent_1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>chat_id_sent_2</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -888,6 +913,14 @@ similartity_score = cosine_similarity(sentence1, sentence2)</value>
         <name>chat_output_1</name>
         <rename>Sent_2</rename>
       </field>
+      <field>
+        <name>chat_id</name>
+        <rename>chat_id_sent_1</rename>
+      </field>
+      <field>
+        <name>chat_id_1</name>
+        <rename>chat_id_sent_2</rename>
+      </field>
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
@@ -916,7 +949,7 @@ similartity_score = cosine_similarity(sentence1, sentence2)</value>
       <schema_name/>
     </partitioning>
     <connection>openai_nlp</connection>
-    <sql>SELECT chat_output
+    <sql>SELECT chat_id, chat_output
 FROM "public".open_ai_chat_store
 order by chat_id desc
 limit 5</sql>
@@ -927,6 +960,29 @@ limit 5</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
+      <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>chat_id</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>ti: open_ai_chat</origin>
+        <comments>chat_id</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
@@ -977,7 +1033,7 @@ limit 5</sql>
       <schema_name/>
     </partitioning>
     <connection>openai_nlp</connection>
-    <sql>SELECT chat_output as chat_output_1
+    <sql>SELECT chat_id as chat_id_1, chat_output as chat_output_1
 FROM "public".open_ai_chat_store
 order by chat_id desc
 limit 5</sql>
@@ -988,6 +1044,29 @@ limit 5</sql>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
+      <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>chat_id_1</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>ti: open_ai_chat_</origin>
+        <comments>chat_id_1</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
@@ -1039,7 +1118,7 @@ limit 5</sql>
     </partitioning>
     <connection>openai_nlp</connection>
     <schema/>
-    <table>python_similarity_measure</table>
+    <table>cosine_similarity_measure</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
@@ -1064,8 +1143,16 @@ limit 5</sql>
         <stream_name>chat_op2</stream_name>
       </field>
       <field>
-        <column_name>similartity_score</column_name>
-        <stream_name>similartity_score</stream_name>
+        <column_name>cosine_similartity_score</column_name>
+        <stream_name>cosine_similartity_score</stream_name>
+      </field>
+      <field>
+        <column_name>chat_id_sent_1</column_name>
+        <stream_name>chat_id_sent_1</stream_name>
+      </field>
+      <field>
+        <column_name>chat_id_sent_2</column_name>
+        <stream_name>chat_id_sent_2</stream_name>
       </field>
     </fields>
     <attributes/>

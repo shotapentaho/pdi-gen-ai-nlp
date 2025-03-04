@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>ai_chat_plugin</name>
+    <name>test_regex_string</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,166 +427,21 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2025/01/19 18:02:11.625</created_date>
+    <created_date>2025/02/11 09:15:13.765</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2025/01/19 18:02:11.625</modified_date>
-    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2025/02/11 09:15:13.765</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>PDI using "AI Chat" step to take instruction and storing results in DB</note>
-      <xloc>0</xloc>
-      <yloc>0</yloc>
-      <width>367</width>
-      <heigth>26</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
-  <connection>
-    <name>openai_nlp</name>
-    <server>${GENAI_DB_HOST}</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>${GENAI_DB}</database>
-    <port>${GENAI_DB_PORT}</port>
-    <username>${GENAI_DB_USER}</username>
-    <password>${GENAI_DB_PASSWORD}</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>${GENAI_DB_PORT}</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
   <order>
     <hop>
       <from>Data grid</from>
-      <to>AI Chat</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>as: chat_id</from>
-      <to>to: open_ai_chat_store</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>AI Chat</from>
-      <to>sv: question_instruction_result</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>sv: question_instruction_result</from>
-      <to>as: chat_id</to>
+      <to>Modified JavaScript value</to>
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>AI Chat</name>
-    <type>AiChat</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <USER_MESSAGE_FROM_NATIVE>N</USER_MESSAGE_FROM_NATIVE>
-    <USER_MESSAGE/>
-    <USER_MESSAGE_FROM_STREAM>Question</USER_MESSAGE_FROM_STREAM>
-    <SYSTEM_MESSAGE>You are a helpful assistant</SYSTEM_MESSAGE>
-    <SYSTEM_MESSAGE_FROM_STREAM>Instruction</SYSTEM_MESSAGE_FROM_STREAM>
-    <DOCUMENT_ATTACHMENT_NEEDED>N</DOCUMENT_ATTACHMENT_NEEDED>
-    <DOCUMENT_INPUT_FROM_FILE>Y</DOCUMENT_INPUT_FROM_FILE>
-    <DOCUMENT_INPUT_FILE/>
-    <DOCUMENT_INPUT_FILE_FROM_STREAM_FIELD_FORMAT>File</DOCUMENT_INPUT_FILE_FROM_STREAM_FIELD_FORMAT>
-    <DOCUMENT_INPUT_FILE_FROM_STREAM/>
-    <LLM_PROVIDER>OpenAI</LLM_PROVIDER>
-    <LLM_MODEL>${OPENAI_MODEL}</LLM_MODEL>
-    <MODEL_API_KEY>${API_KEY_OPENAI}</MODEL_API_KEY>
-    <MODEL_ORG_ID/>
-    <MODEL_ENDPOINT/>
-    <MODEL_TEMPERATURE>0.7</MODEL_TEMPERATURE>
-    <MODEL_USE_MODERATION>Y</MODEL_USE_MODERATION>
-    <MODEL_TOKEN_CRED_CLIENT_ID>Encrypted </MODEL_TOKEN_CRED_CLIENT_ID>
-    <EMBEDDING_MODELS>text-embedding-3-small</EMBEDDING_MODELS>
-    <EMBEDDING_STORE_FILE_STORE>NO Persistence</EMBEDDING_STORE_FILE_STORE>
-    <EMBEDDING_STORE_FILE_STORE_FILE_NAME/>
-    <PROXY_HOST/>
-    <PROXY_PORT>0</PROXY_PORT>
-    <PROXY_USERNAME/>
-    <PROXY_PASSWORD>Encrypted </PROXY_PASSWORD>
-    <RESPONSE_OUTPUT_TYPE>text</RESPONSE_OUTPUT_TYPE>
-    <GENERATED_OUTPUT_FIELD>result</GENERATED_OUTPUT_FIELD>
-    <DOCUMENT_CHARACTER_ENCODING>UTF-8</DOCUMENT_CHARACTER_ENCODING>
-    <DOCUMENT_CHARACTER_ENCODING_FROM_STREAM/>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>224</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Data grid</name>
     <type>DataGrid</type>
@@ -600,19 +455,7 @@
     </partitioning>
     <fields>
       <field>
-        <name>Question</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-        <field_null_if/>
-      </field>
-      <field>
-        <name>Instruction</name>
+        <name>test</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -626,24 +469,7 @@
     </fields>
     <data>
       <line>
-        <item>Tell 1 interesting fact about Norway and are there polar bears in Norway? Please reply in English.</item>
-        <item>You are a helpful assistant</item>
-      </line>
-      <line>
-        <item>Tell 1 interesting fact about Massachusetts. Please reply in Hindi.</item>
-        <item>You are a helpful assistant</item>
-      </line>
-      <line>
-        <item>Tell 1 interesting fact about last Superbowl. Please reply in German.</item>
-        <item>You are a helpful assistant</item>
-      </line>
-      <line>
-        <item>Why polar bears are not found in southern hemisphere?</item>
-        <item>You are a helpful assistant</item>
-      </line>
-      <line>
-        <item>Share a joke in German.</item>
-        <item>You are a helpful assistant</item>
+        <item>1. Hello 2. Boston 3. Chicago</item>
       </line>
     </data>
     <attributes/>
@@ -655,14 +481,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
-      <yloc>128</yloc>
+      <xloc>200</xloc>
+      <yloc>100</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>as: chat_id</name>
-    <type>Sequence</type>
+    <name>Modified JavaScript value</name>
+    <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -671,16 +497,20 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <valuename>chat_id</valuename>
-    <use_database>Y</use_database>
-    <connection>openai_nlp</connection>
-    <schema>public</schema>
-    <seqname>ai_chat_sequene</seqname>
-    <use_counter>N</use_counter>
-    <counter_name/>
-    <start_at>1</start_at>
-    <increment_by>1</increment_by>
-    <max_value>999999999</max_value>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var text = "1. First item 2. Second item 3. Third item 10. Tenth item";
+var replacedText = text.replace(/\d+\./g, "");
+Alert(replacedText);</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -690,108 +520,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>sv: question_instruction_result</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Question</name>
-        <rename>question</rename>
-      </field>
-      <field>
-        <name>Instruction</name>
-        <rename>instruction</rename>
-      </field>
-      <field>
-        <name>result</name>
-        <rename>chat_output</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>352</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>to: open_ai_chat_store</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>openai_nlp</connection>
-    <schema/>
-    <table>open_ai_chat_store</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-      <field>
-        <column_name>chat_id</column_name>
-        <stream_name>chat_id</stream_name>
-      </field>
-      <field>
-        <column_name>question</column_name>
-        <stream_name>question</stream_name>
-      </field>
-      <field>
-        <column_name>instruction</column_name>
-        <stream_name>instruction</stream_name>
-      </field>
-      <field>
-        <column_name>chat_output</column_name>
-        <stream_name>chat_output</stream_name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>128</yloc>
+      <xloc>400</xloc>
+      <yloc>100</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
