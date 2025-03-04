@@ -15,7 +15,8 @@ CREATE TABLE IF NOT EXISTS public.open_ai_chat_store
     question text COLLATE pg_catalog."default",
     instruction text COLLATE pg_catalog."default",
     chat_output text COLLATE pg_catalog."default",
-    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    genai_model character varying(255) COLLATE pg_catalog."default"
 )TABLESPACE pg_default;
 ALTER TABLE IF EXISTS public.open_ai_chat_store    OWNER to postgres;
 ALTER TABLE IF EXISTS public.open_ai_chat_store    OWNER to pdi_dev;
@@ -25,7 +26,7 @@ CREATE TABLE IF NOT EXISTS public.open_ai_chat_translated
 (
     natural_language text COLLATE pg_catalog."default",
     translated_to_english text COLLATE pg_catalog."default",
-    org_chat_id double precision,
+    chat_id double precision,
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 )TABLESPACE pg_default;
 ALTER TABLE IF EXISTS public.open_ai_chat_translated    OWNER to postgres;
@@ -44,7 +45,7 @@ ALTER TABLE IF EXISTS public.open_ai_coreferences OWNER to pdi_dev;
 DROP TABLE IF EXISTS public.open_ai_tagged_data;
 CREATE TABLE IF NOT EXISTS public.open_ai_tagged_data
 (
-    org_chat_id double precision,
+    chat_id double precision,
     sentiment_tagged text COLLATE pg_catalog."default",
     ner_tagged text COLLATE pg_catalog."default",
     pos_tagged text COLLATE pg_catalog."default",

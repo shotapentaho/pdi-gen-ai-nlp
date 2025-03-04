@@ -523,13 +523,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AI Chat</from>
-      <to>sv: question_instruction_result</to>
+      <from>sv: question_instruction_result</from>
+      <to>as: chat_id</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>sv: question_instruction_result</from>
-      <to>as: chat_id</to>
+      <from>AI Chat</from>
+      <to>gv: gen-ai model</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>gv: gen-ai model</from>
+      <to>sv: question_instruction_result</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -690,7 +695,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
+      <xloc>608</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -719,6 +724,10 @@
         <name>result</name>
         <rename>chat_output</rename>
       </field>
+      <field>
+        <name>genai_model</name>
+        <rename/>
+      </field>
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
@@ -730,7 +739,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
+      <xloc>480</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -750,7 +759,7 @@
     <schema/>
     <table>open_ai_chat_store</table>
     <commit>1000</commit>
-    <truncate>N</truncate>
+    <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
@@ -765,10 +774,6 @@
     <return_field/>
     <fields>
       <field>
-        <column_name>chat_id</column_name>
-        <stream_name>chat_id</stream_name>
-      </field>
-      <field>
         <column_name>question</column_name>
         <stream_name>question</stream_name>
       </field>
@@ -780,6 +785,14 @@
         <column_name>chat_output</column_name>
         <stream_name>chat_output</stream_name>
       </field>
+      <field>
+        <column_name>genai_model</column_name>
+        <stream_name>genai_model</stream_name>
+      </field>
+      <field>
+        <column_name>chat_id</column_name>
+        <stream_name>chat_id</stream_name>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -790,7 +803,46 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>736</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>gv: gen-ai model</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>genai_model</name>
+        <variable>${OPENAI_MODEL}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

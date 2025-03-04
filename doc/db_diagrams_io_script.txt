@@ -1,4 +1,4 @@
-# https://dbdiagram.io/d/ChatGpt_PDI-67c71518263d6cf9a030e12c
+#Browser for ERD: https://dbdiagram.io/d/ChatGpt_PDI-67c71518263d6cf9a030e12c
 
 Table open_ai_bigrams {
     chat_id double [ref: > open_ai_chat_store.chat_id]
@@ -11,13 +11,14 @@ Table open_ai_chat_store {
     question text
     instruction text
     chat_output text
+    genai_model text
     created_at timestamp
 }
 
 Table open_ai_chat_translated {
     natural_language text
     translated_to_english text
-    org_chat_id double  [ref: > open_ai_chat_store.chat_id]
+    chat_id double  [ref: > open_ai_chat_store.chat_id]
     created_at timestamp
 }
 
@@ -28,7 +29,7 @@ Table open_ai_coreferences {
 }
 
 Table open_ai_tagged_data {
-    org_chat_id double  [ref: > open_ai_chat_store.chat_id]
+    chat_id double  [ref: > open_ai_chat_store.chat_id]
     sentiment_tagged text
     ner_tagged text
     pos_tagged text
