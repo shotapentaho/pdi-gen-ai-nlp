@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>job_openAI_NLP</name>
+  <name>j_process_natural_language</name>
   <description/>
   <extended_description/>
   <job_version/>
@@ -514,7 +514,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1280</xloc>
+      <xloc>1488</xloc>
       <yloc>384</yloc>
       <attributes_kjc/>
     </entry>
@@ -592,7 +592,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1008</xloc>
+      <xloc>944</xloc>
       <yloc>384</yloc>
       <attributes_kjc/>
     </entry>
@@ -631,7 +631,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1168</xloc>
+      <xloc>1104</xloc>
       <yloc>384</yloc>
       <attributes_kjc/>
     </entry>
