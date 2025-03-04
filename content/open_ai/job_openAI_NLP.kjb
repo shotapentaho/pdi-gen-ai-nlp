@@ -382,7 +382,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${PROJECT_DIR}content\ai_chat_gpt_to_query_TableInput.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}\ai_chat_gpt_to_query_TableInput.ktr</filename>
       <transname/>
       <arg_from_previous>Y</arg_from_previous>
       <params_from_previous>Y</params_from_previous>
@@ -519,7 +519,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>detect language, translate then various tagging</name>
+      <name>detect and process : language, then translate then tagging</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -675,7 +675,7 @@
     </hop>
     <hop>
       <from>capture SQL and process PDI</from>
-      <to>detect language, translate then various tagging</to>
+      <to>detect and process : language, then translate then tagging</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -683,7 +683,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>detect language, translate then various tagging</from>
+      <from>detect and process : language, then translate then tagging</from>
       <to>score: sentence similarity</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
